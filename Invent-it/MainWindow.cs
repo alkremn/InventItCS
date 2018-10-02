@@ -25,13 +25,10 @@ namespace Invent_it
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddWindow addWindow = new AddWindow();
+            PartWindow addWindow = new PartWindow();
             addWindow.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
     }
 }

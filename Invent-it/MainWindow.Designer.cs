@@ -119,8 +119,7 @@ namespace Invent_it
             this.addProdButton.Size = new System.Drawing.Size(75, 32);
             this.addProdButton.TabIndex = 2;
             this.addProdButton.Text = "Add";
-            this.addProdButton.UseVisualStyleBackColor = true;
-            this.addProdButton.Click += new System.EventHandler(this.button1_Click);
+            this.addProdButton.UseVisualStyleBackColor = true;        
             // 
             // groupBox1
             // 

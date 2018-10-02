@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Invent_it
 {
-    public partial class AddWindow : Form
+    public partial class PartWindow : Form
     {
-        public AddWindow()
+        public PartWindow()
         {
             InitializeComponent();
         }
+
+       
     }
 }
