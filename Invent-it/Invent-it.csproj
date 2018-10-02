@@ -71,7 +71,7 @@
       <DependentUpon>ProductWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoundPanel.cs">
+    <Compile Include="model\RoundPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="MainWindow.resx">
