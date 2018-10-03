@@ -19,5 +19,16 @@ namespace Model
                 new Outsourced(4, "Door", 10.99, 25, 3, 12, "Doors Co."),
             };
         }
+        public static List<Product> GetSimpleProducts()
+        {
+            return new List<Product>()
+            {
+                new Product(1, "Boat", 14000, 5, 2, 10),
+                new Product(2, "Plane", 100_000, 4, 1, 3),
+                new Product(3, "Car", 20000, 9, 1, 5),
+                new Product(4, "Bike", 500, 3, 1, 8)
+            };
+        }
+
     }
 }

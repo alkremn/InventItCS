@@ -24,7 +24,7 @@ namespace Model
         public int Max { get; set; }
 
 
-        protected Product(int productId, string partName, double price, int inStock, int min, int max)
+        public Product(int productId, string partName, double price, int inStock, int min, int max)
         {
             ProductId = productId;
             ProductName = partName;
