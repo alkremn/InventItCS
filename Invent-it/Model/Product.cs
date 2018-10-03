@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    abstract class Part
+    class Product
     {
 
-        private int _partid;
+        public List<Part> AssociatedParts { get; set; } = new List<Part>();
 
-        
-        public string PartName { get; private set; }
+        private int _productId;
+
+        public string ProductName { get; set; }
 
         public double Price { get; set; }
 
@@ -25,19 +24,19 @@ namespace Model
         public int Max { get; set; }
 
 
-        protected Part (int partid, string partName, double price, int inStock, int min, int max)
+        protected Product(int productId, string partName, double price, int inStock, int min, int max)
         {
-            PartId = partid;
-            PartName = partName;
+            ProductId = productId;
+            ProductName = partName;
             Price = price;
             InStock = inStock;
             Min = min;
             Max = max;
         }
 
-        public int PartId
+        public int ProductId
         {
-            get => _partid;
+            get => _productId;
 
             set
             {
@@ -46,10 +45,8 @@ namespace Model
                     throw new ArgumentOutOfRangeException($"Invalid ID number");
                 }
 
-                _partid = value;
+                _productId = value;
             }
         }
-
-
     }
 }
