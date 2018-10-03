@@ -15,6 +15,7 @@ namespace InventMS
         public MainWindow()
         {
             InitializeComponent();
+            PartsDataView.DataSource = Model.SimpleDataLoader.GetSimpleParts();
         }
 
  
@@ -30,6 +31,9 @@ namespace InventMS
             addWindow.ShowDialog();
         }
 
- 
+        private void partBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace InventMS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
@@ -45,10 +46,16 @@ namespace InventMS
             this.ModifyPartButton = new System.Windows.Forms.Button();
             this.AddPartButton = new System.Windows.Forms.Button();
             this.PartsDataView = new System.Windows.Forms.DataGridView();
+            this.partIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PartsDataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -202,6 +209,7 @@ namespace InventMS
             this.PartsDataView.AllowUserToDeleteRows = false;
             this.PartsDataView.AllowUserToResizeColumns = false;
             this.PartsDataView.AllowUserToResizeRows = false;
+            this.PartsDataView.AutoGenerateColumns = false;
             this.PartsDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -212,11 +220,51 @@ namespace InventMS
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.PartsDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.PartsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PartsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partIdDataGridViewTextBoxColumn,
+            this.partNameDataGridViewTextBoxColumn,
+            this.inStockDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn});
+            this.PartsDataView.DataSource = this.partBindingSource;
             this.PartsDataView.Location = new System.Drawing.Point(6, 38);
             this.PartsDataView.Name = "PartsDataView";
             this.PartsDataView.RowHeadersVisible = false;
             this.PartsDataView.Size = new System.Drawing.Size(564, 249);
             this.PartsDataView.TabIndex = 0;
+            // 
+            // partIdDataGridViewTextBoxColumn
+            // 
+            this.partIdDataGridViewTextBoxColumn.DataPropertyName = "PartId";
+            this.partIdDataGridViewTextBoxColumn.HeaderText = "Part ID";
+            this.partIdDataGridViewTextBoxColumn.Name = "partIdDataGridViewTextBoxColumn";
+            this.partIdDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // partNameDataGridViewTextBoxColumn
+            // 
+            this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
+            this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
+            this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
+            this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.partNameDataGridViewTextBoxColumn.Width = 141;
+            // 
+            // inStockDataGridViewTextBoxColumn
+            // 
+            this.inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
+            this.inStockDataGridViewTextBoxColumn.HeaderText = "Inventory Level";
+            this.inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
+            this.inStockDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price/Cost per Unit";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(Model.Part);
+            this.partBindingSource.CurrentChanged += new System.EventHandler(this.partBindingSource_CurrentChanged);
             // 
             // MainWindow
             // 
@@ -237,6 +285,7 @@ namespace InventMS
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PartsDataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +305,11 @@ namespace InventMS
         private System.Windows.Forms.Button ModifyProdButton;
         private System.Windows.Forms.Button AddProdButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource partBindingSource;
     }
 }
 
