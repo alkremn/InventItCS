@@ -30,6 +30,10 @@ namespace Invent_it
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new Model.RoundPanel();
@@ -42,14 +46,14 @@ namespace Invent_it
             this.ModifyPartButton = new System.Windows.Forms.Button();
             this.AddPartButton = new System.Windows.Forms.Button();
             this.PartsDataView = new System.Windows.Forms.DataGridView();
-            this.PartIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -100,7 +104,19 @@ namespace Invent_it
             // 
             // ProdDataView
             // 
+            this.ProdDataView.AllowUserToAddRows = false;
+            this.ProdDataView.AllowUserToDeleteRows = false;
+            this.ProdDataView.AllowUserToResizeColumns = false;
+            this.ProdDataView.AllowUserToResizeRows = false;
             this.ProdDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProdDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ProdDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProdDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProdIdColumn,
@@ -108,7 +124,16 @@ namespace Invent_it
             this.ProdInvColumn,
             this.ProdPriceColumn});
             this.ProdDataView.Location = new System.Drawing.Point(6, 38);
+            this.ProdDataView.MultiSelect = false;
             this.ProdDataView.Name = "ProdDataView";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProdDataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ProdDataView.RowHeadersVisible = false;
             this.ProdDataView.Size = new System.Drawing.Size(564, 249);
             this.ProdDataView.TabIndex = 0;
@@ -195,7 +220,19 @@ namespace Invent_it
             // 
             // PartsDataView
             // 
+            this.PartsDataView.AllowUserToAddRows = false;
+            this.PartsDataView.AllowUserToDeleteRows = false;
+            this.PartsDataView.AllowUserToResizeColumns = false;
+            this.PartsDataView.AllowUserToResizeRows = false;
             this.PartsDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PartsDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.PartsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PartsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PartIdColumn,
@@ -204,33 +241,17 @@ namespace Invent_it
             this.PartPriceColumn});
             this.PartsDataView.Location = new System.Drawing.Point(6, 38);
             this.PartsDataView.Name = "PartsDataView";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PartsDataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.PartsDataView.RowHeadersVisible = false;
             this.PartsDataView.Size = new System.Drawing.Size(564, 249);
             this.PartsDataView.TabIndex = 0;
-            // 
-            // PartIdColumn
-            // 
-            this.PartIdColumn.HeaderText = "Part ID";
-            this.PartIdColumn.Name = "PartIdColumn";
-            this.PartIdColumn.Width = 140;
-            // 
-            // PartNameColumn
-            // 
-            this.PartNameColumn.HeaderText = "Part Name";
-            this.PartNameColumn.Name = "PartNameColumn";
-            this.PartNameColumn.Width = 141;
-            // 
-            // PartInvColumn
-            // 
-            this.PartInvColumn.HeaderText = "Inventory";
-            this.PartInvColumn.Name = "PartInvColumn";
-            this.PartInvColumn.Width = 140;
-            // 
-            // PartPriceColumn
-            // 
-            this.PartPriceColumn.HeaderText = "Price";
-            this.PartPriceColumn.Name = "PartPriceColumn";
-            this.PartPriceColumn.Width = 140;
             // 
             // ProdIdColumn
             // 
@@ -255,6 +276,30 @@ namespace Invent_it
             this.ProdPriceColumn.HeaderText = "Price";
             this.ProdPriceColumn.Name = "ProdPriceColumn";
             this.ProdPriceColumn.Width = 140;
+            // 
+            // PartIdColumn
+            // 
+            this.PartIdColumn.HeaderText = "Part ID";
+            this.PartIdColumn.Name = "PartIdColumn";
+            this.PartIdColumn.Width = 140;
+            // 
+            // PartNameColumn
+            // 
+            this.PartNameColumn.HeaderText = "Part Name";
+            this.PartNameColumn.Name = "PartNameColumn";
+            this.PartNameColumn.Width = 141;
+            // 
+            // PartInvColumn
+            // 
+            this.PartInvColumn.HeaderText = "Inventory";
+            this.PartInvColumn.Name = "PartInvColumn";
+            this.PartInvColumn.Width = 140;
+            // 
+            // PartPriceColumn
+            // 
+            this.PartPriceColumn.HeaderText = "Price";
+            this.PartPriceColumn.Name = "PartPriceColumn";
+            this.PartPriceColumn.Width = 140;
             // 
             // MainWindow
             // 
@@ -293,14 +338,14 @@ namespace Invent_it
         private System.Windows.Forms.Button DeleteProdButton;
         private System.Windows.Forms.Button ModifyProdButton;
         private System.Windows.Forms.Button AddProdButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartInvColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartPriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdInvColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdPriceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartInvColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartPriceColumn;
     }
 }
 
