@@ -33,39 +33,47 @@ namespace Invent_it
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new Model.RoundPanel();
-            this.deleteProdButton = new System.Windows.Forms.Button();
-            this.prodDataView = new System.Windows.Forms.DataGridView();
+            this.DeleteProdButton = new System.Windows.Forms.Button();
+            this.ProdDataView = new System.Windows.Forms.DataGridView();
             this.ModifyProdButton = new System.Windows.Forms.Button();
-            this.addProdButton = new System.Windows.Forms.Button();
+            this.AddProdButton = new System.Windows.Forms.Button();
             this.groupBox1 = new Model.RoundPanel();
-            this.deletePartButton = new System.Windows.Forms.Button();
-            this.modifyPartButton = new System.Windows.Forms.Button();
-            this.addPartButton = new System.Windows.Forms.Button();
-            this.partsDataView = new System.Windows.Forms.DataGridView();
+            this.DeletePartButton = new System.Windows.Forms.Button();
+            this.ModifyPartButton = new System.Windows.Forms.Button();
+            this.AddPartButton = new System.Windows.Forms.Button();
+            this.PartsDataView = new System.Windows.Forms.DataGridView();
+            this.PartIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prodDataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partsDataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartsDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(28, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 35);
+            this.label1.Size = new System.Drawing.Size(274, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inventory MS";
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.deleteProdButton);
-            this.groupBox2.Controls.Add(this.prodDataView);
+            this.groupBox2.Controls.Add(this.DeleteProdButton);
+            this.groupBox2.Controls.Add(this.ProdDataView);
             this.groupBox2.Controls.Add(this.ModifyProdButton);
-            this.groupBox2.Controls.Add(this.addProdButton);
+            this.groupBox2.Controls.Add(this.AddProdButton);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(608, 105);
             this.groupBox2.Name = "groupBox2";
@@ -79,24 +87,31 @@ namespace Invent_it
             this.groupBox2.TitleForeColor = System.Drawing.Color.White;
             this.groupBox2.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.DarkVertical;
             // 
-            // deleteProdButton
+            // DeleteProdButton
             // 
-            this.deleteProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteProdButton.Location = new System.Drawing.Point(471, 307);
-            this.deleteProdButton.Name = "deleteProdButton";
-            this.deleteProdButton.Size = new System.Drawing.Size(80, 32);
-            this.deleteProdButton.TabIndex = 2;
-            this.deleteProdButton.Text = "Delete";
-            this.deleteProdButton.UseVisualStyleBackColor = true;
+            this.DeleteProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.DeleteProdButton.Location = new System.Drawing.Point(471, 307);
+            this.DeleteProdButton.Name = "DeleteProdButton";
+            this.DeleteProdButton.Size = new System.Drawing.Size(80, 32);
+            this.DeleteProdButton.TabIndex = 2;
+            this.DeleteProdButton.Text = "Delete";
+            this.DeleteProdButton.UseVisualStyleBackColor = true;
             // 
-            // prodDataView
+            // ProdDataView
             // 
-            this.prodDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.prodDataView.Location = new System.Drawing.Point(6, 38);
-            this.prodDataView.Name = "prodDataView";
-            this.prodDataView.Size = new System.Drawing.Size(563, 249);
-            this.prodDataView.TabIndex = 0;
+            this.ProdDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.ProdDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProdDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProdIdColumn,
+            this.ProdNameColumn,
+            this.ProdInvColumn,
+            this.ProdPriceColumn});
+            this.ProdDataView.Location = new System.Drawing.Point(6, 38);
+            this.ProdDataView.Name = "ProdDataView";
+            this.ProdDataView.RowHeadersVisible = false;
+            this.ProdDataView.Size = new System.Drawing.Size(564, 249);
+            this.ProdDataView.TabIndex = 0;
             // 
             // ModifyProdButton
             // 
@@ -108,26 +123,26 @@ namespace Invent_it
             this.ModifyProdButton.TabIndex = 2;
             this.ModifyProdButton.Text = "Modify";
             this.ModifyProdButton.UseVisualStyleBackColor = true;
-            this.ModifyProdButton.Click += new System.EventHandler(this.modifyButton_Click);
+            this.ModifyProdButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
-            // addProdButton
+            // AddProdButton
             // 
-            this.addProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.addProdButton.Location = new System.Drawing.Point(297, 307);
-            this.addProdButton.Name = "addProdButton";
-            this.addProdButton.Size = new System.Drawing.Size(75, 32);
-            this.addProdButton.TabIndex = 2;
-            this.addProdButton.Text = "Add";
-            this.addProdButton.UseVisualStyleBackColor = true;        
+            this.AddProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AddProdButton.Location = new System.Drawing.Point(296, 307);
+            this.AddProdButton.Name = "AddProdButton";
+            this.AddProdButton.Size = new System.Drawing.Size(75, 32);
+            this.AddProdButton.TabIndex = 2;
+            this.AddProdButton.Text = "Add";
+            this.AddProdButton.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.deletePartButton);
-            this.groupBox1.Controls.Add(this.modifyPartButton);
-            this.groupBox1.Controls.Add(this.addPartButton);
-            this.groupBox1.Controls.Add(this.partsDataView);
+            this.groupBox1.Controls.Add(this.DeletePartButton);
+            this.groupBox1.Controls.Add(this.ModifyPartButton);
+            this.groupBox1.Controls.Add(this.AddPartButton);
+            this.groupBox1.Controls.Add(this.PartsDataView);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(10, 105);
@@ -143,68 +158,123 @@ namespace Invent_it
             this.groupBox1.TitleForeColor = System.Drawing.Color.White;
             this.groupBox1.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.DarkVertical;
             // 
-            // deletePartButton
+            // DeletePartButton
             // 
-            this.deletePartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deletePartButton.Location = new System.Drawing.Point(474, 307);
-            this.deletePartButton.Name = "deletePartButton";
-            this.deletePartButton.Size = new System.Drawing.Size(80, 32);
-            this.deletePartButton.TabIndex = 2;
-            this.deletePartButton.Text = "Delete";
-            this.deletePartButton.UseVisualStyleBackColor = true;
+            this.DeletePartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeletePartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.DeletePartButton.Location = new System.Drawing.Point(474, 307);
+            this.DeletePartButton.Name = "DeletePartButton";
+            this.DeletePartButton.Size = new System.Drawing.Size(80, 32);
+            this.DeletePartButton.TabIndex = 2;
+            this.DeletePartButton.Text = "Delete";
+            this.DeletePartButton.UseVisualStyleBackColor = true;
             // 
-            // modifyPartButton
+            // ModifyPartButton
             // 
-            this.modifyPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.modifyPartButton.Location = new System.Drawing.Point(381, 307);
-            this.modifyPartButton.Name = "modifyPartButton";
-            this.modifyPartButton.Size = new System.Drawing.Size(87, 32);
-            this.modifyPartButton.TabIndex = 2;
-            this.modifyPartButton.Text = "Modify";
-            this.modifyPartButton.UseVisualStyleBackColor = true;
-            this.modifyPartButton.Click += new System.EventHandler(this.modifyButton_Click);
+            this.ModifyPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModifyPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ModifyPartButton.Location = new System.Drawing.Point(381, 307);
+            this.ModifyPartButton.Name = "ModifyPartButton";
+            this.ModifyPartButton.Size = new System.Drawing.Size(87, 32);
+            this.ModifyPartButton.TabIndex = 2;
+            this.ModifyPartButton.Text = "Modify";
+            this.ModifyPartButton.UseVisualStyleBackColor = true;
+            this.ModifyPartButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
-            // addPartButton
+            // AddPartButton
             // 
-            this.addPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.addPartButton.Location = new System.Drawing.Point(300, 307);
-            this.addPartButton.Name = "addPartButton";
-            this.addPartButton.Size = new System.Drawing.Size(75, 32);
-            this.addPartButton.TabIndex = 2;
-            this.addPartButton.Text = "Add";
-            this.addPartButton.UseVisualStyleBackColor = true;
-            this.addPartButton.Click += new System.EventHandler(this.addButton_Click);
+            this.AddPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AddPartButton.Location = new System.Drawing.Point(300, 307);
+            this.AddPartButton.Name = "AddPartButton";
+            this.AddPartButton.Size = new System.Drawing.Size(75, 32);
+            this.AddPartButton.TabIndex = 2;
+            this.AddPartButton.Text = "Add";
+            this.AddPartButton.UseVisualStyleBackColor = true;
+            this.AddPartButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // partsDataView
+            // PartsDataView
             // 
-            this.partsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsDataView.Location = new System.Drawing.Point(6, 38);
-            this.partsDataView.Name = "partsDataView";
-            this.partsDataView.Size = new System.Drawing.Size(563, 249);
-            this.partsDataView.TabIndex = 0;
+            this.PartsDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.PartsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PartsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PartIdColumn,
+            this.PartNameColumn,
+            this.PartInvColumn,
+            this.PartPriceColumn});
+            this.PartsDataView.Location = new System.Drawing.Point(6, 38);
+            this.PartsDataView.Name = "PartsDataView";
+            this.PartsDataView.RowHeadersVisible = false;
+            this.PartsDataView.Size = new System.Drawing.Size(564, 249);
+            this.PartsDataView.TabIndex = 0;
+            // 
+            // PartIdColumn
+            // 
+            this.PartIdColumn.HeaderText = "Part ID";
+            this.PartIdColumn.Name = "PartIdColumn";
+            this.PartIdColumn.Width = 140;
+            // 
+            // PartNameColumn
+            // 
+            this.PartNameColumn.HeaderText = "Part Name";
+            this.PartNameColumn.Name = "PartNameColumn";
+            this.PartNameColumn.Width = 141;
+            // 
+            // PartInvColumn
+            // 
+            this.PartInvColumn.HeaderText = "Inventory";
+            this.PartInvColumn.Name = "PartInvColumn";
+            this.PartInvColumn.Width = 140;
+            // 
+            // PartPriceColumn
+            // 
+            this.PartPriceColumn.HeaderText = "Price";
+            this.PartPriceColumn.Name = "PartPriceColumn";
+            this.PartPriceColumn.Width = 140;
+            // 
+            // ProdIdColumn
+            // 
+            this.ProdIdColumn.HeaderText = "Product ID";
+            this.ProdIdColumn.Name = "ProdIdColumn";
+            this.ProdIdColumn.Width = 140;
+            // 
+            // ProdNameColumn
+            // 
+            this.ProdNameColumn.HeaderText = "Product Name";
+            this.ProdNameColumn.Name = "ProdNameColumn";
+            this.ProdNameColumn.Width = 141;
+            // 
+            // ProdInvColumn
+            // 
+            this.ProdInvColumn.HeaderText = "Inventory";
+            this.ProdInvColumn.Name = "ProdInvColumn";
+            this.ProdInvColumn.Width = 140;
+            // 
+            // ProdPriceColumn
+            // 
+            this.ProdPriceColumn.HeaderText = "Price";
+            this.ProdPriceColumn.Name = "ProdPriceColumn";
+            this.ProdPriceColumn.Width = 140;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 638);
+            this.ClientSize = new System.Drawing.Size(1189, 622);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.MaximumSize = new System.Drawing.Size(1211, 677);
-            this.MinimumSize = new System.Drawing.Size(1211, 677);
+            this.MaximumSize = new System.Drawing.Size(1211, 678);
+            this.MinimumSize = new System.Drawing.Size(1211, 678);
             this.Name = "MainWindow";
             this.Text = "Inventory Management System";
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.prodDataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.partsDataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartsDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,14 +285,22 @@ namespace Invent_it
         private System.Windows.Forms.Label label1;
         private RoundPanel groupBox1;
         private RoundPanel groupBox2;
-        private System.Windows.Forms.DataGridView prodDataView;
-        private System.Windows.Forms.Button deletePartButton;
-        private System.Windows.Forms.Button modifyPartButton;
-        private System.Windows.Forms.Button addPartButton;
-        private System.Windows.Forms.DataGridView partsDataView;
-        private System.Windows.Forms.Button deleteProdButton;
+        private System.Windows.Forms.DataGridView ProdDataView;
+        private System.Windows.Forms.Button DeletePartButton;
+        private System.Windows.Forms.Button ModifyPartButton;
+        private System.Windows.Forms.Button AddPartButton;
+        private System.Windows.Forms.DataGridView PartsDataView;
+        private System.Windows.Forms.Button DeleteProdButton;
         private System.Windows.Forms.Button ModifyProdButton;
-        private System.Windows.Forms.Button addProdButton;
+        private System.Windows.Forms.Button AddProdButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartInvColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartPriceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdInvColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdPriceColumn;
     }
 }
 

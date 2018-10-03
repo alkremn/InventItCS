@@ -18,14 +18,15 @@ namespace Invent_it
         }
 
  
-        private void modifyButton_Click(object sender, EventArgs e)
+        private void ModifyButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             PartWindow addWindow = new PartWindow();
+            addWindow.setNumber(50);
             addWindow.ShowDialog();
         }
 

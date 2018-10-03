@@ -12,11 +12,19 @@ namespace Invent_it
 {
     public partial class PartWindow : Form
     {
+        private int number;
+
         public PartWindow()
         {
             InitializeComponent();
         }
 
-       
+        public void setNumber(int num)
+        {
+            number = num;
+            label1.Text = number.ToString();
+        }
+
+     
     }
 }
