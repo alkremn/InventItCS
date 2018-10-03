@@ -1,6 +1,7 @@
-﻿using Model;
+﻿using System.ComponentModel;
+using Model;
 
-namespace Invent_it
+namespace InventMS
 {
     partial class MainWindow
     {
@@ -30,6 +31,10 @@ namespace Invent_it
         /// </summary>
         private void InitializeComponent()
         {
+            // creates Invetory class and populates with simple data
+            inventory = new Inventory();
+            inventory.AddParts(parts: SimpleDataLoader.GetSimpleParts());
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,7 +55,7 @@ namespace Invent_it
             this.ProdNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +64,11 @@ namespace Invent_it
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PartsDataView)).BeginInit();
             this.SuspendLayout();
+
+
+            PartsDataView.DataSource = new BindingList<Part>(inventory.GetParts());
+                
+
             // 
             // label1
             // 
@@ -235,7 +245,7 @@ namespace Invent_it
             this.PartsDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.PartsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PartsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PartIdColumn,
+            this.PartId,
             this.PartNameColumn,
             this.PartInvColumn,
             this.PartPriceColumn});
@@ -279,9 +289,9 @@ namespace Invent_it
             // 
             // PartIdColumn
             // 
-            this.PartIdColumn.HeaderText = "Part ID";
-            this.PartIdColumn.Name = "PartIdColumn";
-            this.PartIdColumn.Width = 140;
+            this.PartId.HeaderText = "Part ID";
+            this.PartId.Name = "PartIdColumn";
+            this.PartId.Width = 140;
             // 
             // PartNameColumn
             // 
@@ -326,7 +336,7 @@ namespace Invent_it
         }
 
         #endregion
-
+        private Inventory inventory;
         private System.Windows.Forms.Label label1;
         private RoundPanel groupBox1;
         private RoundPanel groupBox2;
@@ -342,7 +352,7 @@ namespace Invent_it
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdInvColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdPriceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartId;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartInvColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartPriceColumn;

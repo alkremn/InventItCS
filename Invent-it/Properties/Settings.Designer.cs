@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Invent_it.Properties
+namespace InventMS.Properties
 {
 
 

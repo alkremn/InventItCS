@@ -1,4 +1,4 @@
-﻿namespace Invent_it
+﻿namespace InventMS
 {
     partial class ProductWindow
     {

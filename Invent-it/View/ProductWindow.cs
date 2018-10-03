@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Invent_it
+namespace InventMS
 {
     public partial class ProductWindow : Form
     {

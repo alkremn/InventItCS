@@ -8,11 +8,31 @@ namespace Model
 {
     class Inventory
     {
-        public List<Product> Products { get; set; } = new List<Product>();
+        private List<Part> _parts;
+
+        private List<Product> _products;
 
         public List<Part> Parts { get; set; } = new List<Part>();
 
-        
+
+        public List<Product> Products { get; set; } = new List<Product>();
+
+
+        public Inventory()
+        {
+            _parts = new List<Part>();
+            _products = new List<Product>();
+        }
+
+        public List<Part> GetParts()
+        {
+            return _parts;
+        }
+
+        public void AddParts(List<Part> parts)
+        {
+            this._parts.AddRange(parts);
+        }
 
     }
 }
