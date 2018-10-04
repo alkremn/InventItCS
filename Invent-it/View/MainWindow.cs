@@ -17,6 +17,8 @@ namespace InventMS
             InitializeComponent();
             PartsDataView.DataSource = Model.SimpleDataLoader.GetSimpleParts();
             ProdDataView.DataSource = Model.SimpleDataLoader.GetSimpleProducts();
+            PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ProdDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
  

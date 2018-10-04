@@ -338,7 +338,6 @@ namespace InventMS
         }
 
         #endregion
-        private Inventory inventory;
         private System.Windows.Forms.Label label1;
         private RoundPanel groupBox1;
         private RoundPanel groupBox2;
@@ -350,7 +349,6 @@ namespace InventMS
         private System.Windows.Forms.Button DeleteProdButton;
         private System.Windows.Forms.Button ModifyProdButton;
         private System.Windows.Forms.Button AddProdButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartId;
         private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
