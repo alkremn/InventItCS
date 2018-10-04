@@ -24,14 +24,14 @@ namespace InventMS
  
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-
+            PartWindow partWindow = new PartWindow("Modify");
+            partWindow.ShowDialog();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            PartWindow addWindow = new PartWindow();
-            addWindow.setNumber(50);
-            addWindow.ShowDialog();
+            PartWindow partWindow = new PartWindow("Add");
+            partWindow.ShowDialog();
         }
 
         private void partBindingSource_CurrentChanged(object sender, EventArgs e)

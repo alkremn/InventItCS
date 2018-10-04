@@ -46,7 +46,7 @@
             this.groupBox1.Size = new System.Drawing.Size(680, 551);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add Part";
+            this.groupBox1.Text = this.Label;
             this.groupBox1.TitleBackColor = System.Drawing.Color.SteelBlue;
             this.groupBox1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.groupBox1.TitleForeColor = System.Drawing.Color.White;
@@ -79,6 +79,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        public string Label { get; set; }
         private Model.RoundPanel groupBox1;
     }
 }

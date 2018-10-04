@@ -36,6 +36,7 @@ namespace InventMS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new Model.RoundPanel();
@@ -95,7 +96,7 @@ namespace InventMS
             this.groupBox2.TitleBackColor = System.Drawing.Color.SteelBlue;
             this.groupBox2.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold);
             this.groupBox2.TitleForeColor = System.Drawing.Color.White;
-            this.groupBox2.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.DarkVertical;
+            this.groupBox2.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             // 
             // DeleteProdButton
             // 
@@ -118,7 +119,7 @@ namespace InventMS
             this.ProdDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -142,6 +143,7 @@ namespace InventMS
             this.ProdDataView.Location = new System.Drawing.Point(6, 38);
             this.ProdDataView.MultiSelect = false;
             this.ProdDataView.Name = "ProdDataView";
+            this.ProdDataView.ReadOnly = true;
             this.ProdDataView.RowHeadersVisible = false;
             this.ProdDataView.Size = new System.Drawing.Size(564, 249);
             this.ProdDataView.TabIndex = 0;
@@ -151,6 +153,7 @@ namespace InventMS
             this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
             this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
             this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.productIdDataGridViewTextBoxColumn.Width = 140;
             // 
             // productNameDataGridViewTextBoxColumn
@@ -158,6 +161,7 @@ namespace InventMS
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
             this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.productNameDataGridViewTextBoxColumn.Width = 141;
             // 
             // inStockDataGridViewTextBoxColumn1
@@ -165,6 +169,7 @@ namespace InventMS
             this.inStockDataGridViewTextBoxColumn1.DataPropertyName = "InStock";
             this.inStockDataGridViewTextBoxColumn1.HeaderText = "Inventory Level";
             this.inStockDataGridViewTextBoxColumn1.Name = "inStockDataGridViewTextBoxColumn1";
+            this.inStockDataGridViewTextBoxColumn1.ReadOnly = true;
             this.inStockDataGridViewTextBoxColumn1.Width = 140;
             // 
             // priceDataGridViewTextBoxColumn1
@@ -172,6 +177,7 @@ namespace InventMS
             this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn1.HeaderText = "Price/Cost per Unit";
             this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn1.Width = 140;
             // 
             // productBindingSource
@@ -203,6 +209,7 @@ namespace InventMS
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.DeletePartButton);
             this.groupBox1.Controls.Add(this.ModifyPartButton);
@@ -221,7 +228,7 @@ namespace InventMS
             this.groupBox1.TitleBackColor = System.Drawing.Color.SteelBlue;
             this.groupBox1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.TitleForeColor = System.Drawing.Color.White;
-            this.groupBox1.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.DarkVertical;
+            this.groupBox1.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             // 
             // DeletePartButton
             // 
@@ -268,7 +275,7 @@ namespace InventMS
             this.PartsDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -291,6 +298,15 @@ namespace InventMS
             this.PartsDataView.DefaultCellStyle = dataGridViewCellStyle4;
             this.PartsDataView.Location = new System.Drawing.Point(6, 38);
             this.PartsDataView.Name = "PartsDataView";
+            this.PartsDataView.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PartsDataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.PartsDataView.RowHeadersVisible = false;
             this.PartsDataView.Size = new System.Drawing.Size(564, 249);
             this.PartsDataView.TabIndex = 0;
@@ -300,6 +316,7 @@ namespace InventMS
             this.partIdDataGridViewTextBoxColumn.DataPropertyName = "PartId";
             this.partIdDataGridViewTextBoxColumn.HeaderText = "Part ID";
             this.partIdDataGridViewTextBoxColumn.Name = "partIdDataGridViewTextBoxColumn";
+            this.partIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.partIdDataGridViewTextBoxColumn.Width = 140;
             // 
             // partNameDataGridViewTextBoxColumn
@@ -315,6 +332,7 @@ namespace InventMS
             this.inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
             this.inStockDataGridViewTextBoxColumn.HeaderText = "Inventory Level";
             this.inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
+            this.inStockDataGridViewTextBoxColumn.ReadOnly = true;
             this.inStockDataGridViewTextBoxColumn.Width = 140;
             // 
             // priceDataGridViewTextBoxColumn
@@ -322,6 +340,7 @@ namespace InventMS
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price/Cost per Unit";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 140;
             // 
             // partBindingSource

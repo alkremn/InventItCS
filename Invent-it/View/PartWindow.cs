@@ -12,19 +12,11 @@ namespace InventMS
 {
     public partial class PartWindow : Form
     {
-        private int number;
-
-        public PartWindow()
+        public PartWindow(string title)
         {
+            Label = title;
             InitializeComponent();
         }
-
-        public void setNumber(int num)
-        {
-            number = num;
-            label1.Text = number.ToString();
-        }
-
      
     }
 }
