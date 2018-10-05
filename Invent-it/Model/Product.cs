@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Product
+    public class Product
     {
 
         public List<Part> AssociatedParts { get; set; } = new List<Part>();
@@ -47,6 +47,10 @@ namespace Model
 
                 _productId = value;
             }
+        }
+        public override string ToString()
+        {
+            return string.Format($",{ProductId},{ProductName},{Price},{InStock},{Min},{Max},");
         }
     }
 }

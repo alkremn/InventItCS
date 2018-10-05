@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Outsourced : Part
+    public class Outsourced : Part
     {
         public string CompanyName { get; set; }
 
@@ -14,6 +14,11 @@ namespace Model
             base(partId, name, price, inStock, min, max)
         {
             CompanyName = companyName;
+        }
+
+        public override string ToString()
+        {
+            return string.Format($"{this.GetType()},{base.ToString()},{CompanyName}");
         }
 
     }

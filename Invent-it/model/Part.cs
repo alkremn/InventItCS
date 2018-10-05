@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    abstract class Part
+    public abstract class Part
     {
 
         private int _partid;
@@ -48,6 +48,11 @@ namespace Model
 
                 _partid = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return string.Format($"{PartId},{PartName},{Price},{InStock},{Min},{Max}");
         }
 
 

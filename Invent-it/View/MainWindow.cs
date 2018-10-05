@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace InventMS
 {
     public partial class MainWindow : Form
     {
+        public Inventory inventory = new Inventory();
+
         public MainWindow()
         {
             InitializeComponent();
-            PartsDataView.DataSource = Model.SimpleDataLoader.GetSimpleParts();
-            ProdDataView.DataSource = Model.SimpleDataLoader.GetSimpleProducts();
+            inventory.Parts = Model.SimpleDataLoader.ReadSimplePartsFromCSV();
+            inventory.Products = Model.SimpleDataLoader.ReadSimpleProductsFromCSV();
+            PartsDataView.DataSource = inventory.Parts;
+            ProdDataView.DataSource = inventory.Products;
             PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
@@ -42,6 +47,8 @@ namespace InventMS
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            Model.SimpleDataLoader.WriteSamplePartsToCSV(inventory.Parts);
+            Model.SimpleDataLoader.WriteSampleProductsToCSV(inventory.Products);
             Environment.Exit(0);
         }
 

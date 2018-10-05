@@ -3,32 +3,152 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Model
 {
     class SimpleDataLoader
     {
 
-        public static List<Part> GetSimpleParts()
+        public static List<Part> ReadSimplePartsFromCSV()
         {
-            return new List<Part>
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
+            string filePath = Path.Combine(directory.FullName, "SamplePartsData.csv");
+            List<Part> parts = new List<Part>();
+
+            string line;
+            try
             {
-                new Inhouse(1, "Wheel", 1.99, 5, 1, 4, 12345),
-                new Inhouse(2, "Tire", 2.99, 10, 4, 10, 524345),
-                new Outsourced(3, "WindShield", 15.99, 40, 2, 8, "Wind Blow Inc."),
-                new Outsourced(4, "Door", 10.99, 25, 3, 12, "Doors Co."),
-            };
-        }
-        public static List<Product> GetSimpleProducts()
-        {
-            return new List<Product>()
+                using (var reader = new StreamReader(filePath))
+                {
+
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] values = line.Split(',');
+                        var parseValues = GetValues(values);
+
+                        if (values[0].Equals("InHouse"))
+                        {
+                            parts.Add(new Inhouse(parseValues.Item1, values[2], parseValues.Item2, parseValues.Item3,
+                                parseValues.Item4, parseValues.Item5, values[7]));
+                        }
+                        else
+                        {
+                            parts.Add(new Outsourced(parseValues.Item1, values[2], parseValues.Item2, parseValues.Item3,
+                                parseValues.Item4, parseValues.Item5, values[7]));
+                        }
+                    }
+                }
+            }
+            catch (FileNotFoundException e)
             {
-                new Product(1, "Boat", 14000, 5, 2, 10),
-                new Product(2, "Plane", 100_000, 4, 1, 3),
-                new Product(3, "Car", 20000, 9, 1, 5),
-                new Product(4, "Bike", 500, 3, 1, 8)
-            };
+                Console.WriteLine($"Cannot find {e.FileName} to load!");
+            }
+
+            return parts;
         }
 
+        private static Tuple<int, double, int, int, int> GetValues(string[] values)
+        {
+            int id, inStock, min, max;
+            double price;
+            int.TryParse(values[1], out id);
+            double.TryParse(values[3], out price);
+            int.TryParse(values[4], out inStock);
+            int.TryParse(values[5], out min);
+            int.TryParse(values[6], out max);
+
+            return Tuple(id,price, inStock, max, min);
+        }
+
+
+        public static List<Product> ReadSimpleProductsFromCSV()
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
+            string filePath = Path.Combine(directory.FullName, "SampleProductsData.csv");
+
+            List<Product> parts = new List<Product>();
+
+            string line;
+            try
+            {
+                using (var reader = new StreamReader(filePath))
+                {
+
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] values = line.Split(',');
+                        var parseValues = GetValues(values);
+
+                        parts.Add(new Product(parseValues.Item1, values[2], parseValues.Item2, parseValues.Item3,
+                                parseValues.Item4, parseValues.Item5));
+                    }
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine($"Cannot find {e.FileName} to load!");
+            }
+
+            return parts;
+        }
+
+
+        public static void WriteSamplePartsToCSV(List<Part> parts)
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
+            string filePath = Path.Combine(directory.FullName, "SamplePartsData.csv");
+
+            try
+            {
+                using (var writer = new StreamWriter(filePath))
+                {
+
+                    foreach (Part part in parts)
+                    {
+
+                        writer.WriteLine(part);
+
+                    }
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine($"Cannot find {e.FileName} to load!");
+            }
+        }
+
+        public static void WriteSampleProductsToCSV(List<Product> products)
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
+            string filePath = Path.Combine(directory.FullName, "SampleProductsData.csv");
+
+            try
+            {
+                using (var writer = new StreamWriter(filePath))
+                {
+
+                    foreach (Product product in products)
+                    {
+
+                        writer.WriteLine(product);
+
+                    }
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine($"Cannot find {e.FileName} to load!");
+            }
+        }
+
+        private static Tuple<int, double, int, int, int> Tuple(int id, double price, int inStock, int max, int min)
+        {
+            return new Tuple<int, double, int, int, int>(id, price, inStock, max, min);
+        }
     }
 }
