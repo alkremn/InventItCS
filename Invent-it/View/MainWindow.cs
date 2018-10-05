@@ -36,12 +36,15 @@ namespace InventMS
 
         private void partBindingSource_CurrentChanged(object sender, EventArgs e)
         {
+           
 
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
         }
+
+        
     }
 }
