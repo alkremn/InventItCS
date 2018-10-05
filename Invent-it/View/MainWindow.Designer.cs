@@ -73,7 +73,7 @@ namespace InventMS
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(28, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 47);
+            this.label1.Size = new System.Drawing.Size(186, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inventory MS";
             // 
@@ -107,6 +107,7 @@ namespace InventMS
             this.DeleteProdButton.TabIndex = 2;
             this.DeleteProdButton.Text = "Delete";
             this.DeleteProdButton.UseVisualStyleBackColor = true;
+            this.DeleteProdButton.Click += new System.EventHandler(this.DeleteProdButton_Click);
             // 
             // ProdDataView
             // 
@@ -185,7 +186,7 @@ namespace InventMS
             this.ModifyProdButton.TabIndex = 2;
             this.ModifyProdButton.Text = "Modify";
             this.ModifyProdButton.UseVisualStyleBackColor = true;
-            this.ModifyProdButton.Click += new System.EventHandler(this.ModifyButton_Click);
+            this.ModifyProdButton.Click += new System.EventHandler(this.ModifyProductButton_Click);
             // 
             // AddProdButton
             // 
@@ -197,6 +198,7 @@ namespace InventMS
             this.AddProdButton.TabIndex = 2;
             this.AddProdButton.Text = "Add";
             this.AddProdButton.UseVisualStyleBackColor = true;
+            this.AddProdButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // groupBox1
             // 
@@ -231,6 +233,7 @@ namespace InventMS
             this.DeletePartButton.TabIndex = 2;
             this.DeletePartButton.Text = "Delete";
             this.DeletePartButton.UseVisualStyleBackColor = true;
+            this.DeletePartButton.Click += new System.EventHandler(this.DeletePartButton_Click);
             // 
             // ModifyPartButton
             // 
@@ -242,7 +245,7 @@ namespace InventMS
             this.ModifyPartButton.TabIndex = 2;
             this.ModifyPartButton.Text = "Modify";
             this.ModifyPartButton.UseVisualStyleBackColor = true;
-            this.ModifyPartButton.Click += new System.EventHandler(this.ModifyButton_Click);
+            this.ModifyPartButton.Click += new System.EventHandler(this.ModifyPartButton_Click);
             // 
             // AddPartButton
             // 
@@ -254,7 +257,7 @@ namespace InventMS
             this.AddPartButton.TabIndex = 2;
             this.AddPartButton.Text = "Add";
             this.AddPartButton.UseVisualStyleBackColor = true;
-            this.AddPartButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddPartButton.Click += new System.EventHandler(this.AddPartButton_Click);
             // 
             // PartsDataView
             // 
@@ -329,7 +332,6 @@ namespace InventMS
             // partBindingSource
             // 
             this.partBindingSource.DataSource = typeof(Model.Part);
-            this.partBindingSource.CurrentChanged += new System.EventHandler(this.partBindingSource_CurrentChanged);
             // 
             // ExitButton
             // 
@@ -345,9 +347,9 @@ namespace InventMS
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1189, 622);
+            this.ClientSize = new System.Drawing.Size(1195, 639);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

@@ -25,26 +25,38 @@ namespace InventMS
             PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
- 
-        private void ModifyButton_Click(object sender, EventArgs e)
+       
+        private void AddPartButton_Click(object sender, EventArgs e)
         {
-            PartWindow partWindow = new PartWindow("Modify Part");
-            partWindow.ShowDialog();
-        }
 
-        private void AddButton_Click(object sender, EventArgs e)
-        {
             PartWindow partWindow = new PartWindow("Add Part");
             partWindow.ShowDialog();
         }
 
-        private void partBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void ModifyPartButton_Click(object sender, EventArgs e)
         {
-           
 
         }
 
+        private void DeletePartButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddProductButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModifyProductButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteProdButton_Click(object sender, EventArgs e)
+        {
+
+        }
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Model.SimpleDataLoader.WriteSamplePartsToCSV(inventory.Parts);
@@ -52,6 +64,6 @@ namespace InventMS
             Environment.Exit(0);
         }
 
-        
+       
     }
 }
