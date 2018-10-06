@@ -96,5 +96,11 @@ namespace InventMS
         {
 
         }
+
+        private void DataBindingCompleted(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            PartsDataView.ClearSelection();
+            ProdDataView.ClearSelection();
+        }
     }
 }
