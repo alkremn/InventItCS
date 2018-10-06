@@ -41,7 +41,14 @@ namespace InventMS
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
             var selected = (int)PartsDataView.SelectedRows[0].Cells[0].Value;
-            inventory.RemovePartByIndex(selected);
+            try
+            {
+                inventory.RemovePartByIndex(selected);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Invalid Id");
+            }
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
