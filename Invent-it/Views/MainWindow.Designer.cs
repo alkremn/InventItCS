@@ -124,6 +124,7 @@ namespace InventMS
             this.searchProdText.Name = "searchProdText";
             this.searchProdText.Size = new System.Drawing.Size(148, 27);
             this.searchProdText.TabIndex = 4;
+            this.searchProdText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchEnterKeyPressed);
             // 
             // searchProdButton
             // 
@@ -173,7 +174,6 @@ namespace InventMS
             this.priceDataGridViewTextBoxColumn1});
             this.prodDataView.DataSource = this.productBindingSource;
             this.prodDataView.Location = new System.Drawing.Point(6, 74);
-            this.prodDataView.MultiSelect = false;
             this.prodDataView.Name = "prodDataView";
             this.prodDataView.ReadOnly = true;
             this.prodDataView.RowHeadersVisible = false;
@@ -242,6 +242,7 @@ namespace InventMS
             this.searchPartText.Name = "searchPartText";
             this.searchPartText.Size = new System.Drawing.Size(148, 27);
             this.searchPartText.TabIndex = 4;
+            this.searchPartText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchEnterKeyPressed);
             // 
             // searchPartButton
             // 

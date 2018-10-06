@@ -23,7 +23,7 @@ namespace InventMS
             partsDataView.DataSource = inventory.Parts;
             prodDataView.DataSource = inventory.Products;
         }
-       
+
         private void AddPartButton_Click(object sender, EventArgs e)
         {
 
@@ -48,20 +48,25 @@ namespace InventMS
         {
             if (partsDataView.SelectedRows.Count > 0)
             {
-                var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
-                try
+                var result = MessageBox.Show("Are you sure you want to delete this part?", "Warning!", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    inventory.RemovePartByIndex(selected);
-                }
-                catch (ArgumentException ex)
-                {
-                    MessageBox.Show($"Invalid Id {ex.Message}");
+                    var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
+                    try
+                    {
+                        inventory.RemovePartByIndex(selected);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        MessageBox.Show($"Invalid Id {ex.Message}");
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Please select Part to delete");
+                MessageBox.Show("Please select part to delete.");
             }
+            
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
@@ -78,8 +83,27 @@ namespace InventMS
 
         private void DeleteProdButton_Click(object sender, EventArgs e)
         {
-            var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
-            inventory.RemoveProductByIndex(selected);
+            if (prodDataView.SelectedRows.Count > 0)
+            {
+                var result = MessageBox.Show("Are you sure you want to delete this product?", "Warning!", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
+                    try
+                    {
+                        inventory.RemoveProductByIndex(selected);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        MessageBox.Show($"Invalid product ID {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select product to delete.");
+            }
+
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -91,11 +115,12 @@ namespace InventMS
 
         private void SearchPartButton_Click(object sender, EventArgs e)
         {
-
+            SearchItemInList(searchPartText, partsDataView);
         }
 
         private void SearchProductButton_Click(object sender, EventArgs e)
         {
+            SearchItemInList(searchProdText, prodDataView);
 
         }
 
@@ -105,6 +130,43 @@ namespace InventMS
             prodDataView.ClearSelection();
         }
 
-        
+        private void SearchEnterKeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)System.ConsoleKey.Enter)
+            {
+                if (searchPartText.Focused)
+                {
+                    SearchItemInList(searchPartText, partsDataView);
+                    e.Handled = true;
+                }
+                if(searchProdText.Focused)
+                {
+                    SearchItemInList(searchProdText, prodDataView);
+                    e.Handled = true;
+                }
+            }
+           
+        }
+
+        private void SearchItemInList(TextBox searchBox, DataGridView dataGridView)
+        {
+            dataGridView.ClearSelection();
+
+            if (searchBox.Text != "")
+            {
+                string searchWord = searchBox.Text;
+
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    string nameValue = row.Cells[1].Value.ToString();
+
+                    if (nameValue.ToLower().Contains(searchWord))
+                    {
+                        row.Selected = true;
+                    }
+                }
+
+            }
+        }
     }
 }
