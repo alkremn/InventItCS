@@ -12,6 +12,8 @@ namespace InventMS
 {
     public partial class PartWindow : Form
     {
+        public string Label { get; set; }
+
         public PartWindow(string title)
         {
             Label = title;

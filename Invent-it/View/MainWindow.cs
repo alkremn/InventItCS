@@ -35,7 +35,8 @@ namespace InventMS
 
         private void ModifyPartButton_Click(object sender, EventArgs e)
         {
-
+            PartWindow partWindow = new PartWindow("Modify Part");
+            partWindow.ShowDialog();
         }
 
         private void DeletePartButton_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace InventMS
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show("Invalid Id");
+                MessageBox.Show($"Invalid Id {ex.Message}");
             }
         }
 
