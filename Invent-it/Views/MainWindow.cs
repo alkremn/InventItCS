@@ -20,10 +20,8 @@ namespace InventMS
             InitializeComponent();
             inventory.Parts = new BindingList<Part>(Model.SimpleDataLoader.ReadSimplePartsFromCSV());
             inventory.Products = new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV());
-            PartsDataView.DataSource = inventory.Parts;
-            ProdDataView.DataSource = inventory.Products;
-            //PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //ProdDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            partsDataView.DataSource = inventory.Parts;
+            prodDataView.DataSource = inventory.Products;
         }
        
         private void AddPartButton_Click(object sender, EventArgs e)
@@ -41,20 +39,23 @@ namespace InventMS
 
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
-            var selected = (int)PartsDataView.SelectedRows[0].Cells[0].Value;
-            try
+            if (partsDataView.SelectedRows.Count > 0)
             {
-                inventory.RemovePartByIndex(selected);
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show($"Invalid Id {ex.Message}");
+                var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
+                try
+                {
+                    inventory.RemovePartByIndex(selected);
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show($"Invalid Id {ex.Message}");
+                }
             }
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
         {
-            ProductWindow productWindow = new ProductWindow();
+            productWindow productWindow = new productWindow();
             productWindow.ShowDialog();
 
         }
@@ -66,7 +67,7 @@ namespace InventMS
 
         private void DeleteProdButton_Click(object sender, EventArgs e)
         {
-            var selected = (int)ProdDataView.SelectedRows[0].Cells[0].Value;
+            var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
             inventory.RemoveProductByIndex(selected);
         }
 
@@ -87,20 +88,12 @@ namespace InventMS
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchPartButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DataBindingCompleted(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            PartsDataView.ClearSelection();
-            ProdDataView.ClearSelection();
+            partsDataView.ClearSelection();
+            prodDataView.ClearSelection();
         }
+
+        
     }
 }

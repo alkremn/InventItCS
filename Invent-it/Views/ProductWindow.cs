@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InventMS
 {
-    public partial class ProductWindow : Form
+    public partial class productWindow : Form
     {
-        public ProductWindow()
+        public productWindow()
         {
             InitializeComponent();
         }

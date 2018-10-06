@@ -18,6 +18,7 @@ namespace InventMS
         {
             Label = title;
             InitializeComponent();
+            outsourced.Select();
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace InventMS
 
         private void RadButtonCheckedChanged(object sender, EventArgs e)
         {
-            if (((RadioButton)sender).Checked == true)
+            if (((RadioButton)sender).Name.Equals(nameof(inHouse)))
             {
                 compIdLabel.Text = "Machine ID";
             }
@@ -35,6 +36,11 @@ namespace InventMS
             {
                 compIdLabel.Text = "Company Name";
             }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
