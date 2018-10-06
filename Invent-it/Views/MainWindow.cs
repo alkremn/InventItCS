@@ -22,8 +22,8 @@ namespace InventMS
             inventory.Products = new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV());
             PartsDataView.DataSource = inventory.Parts;
             ProdDataView.DataSource = inventory.Products;
-            PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ProdDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //ProdDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
        
         private void AddPartButton_Click(object sender, EventArgs e)
