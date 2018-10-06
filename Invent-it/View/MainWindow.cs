@@ -42,13 +42,16 @@ namespace InventMS
         {
             var selected = (int)PartsDataView.SelectedRows[0].Cells[0].Value;
             inventory.RemovePartByIndex(selected);
-            PartsDataView.DataSource = inventory.Parts;
+           
+            var binding = PartsDataView.DataBindings;
             PartsDataView.Update();
 
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
         {
+            ProductWindow productWindow = new ProductWindow();
+            productWindow.ShowDialog();
 
         }
 
@@ -68,5 +71,24 @@ namespace InventMS
             Environment.Exit(0);
         }
 
+        private void SearchPartButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchProductButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchPartButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

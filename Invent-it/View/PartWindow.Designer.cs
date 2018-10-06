@@ -110,7 +110,7 @@
             this.InHouseButton.AutoSize = true;
             this.InHouseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InHouseButton.ForeColor = System.Drawing.Color.DimGray;
-            this.InHouseButton.Location = new System.Drawing.Point(189, 55);
+            this.InHouseButton.Location = new System.Drawing.Point(189, 65);
             this.InHouseButton.Margin = new System.Windows.Forms.Padding(4);
             this.InHouseButton.Name = "InHouseButton";
             this.InHouseButton.Size = new System.Drawing.Size(88, 20);
@@ -124,7 +124,7 @@
             this.OutsourcedButton.AutoSize = true;
             this.OutsourcedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OutsourcedButton.ForeColor = System.Drawing.Color.DimGray;
-            this.OutsourcedButton.Location = new System.Drawing.Point(325, 54);
+            this.OutsourcedButton.Location = new System.Drawing.Point(311, 64);
             this.OutsourcedButton.Margin = new System.Windows.Forms.Padding(4);
             this.OutsourcedButton.Name = "OutsourcedButton";
             this.OutsourcedButton.Size = new System.Drawing.Size(105, 20);
@@ -185,83 +185,94 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(162, 125);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.MinimumSize = new System.Drawing.Size(100, 20);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 24);
+            this.textBox1.Size = new System.Drawing.Size(275, 29);
             this.textBox1.TabIndex = 13;
             this.textBox1.Tag = "";
             this.textBox1.Text = "Auto Gen -Disabled";
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(162, 185);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.MinimumSize = new System.Drawing.Size(4, 20);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 24);
+            this.textBox2.Size = new System.Drawing.Size(275, 29);
             this.textBox2.TabIndex = 13;
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(162, 255);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.MinimumSize = new System.Drawing.Size(4, 20);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(275, 24);
+            this.textBox3.Size = new System.Drawing.Size(275, 29);
             this.textBox3.TabIndex = 13;
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(162, 325);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.MinimumSize = new System.Drawing.Size(4, 20);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(275, 24);
+            this.textBox4.Size = new System.Drawing.Size(275, 29);
             this.textBox4.TabIndex = 13;
             // 
             // textBox5
             // 
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(162, 395);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.MinimumSize = new System.Drawing.Size(4, 20);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(95, 24);
+            this.textBox5.Size = new System.Drawing.Size(95, 29);
             this.textBox5.TabIndex = 13;
             // 
             // textBox6
             // 
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(342, 395);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.MinimumSize = new System.Drawing.Size(4, 20);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(95, 24);
+            this.textBox6.Size = new System.Drawing.Size(95, 29);
             this.textBox6.TabIndex = 13;
             // 
             // textBox7
             // 
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(162, 465);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.MinimumSize = new System.Drawing.Size(4, 20);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(275, 24);
+            this.textBox7.Size = new System.Drawing.Size(275, 29);
             this.textBox7.TabIndex = 13;
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(242, 543);
+            this.SaveButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SaveButton.Location = new System.Drawing.Point(242, 539);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 35);
+            this.SaveButton.Size = new System.Drawing.Size(80, 35);
             this.SaveButton.TabIndex = 14;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(362, 543);
+            this.Cancel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Cancel.Location = new System.Drawing.Point(356, 539);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(75, 35);
+            this.Cancel.Size = new System.Drawing.Size(80, 35);
             this.Cancel.TabIndex = 14;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
@@ -271,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 632);
+            this.ClientSize = new System.Drawing.Size(529, 637);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.textBox7);

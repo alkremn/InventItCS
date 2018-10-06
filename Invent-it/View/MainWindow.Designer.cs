@@ -39,6 +39,8 @@ namespace InventMS
             this.label1 = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
             this.groupBox2 = new Model.RoundPanel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.DeleteProdButton = new System.Windows.Forms.Button();
             this.ProdDataView = new System.Windows.Forms.DataGridView();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +51,8 @@ namespace InventMS
             this.ModifyProdButton = new System.Windows.Forms.Button();
             this.AddProdButton = new System.Windows.Forms.Button();
             this.groupBox1 = new Model.RoundPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchPartButton = new System.Windows.Forms.Button();
             this.DeletePartButton = new System.Windows.Forms.Button();
             this.ModifyPartButton = new System.Windows.Forms.Button();
             this.AddPartButton = new System.Windows.Forms.Button();
@@ -92,6 +96,8 @@ namespace InventMS
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.DeleteProdButton);
             this.groupBox2.Controls.Add(this.ProdDataView);
             this.groupBox2.Controls.Add(this.ModifyProdButton);
@@ -108,6 +114,25 @@ namespace InventMS
             this.groupBox2.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold);
             this.groupBox2.TitleForeColor = System.Drawing.Color.White;
             this.groupBox2.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(320, 38);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(148, 29);
+            this.textBox2.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.Location = new System.Drawing.Point(478, 40);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SearchProductButton_Click);
             // 
             // DeleteProdButton
             // 
@@ -144,12 +169,12 @@ namespace InventMS
             this.inStockDataGridViewTextBoxColumn1,
             this.priceDataGridViewTextBoxColumn1});
             this.ProdDataView.DataSource = this.productBindingSource;
-            this.ProdDataView.Location = new System.Drawing.Point(6, 38);
+            this.ProdDataView.Location = new System.Drawing.Point(6, 74);
             this.ProdDataView.MultiSelect = false;
             this.ProdDataView.Name = "ProdDataView";
             this.ProdDataView.ReadOnly = true;
             this.ProdDataView.RowHeadersVisible = false;
-            this.ProdDataView.Size = new System.Drawing.Size(564, 249);
+            this.ProdDataView.Size = new System.Drawing.Size(564, 213);
             this.ProdDataView.TabIndex = 0;
             // 
             // productIdDataGridViewTextBoxColumn
@@ -216,6 +241,8 @@ namespace InventMS
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.searchPartButton);
             this.groupBox1.Controls.Add(this.DeletePartButton);
             this.groupBox1.Controls.Add(this.ModifyPartButton);
             this.groupBox1.Controls.Add(this.AddPartButton);
@@ -234,6 +261,25 @@ namespace InventMS
             this.groupBox1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.TitleForeColor = System.Drawing.Color.White;
             this.groupBox1.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(320, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(148, 29);
+            this.textBox1.TabIndex = 4;
+            // 
+            // searchPartButton
+            // 
+            this.searchPartButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.searchPartButton.Location = new System.Drawing.Point(478, 40);
+            this.searchPartButton.Name = "searchPartButton";
+            this.searchPartButton.Size = new System.Drawing.Size(75, 26);
+            this.searchPartButton.TabIndex = 3;
+            this.searchPartButton.Text = "Search";
+            this.searchPartButton.UseVisualStyleBackColor = true;
+            this.searchPartButton.Click += new System.EventHandler(this.SearchPartButton_Click);
             // 
             // DeletePartButton
             // 
@@ -294,7 +340,7 @@ namespace InventMS
             this.inStockDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn});
             this.PartsDataView.DataSource = this.partBindingSource;
-            this.PartsDataView.Location = new System.Drawing.Point(6, 38);
+            this.PartsDataView.Location = new System.Drawing.Point(6, 74);
             this.PartsDataView.Name = "PartsDataView";
             this.PartsDataView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -306,7 +352,7 @@ namespace InventMS
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.PartsDataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.PartsDataView.RowHeadersVisible = false;
-            this.PartsDataView.Size = new System.Drawing.Size(564, 249);
+            this.PartsDataView.Size = new System.Drawing.Size(564, 213);
             this.PartsDataView.TabIndex = 0;
             // 
             // partIdDataGridViewTextBoxColumn
@@ -362,9 +408,11 @@ namespace InventMS
             this.Name = "MainWindow";
             this.Text = "Inventory Management System";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PartsDataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -395,6 +443,10 @@ namespace InventMS
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button searchPartButton;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

@@ -16,5 +16,30 @@ namespace InventMS
         {
             InitializeComponent();
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddPartButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeletePartButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchPartButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
