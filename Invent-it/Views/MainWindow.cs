@@ -33,8 +33,15 @@ namespace InventMS
 
         private void ModifyPartButton_Click(object sender, EventArgs e)
         {
-            PartWindow partWindow = new PartWindow("Modify Part");
-            partWindow.ShowDialog();
+            if (partsDataView.SelectedRows.Count > 0)
+            {
+                PartWindow partWindow = new PartWindow("Modify Part");
+                partWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select Part to modify");
+            }
         }
 
         private void DeletePartButton_Click(object sender, EventArgs e)
@@ -50,6 +57,10 @@ namespace InventMS
                 {
                     MessageBox.Show($"Invalid Id {ex.Message}");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please select Part to delete");
             }
         }
 

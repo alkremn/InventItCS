@@ -33,10 +33,10 @@ namespace InventMS
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.mainLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
@@ -45,10 +45,6 @@ namespace InventMS
             this.searchProdButton = new System.Windows.Forms.Button();
             this.deleteProdButton = new System.Windows.Forms.Button();
             this.prodDataView = new System.Windows.Forms.DataGridView();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inStockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.modifyProdButton = new System.Windows.Forms.Button();
             this.addProdButton = new System.Windows.Forms.Button();
@@ -59,11 +55,15 @@ namespace InventMS
             this.modifyPartButton = new System.Windows.Forms.Button();
             this.addPartButton = new System.Windows.Forms.Button();
             this.partsDataView = new System.Windows.Forms.DataGridView();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inStockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -87,7 +87,7 @@ namespace InventMS
             // 
             this.exitButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.exitButton.Location = new System.Drawing.Point(1079, 538);
+            this.exitButton.Location = new System.Drawing.Point(1079, 560);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 34);
             this.exitButton.TabIndex = 2;
@@ -108,7 +108,7 @@ namespace InventMS
             this.prodGroupBox.Location = new System.Drawing.Point(605, 105);
             this.prodGroupBox.Name = "prodGroupBox";
             this.prodGroupBox.Radious = 15;
-            this.prodGroupBox.Size = new System.Drawing.Size(580, 363);
+            this.prodGroupBox.Size = new System.Drawing.Size(580, 426);
             this.prodGroupBox.TabIndex = 1;
             this.prodGroupBox.TabStop = false;
             this.prodGroupBox.Text = "Products";
@@ -119,9 +119,10 @@ namespace InventMS
             // 
             // searchProdText
             // 
+            this.searchProdText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProdText.Location = new System.Drawing.Point(320, 38);
             this.searchProdText.Name = "searchProdText";
-            this.searchProdText.Size = new System.Drawing.Size(148, 29);
+            this.searchProdText.Size = new System.Drawing.Size(148, 27);
             this.searchProdText.TabIndex = 4;
             // 
             // searchProdButton
@@ -140,7 +141,7 @@ namespace InventMS
             // 
             this.deleteProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteProdButton.Location = new System.Drawing.Point(471, 307);
+            this.deleteProdButton.Location = new System.Drawing.Point(474, 362);
             this.deleteProdButton.Name = "deleteProdButton";
             this.deleteProdButton.Size = new System.Drawing.Size(80, 32);
             this.deleteProdButton.TabIndex = 2;
@@ -164,7 +165,7 @@ namespace InventMS
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.prodDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.prodDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.prodDataView.ColumnHeadersHeight = 35;
             this.prodDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productIdDataGridViewTextBoxColumn,
             this.productNameDataGridViewTextBoxColumn,
@@ -176,44 +177,10 @@ namespace InventMS
             this.prodDataView.Name = "prodDataView";
             this.prodDataView.ReadOnly = true;
             this.prodDataView.RowHeadersVisible = false;
+            this.prodDataView.RowTemplate.Height = 30;
             this.prodDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.prodDataView.Size = new System.Drawing.Size(564, 213);
+            this.prodDataView.Size = new System.Drawing.Size(568, 263);
             this.prodDataView.TabIndex = 0;
-            // 
-            // productIdDataGridViewTextBoxColumn
-            // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIdDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn.Width = 147;
-            // 
-            // inStockDataGridViewTextBoxColumn1
-            // 
-            this.inStockDataGridViewTextBoxColumn1.DataPropertyName = "InStock";
-            this.inStockDataGridViewTextBoxColumn1.HeaderText = "Inventory Level";
-            this.inStockDataGridViewTextBoxColumn1.Name = "inStockDataGridViewTextBoxColumn1";
-            this.inStockDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.inStockDataGridViewTextBoxColumn1.Width = 144;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.priceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price/Cost per Unit";
-            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn1.Width = 150;
             // 
             // productBindingSource
             // 
@@ -223,7 +190,7 @@ namespace InventMS
             // 
             this.modifyProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifyProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.modifyProdButton.Location = new System.Drawing.Point(378, 307);
+            this.modifyProdButton.Location = new System.Drawing.Point(381, 362);
             this.modifyProdButton.Name = "modifyProdButton";
             this.modifyProdButton.Size = new System.Drawing.Size(87, 32);
             this.modifyProdButton.TabIndex = 2;
@@ -235,7 +202,7 @@ namespace InventMS
             // 
             this.addProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.addProdButton.Location = new System.Drawing.Point(296, 307);
+            this.addProdButton.Location = new System.Drawing.Point(299, 362);
             this.addProdButton.Name = "addProdButton";
             this.addProdButton.Size = new System.Drawing.Size(75, 32);
             this.addProdButton.TabIndex = 2;
@@ -259,7 +226,7 @@ namespace InventMS
             this.partGroupBox.Name = "partGroupBox";
             this.partGroupBox.Radious = 15;
             this.partGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.partGroupBox.Size = new System.Drawing.Size(580, 363);
+            this.partGroupBox.Size = new System.Drawing.Size(580, 426);
             this.partGroupBox.TabIndex = 1;
             this.partGroupBox.TabStop = false;
             this.partGroupBox.Text = "Parts";
@@ -270,9 +237,10 @@ namespace InventMS
             // 
             // searchPartText
             // 
+            this.searchPartText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchPartText.Location = new System.Drawing.Point(320, 38);
             this.searchPartText.Name = "searchPartText";
-            this.searchPartText.Size = new System.Drawing.Size(148, 29);
+            this.searchPartText.Size = new System.Drawing.Size(148, 27);
             this.searchPartText.TabIndex = 4;
             // 
             // searchPartButton
@@ -291,7 +259,7 @@ namespace InventMS
             // 
             this.deletePartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletePartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deletePartButton.Location = new System.Drawing.Point(474, 307);
+            this.deletePartButton.Location = new System.Drawing.Point(474, 362);
             this.deletePartButton.Name = "deletePartButton";
             this.deletePartButton.Size = new System.Drawing.Size(80, 32);
             this.deletePartButton.TabIndex = 2;
@@ -303,7 +271,7 @@ namespace InventMS
             // 
             this.modifyPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifyPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.modifyPartButton.Location = new System.Drawing.Point(381, 307);
+            this.modifyPartButton.Location = new System.Drawing.Point(381, 362);
             this.modifyPartButton.Name = "modifyPartButton";
             this.modifyPartButton.Size = new System.Drawing.Size(87, 32);
             this.modifyPartButton.TabIndex = 2;
@@ -315,7 +283,7 @@ namespace InventMS
             // 
             this.addPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addPartButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.addPartButton.Location = new System.Drawing.Point(300, 307);
+            this.addPartButton.Location = new System.Drawing.Point(300, 362);
             this.addPartButton.Name = "addPartButton";
             this.addPartButton.Size = new System.Drawing.Size(75, 32);
             this.addPartButton.TabIndex = 2;
@@ -339,7 +307,7 @@ namespace InventMS
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.partsDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.partsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsDataView.ColumnHeadersHeight = 35;
             this.partsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partIdDataGridViewTextBoxColumn,
             this.partNameDataGridViewTextBoxColumn,
@@ -348,6 +316,7 @@ namespace InventMS
             this.partsDataView.DataSource = this.partBindingSource;
             this.partsDataView.Location = new System.Drawing.Point(6, 74);
             this.partsDataView.Name = "partsDataView";
+            this.partsDataView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -357,17 +326,23 @@ namespace InventMS
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.partsDataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.partsDataView.RowHeadersVisible = false;
+            this.partsDataView.RowTemplate.Height = 30;
             this.partsDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.partsDataView.Size = new System.Drawing.Size(564, 213);
+            this.partsDataView.Size = new System.Drawing.Size(568, 263);
             this.partsDataView.TabIndex = 0;
             this.partsDataView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataBindingCompleted);
+            // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(Model.Part);
             // 
             // partIdDataGridViewTextBoxColumn
             // 
             this.partIdDataGridViewTextBoxColumn.DataPropertyName = "PartId";
             this.partIdDataGridViewTextBoxColumn.HeaderText = "Part ID";
             this.partIdDataGridViewTextBoxColumn.Name = "partIdDataGridViewTextBoxColumn";
-            this.partIdDataGridViewTextBoxColumn.Width = 120;
+            this.partIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.partIdDataGridViewTextBoxColumn.Width = 122;
             // 
             // partNameDataGridViewTextBoxColumn
             // 
@@ -375,13 +350,14 @@ namespace InventMS
             this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
             this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
             this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.partNameDataGridViewTextBoxColumn.Width = 147;
+            this.partNameDataGridViewTextBoxColumn.Width = 149;
             // 
             // inStockDataGridViewTextBoxColumn
             // 
             this.inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
             this.inStockDataGridViewTextBoxColumn.HeaderText = "Inventory Level";
             this.inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
+            this.inStockDataGridViewTextBoxColumn.ReadOnly = true;
             this.inStockDataGridViewTextBoxColumn.Width = 144;
             // 
             // priceDataGridViewTextBoxColumn
@@ -392,11 +368,43 @@ namespace InventMS
             this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price/Cost per Unit";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 150;
             // 
-            // partBindingSource
+            // productIdDataGridViewTextBoxColumn
             // 
-            this.partBindingSource.DataSource = typeof(Model.Part);
+            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
+            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIdDataGridViewTextBoxColumn.Width = 122;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 149;
+            // 
+            // inStockDataGridViewTextBoxColumn1
+            // 
+            this.inStockDataGridViewTextBoxColumn1.DataPropertyName = "InStock";
+            this.inStockDataGridViewTextBoxColumn1.HeaderText = "Inventory Level";
+            this.inStockDataGridViewTextBoxColumn1.Name = "inStockDataGridViewTextBoxColumn1";
+            this.inStockDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.inStockDataGridViewTextBoxColumn1.Width = 144;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.priceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price/Cost per Unit";
+            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn1.Width = 150;
             // 
             // MainWindow
             // 
@@ -446,14 +454,14 @@ namespace InventMS
         private System.Windows.Forms.TextBox searchPartText;
         private System.Windows.Forms.Button searchPartButton;
         private System.Windows.Forms.TextBox searchProdText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
     }
 }
 
