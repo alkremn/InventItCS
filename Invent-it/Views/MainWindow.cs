@@ -46,7 +46,7 @@ namespace InventMS
 
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
-            if (partsDataView.SelectedRows.Count > 0)
+            if (partsDataView.SelectedRows.Count == 1)
             {
                 var result = MessageBox.Show("Are you sure you want to delete this part?", "Warning!", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
@@ -83,7 +83,7 @@ namespace InventMS
 
         private void DeleteProdButton_Click(object sender, EventArgs e)
         {
-            if (prodDataView.SelectedRows.Count > 0)
+            if (prodDataView.SelectedRows.Count == 1)
             {
                 var result = MessageBox.Show("Are you sure you want to delete this product?", "Warning!", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
