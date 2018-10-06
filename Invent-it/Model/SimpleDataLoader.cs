@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.ComponentModel;
 
 namespace Model
 {
@@ -96,7 +97,7 @@ namespace Model
         }
 
 
-        public static void WriteSamplePartsToCSV(List<Part> parts)
+        public static void WriteSamplePartsToCSV(BindingList<Part> parts)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
@@ -121,7 +122,7 @@ namespace Model
             }
         }
 
-        public static void WriteSampleProductsToCSV(List<Product> products)
+        public static void WriteSampleProductsToCSV(BindingList<Product> products)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);

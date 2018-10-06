@@ -18,8 +18,8 @@ namespace InventMS
         public MainWindow()
         {
             InitializeComponent();
-            inventory.Parts = Model.SimpleDataLoader.ReadSimplePartsFromCSV();
-            inventory.Products = Model.SimpleDataLoader.ReadSimpleProductsFromCSV();
+            inventory.Parts = new BindingList<Part>(Model.SimpleDataLoader.ReadSimplePartsFromCSV());
+            inventory.Products = new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV());
             PartsDataView.DataSource = inventory.Parts;
             ProdDataView.DataSource = inventory.Products;
             PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -42,10 +42,6 @@ namespace InventMS
         {
             var selected = (int)PartsDataView.SelectedRows[0].Cells[0].Value;
             inventory.RemovePartByIndex(selected);
-           
-            var binding = PartsDataView.DataBindings;
-            PartsDataView.Update();
-
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
@@ -62,8 +58,10 @@ namespace InventMS
 
         private void DeleteProdButton_Click(object sender, EventArgs e)
         {
-
+            var selected = (int)ProdDataView.SelectedRows[0].Cells[0].Value;
+            inventory.RemoveProductByIndex(selected);
         }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Model.SimpleDataLoader.WriteSamplePartsToCSV(inventory.Parts);

@@ -43,10 +43,6 @@ namespace InventMS
             this.button1 = new System.Windows.Forms.Button();
             this.DeleteProdButton = new System.Windows.Forms.Button();
             this.ProdDataView = new System.Windows.Forms.DataGridView();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inStockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ModifyProdButton = new System.Windows.Forms.Button();
             this.AddProdButton = new System.Windows.Forms.Button();
@@ -57,11 +53,15 @@ namespace InventMS
             this.ModifyPartButton = new System.Windows.Forms.Button();
             this.AddPartButton = new System.Windows.Forms.Button();
             this.PartsDataView = new System.Windows.Forms.DataGridView();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inStockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -74,7 +74,7 @@ namespace InventMS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
             this.label1.Location = new System.Drawing.Point(28, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(186, 31);
@@ -103,10 +103,10 @@ namespace InventMS
             this.groupBox2.Controls.Add(this.ModifyProdButton);
             this.groupBox2.Controls.Add(this.AddProdButton);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(608, 105);
+            this.groupBox2.Location = new System.Drawing.Point(605, 105);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Radious = 15;
-            this.groupBox2.Size = new System.Drawing.Size(575, 363);
+            this.groupBox2.Size = new System.Drawing.Size(580, 363);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Products";
@@ -157,10 +157,10 @@ namespace InventMS
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ProdDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ProdDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProdDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -176,38 +176,6 @@ namespace InventMS
             this.ProdDataView.RowHeadersVisible = false;
             this.ProdDataView.Size = new System.Drawing.Size(564, 213);
             this.ProdDataView.TabIndex = 0;
-            // 
-            // productIdDataGridViewTextBoxColumn
-            // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIdDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn.Width = 141;
-            // 
-            // inStockDataGridViewTextBoxColumn1
-            // 
-            this.inStockDataGridViewTextBoxColumn1.DataPropertyName = "InStock";
-            this.inStockDataGridViewTextBoxColumn1.HeaderText = "Inventory Level";
-            this.inStockDataGridViewTextBoxColumn1.Name = "inStockDataGridViewTextBoxColumn1";
-            this.inStockDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.inStockDataGridViewTextBoxColumn1.Width = 140;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price/Cost per Unit";
-            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn1.Width = 140;
             // 
             // productBindingSource
             // 
@@ -253,7 +221,7 @@ namespace InventMS
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Radious = 15;
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(575, 363);
+            this.groupBox1.Size = new System.Drawing.Size(580, 363);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parts";
@@ -328,10 +296,10 @@ namespace InventMS
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.PartsDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.PartsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PartsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -355,13 +323,17 @@ namespace InventMS
             this.PartsDataView.Size = new System.Drawing.Size(564, 213);
             this.PartsDataView.TabIndex = 0;
             // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(Model.Part);
+            // 
             // partIdDataGridViewTextBoxColumn
             // 
             this.partIdDataGridViewTextBoxColumn.DataPropertyName = "PartId";
             this.partIdDataGridViewTextBoxColumn.HeaderText = "Part ID";
             this.partIdDataGridViewTextBoxColumn.Name = "partIdDataGridViewTextBoxColumn";
             this.partIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.partIdDataGridViewTextBoxColumn.Width = 140;
+            this.partIdDataGridViewTextBoxColumn.Width = 120;
             // 
             // partNameDataGridViewTextBoxColumn
             // 
@@ -369,7 +341,7 @@ namespace InventMS
             this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
             this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
             this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.partNameDataGridViewTextBoxColumn.Width = 141;
+            this.partNameDataGridViewTextBoxColumn.Width = 147;
             // 
             // inStockDataGridViewTextBoxColumn
             // 
@@ -377,7 +349,7 @@ namespace InventMS
             this.inStockDataGridViewTextBoxColumn.HeaderText = "Inventory Level";
             this.inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
             this.inStockDataGridViewTextBoxColumn.ReadOnly = true;
-            this.inStockDataGridViewTextBoxColumn.Width = 140;
+            this.inStockDataGridViewTextBoxColumn.Width = 144;
             // 
             // priceDataGridViewTextBoxColumn
             // 
@@ -385,17 +357,45 @@ namespace InventMS
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price/Cost per Unit";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Width = 140;
+            this.priceDataGridViewTextBoxColumn.Width = 150;
             // 
-            // partBindingSource
+            // productIdDataGridViewTextBoxColumn
             // 
-            this.partBindingSource.DataSource = typeof(Model.Part);
+            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
+            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIdDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 147;
+            // 
+            // inStockDataGridViewTextBoxColumn1
+            // 
+            this.inStockDataGridViewTextBoxColumn1.DataPropertyName = "InStock";
+            this.inStockDataGridViewTextBoxColumn1.HeaderText = "Inventory Level";
+            this.inStockDataGridViewTextBoxColumn1.Name = "inStockDataGridViewTextBoxColumn1";
+            this.inStockDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.inStockDataGridViewTextBoxColumn1.Width = 144;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price/Cost per Unit";
+            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn1.Width = 150;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 639);
+            this.ClientSize = new System.Drawing.Size(1194, 639);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -403,8 +403,8 @@ namespace InventMS
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.MaximumSize = new System.Drawing.Size(1211, 678);
-            this.MinimumSize = new System.Drawing.Size(1211, 678);
+            this.MaximumSize = new System.Drawing.Size(1210, 678);
+            this.MinimumSize = new System.Drawing.Size(1210, 678);
             this.Name = "MainWindow";
             this.Text = "Inventory Management System";
             this.groupBox2.ResumeLayout(false);
@@ -432,21 +432,21 @@ namespace InventMS
         private System.Windows.Forms.Button DeleteProdButton;
         private System.Windows.Forms.Button ModifyProdButton;
         private System.Windows.Forms.Button AddProdButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource partBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button searchPartButton;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
     }
 }
 

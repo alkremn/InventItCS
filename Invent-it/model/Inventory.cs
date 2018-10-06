@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Model
 {
     public class Inventory
     {
-        public List<Part> Parts { get; set; } = new List<Part>();
+        public BindingList<Part> Parts { get; set; } = new BindingList<Part>();
 
-        public List<Product> Products { get; set; } = new List<Product>();
+        public BindingList<Product> Products { get; set; } = new BindingList<Product>();
         
         
 

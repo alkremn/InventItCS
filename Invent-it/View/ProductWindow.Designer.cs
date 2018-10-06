@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductWindow));
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelProductButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -62,15 +62,15 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CancelButton.Location = new System.Drawing.Point(965, 613);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(82, 35);
-            this.CancelButton.TabIndex = 33;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelProductButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CancelProductButton.Location = new System.Drawing.Point(965, 613);
+            this.CancelProductButton.Name = "CancelButton";
+            this.CancelProductButton.Size = new System.Drawing.Size(82, 35);
+            this.CancelProductButton.TabIndex = 33;
+            this.CancelProductButton.Text = "Cancel";
+            this.CancelProductButton.UseVisualStyleBackColor = true;
+            this.CancelProductButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SaveButton
             // 
@@ -225,7 +225,7 @@
             // 
             this.ProductLabel.AutoSize = true;
             this.ProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductLabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.ProductLabel.ForeColor = System.Drawing.Color.SteelBlue;
             this.ProductLabel.Location = new System.Drawing.Point(61, 53);
             this.ProductLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ProductLabel.Name = "ProductLabel";
@@ -369,7 +369,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 708);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelProductButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -398,7 +398,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
@@ -418,6 +417,7 @@
         private System.Windows.Forms.Button searchPartButton;
         private System.Windows.Forms.Button DeletePartButton;
         private System.Windows.Forms.Button AddPartButton;
+        private System.Windows.Forms.Button CancelProductButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView PartsDataView;
     }
