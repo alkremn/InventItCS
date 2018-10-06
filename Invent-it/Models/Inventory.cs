@@ -17,9 +17,6 @@ namespace Model
 
         public void RemovePartByIndex(int id)
         {
-            if (id < 0 || id > Parts.Count)
-                throw new ArgumentException();
-
             Part partToRemove = FindPartById(id);
 
             if (partToRemove != null)
@@ -28,9 +25,6 @@ namespace Model
 
         public void RemoveProductByIndex(int id)
         {
-            if (id < 0 || id > Products.Count)
-                throw new ArgumentException();
-
             Product productToRemove = FindProductById(id);
             if (productToRemove != null)
                 Products.Remove(productToRemove);

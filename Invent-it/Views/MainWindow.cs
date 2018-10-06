@@ -15,6 +15,10 @@ namespace InventMS
     {
         public Inventory inventory = new Inventory();
 
+        private const string DELETE_MESSAGE = "Are you sure you want to delete this item?";
+        private const string WARNING = "Warning!";
+        private const string SELECT_ITEM = "Please select item.";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +44,7 @@ namespace InventMS
             }
             else
             {
-                MessageBox.Show("Please select Part to modify");
+                MessageBox.Show(SELECT_ITEM);
             }
         }
 
@@ -48,23 +52,16 @@ namespace InventMS
         {
             if (partsDataView.SelectedRows.Count == 1)
             {
-                var result = MessageBox.Show("Are you sure you want to delete this part?", "Warning!", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show(DELETE_MESSAGE, WARNING, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
-                    try
-                    {
-                        inventory.RemovePartByIndex(selected);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        MessageBox.Show($"Invalid Id {ex.Message}");
-                    }
+                    inventory.RemovePartByIndex(selected);
                 }
             }
             else
             {
-                MessageBox.Show("Please select part to delete.");
+                MessageBox.Show(SELECT_ITEM);
             }
             
         }
@@ -85,23 +82,17 @@ namespace InventMS
         {
             if (prodDataView.SelectedRows.Count == 1)
             {
-                var result = MessageBox.Show("Are you sure you want to delete this product?", "Warning!", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show(DELETE_MESSAGE, WARNING, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
-                    try
-                    {
-                        inventory.RemoveProductByIndex(selected);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        MessageBox.Show($"Invalid product ID {ex.Message}");
-                    }
+                    inventory.RemoveProductByIndex(selected);
+                    prodDataView.ClearSelection();
                 }
             }
             else
             {
-                MessageBox.Show("Please select product to delete.");
+                MessageBox.Show(SELECT_ITEM);
             }
 
         }
