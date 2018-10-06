@@ -40,6 +40,10 @@ namespace InventMS
 
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
+            var selected = (int)PartsDataView.SelectedRows[0].Cells[0].Value;
+            inventory.RemovePartByIndex(selected);
+            PartsDataView.DataSource = inventory.Parts;
+            PartsDataView.Update();
 
         }
 
@@ -64,6 +68,5 @@ namespace InventMS
             Environment.Exit(0);
         }
 
-       
     }
 }

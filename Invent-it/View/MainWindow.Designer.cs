@@ -37,6 +37,7 @@ namespace InventMS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.label1 = new System.Windows.Forms.Label();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.groupBox2 = new Model.RoundPanel();
             this.DeleteProdButton = new System.Windows.Forms.Button();
             this.ProdDataView = new System.Windows.Forms.DataGridView();
@@ -57,7 +58,6 @@ namespace InventMS
             this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ExitButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -76,6 +76,18 @@ namespace InventMS
             this.label1.Size = new System.Drawing.Size(186, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inventory MS";
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ExitButton.Location = new System.Drawing.Point(1079, 538);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 34);
+            this.ExitButton.TabIndex = 2;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // groupBox2
             // 
@@ -332,18 +344,6 @@ namespace InventMS
             // partBindingSource
             // 
             this.partBindingSource.DataSource = typeof(Model.Part);
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ExitButton.Location = new System.Drawing.Point(1079, 538);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(75, 34);
-            this.ExitButton.TabIndex = 2;
-            this.ExitButton.Text = "Exit";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // MainWindow
             // 
