@@ -32,7 +32,7 @@ namespace Model
                         if (values[0].Equals("InHouse"))
                         {
                             parts.Add(new Inhouse(parseValues.Item1, values[2], parseValues.Item2, parseValues.Item3,
-                                parseValues.Item4, parseValues.Item5, values[7]));
+                                parseValues.Item4, parseValues.Item5, int.Parse(values[7])));
                         }
                         else
                         {

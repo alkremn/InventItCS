@@ -67,9 +67,9 @@
             this.addModifyLabel.Location = new System.Drawing.Point(24, 55);
             this.addModifyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.addModifyLabel.Name = "addModifyLabel";
-            this.addModifyLabel.Size = new System.Drawing.Size(144, 29);
+            this.addModifyLabel.Size = new System.Drawing.Size(113, 29);
             this.addModifyLabel.TabIndex = 5;
-            this.addModifyLabel.Text = "Modify Part";
+            this.addModifyLabel.Text = "Add Part";
             // 
             // nameLabel
             // 
@@ -205,63 +205,87 @@
             this.nameText.AccessibleDescription = "";
             this.nameText.AccessibleName = "";
             this.nameText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.nameText.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.nameText.Location = new System.Drawing.Point(162, 185);
             this.nameText.Margin = new System.Windows.Forms.Padding(4);
             this.nameText.MinimumSize = new System.Drawing.Size(4, 20);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(275, 29);
             this.nameText.TabIndex = 13;
+            this.nameText.Text = "Name";
+            this.nameText.Enter += new System.EventHandler(this.NameText_Enter);
+            this.nameText.Leave += new System.EventHandler(this.NameText_Leave);
             // 
             // invText
             // 
             this.invText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invText.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.invText.Location = new System.Drawing.Point(162, 255);
             this.invText.Margin = new System.Windows.Forms.Padding(4);
             this.invText.MinimumSize = new System.Drawing.Size(4, 20);
             this.invText.Name = "invText";
             this.invText.Size = new System.Drawing.Size(275, 29);
             this.invText.TabIndex = 13;
+            this.invText.Text = "Inv";
+            this.invText.Enter += new System.EventHandler(this.InvText_Enter);
+            this.invText.Leave += new System.EventHandler(this.InvText_Leave);
             // 
             // priceText
             // 
             this.priceText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceText.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.priceText.Location = new System.Drawing.Point(162, 325);
             this.priceText.Margin = new System.Windows.Forms.Padding(4);
             this.priceText.MinimumSize = new System.Drawing.Size(4, 20);
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(275, 29);
             this.priceText.TabIndex = 13;
+            this.priceText.Text = "Price";
+            this.priceText.TextChanged += new System.EventHandler(this.PriceText_Changed);
+            this.priceText.Enter += new System.EventHandler(this.PriceText_Enter);
+            this.priceText.Leave += new System.EventHandler(this.PriceText_Leave);
             // 
             // maxText
             // 
             this.maxText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxText.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.maxText.Location = new System.Drawing.Point(162, 395);
             this.maxText.Margin = new System.Windows.Forms.Padding(4);
             this.maxText.MinimumSize = new System.Drawing.Size(4, 20);
             this.maxText.Name = "maxText";
             this.maxText.Size = new System.Drawing.Size(95, 29);
             this.maxText.TabIndex = 13;
+            this.maxText.Text = "Max";
+            this.maxText.Enter += new System.EventHandler(this.MaxText_Enter);
+            this.maxText.Leave += new System.EventHandler(this.MaxText_Leave);
             // 
             // minText
             // 
             this.minText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minText.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.minText.Location = new System.Drawing.Point(342, 395);
             this.minText.Margin = new System.Windows.Forms.Padding(4);
             this.minText.MinimumSize = new System.Drawing.Size(4, 20);
             this.minText.Name = "minText";
             this.minText.Size = new System.Drawing.Size(95, 29);
             this.minText.TabIndex = 13;
+            this.minText.Text = "Min";
+            this.minText.Enter += new System.EventHandler(this.MinText_Enter);
+            this.minText.Leave += new System.EventHandler(this.MinText_Leave);
             // 
             // compIdText
             // 
             this.compIdText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.compIdText.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.compIdText.Location = new System.Drawing.Point(162, 465);
             this.compIdText.Margin = new System.Windows.Forms.Padding(4);
             this.compIdText.MinimumSize = new System.Drawing.Size(4, 20);
             this.compIdText.Name = "compIdText";
             this.compIdText.Size = new System.Drawing.Size(275, 29);
             this.compIdText.TabIndex = 13;
+            this.compIdText.Text = "Company Name";
+            this.compIdText.Enter += new System.EventHandler(this.CompIDText_Enter);
+            this.compIdText.Leave += new System.EventHandler(this.CompIDText_Leave);
             // 
             // saveButton
             // 

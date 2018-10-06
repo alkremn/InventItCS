@@ -55,6 +55,8 @@
             this.addPartButton = new System.Windows.Forms.Button();
             this.prodPartsList = new System.Windows.Forms.DataGridView();
             this.availablePartsList = new System.Windows.Forms.DataGridView();
+            this.avPartsLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.partsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodPartsList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.availablePartsList)).BeginInit();
@@ -237,6 +239,8 @@
             // 
             this.partsGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.partsGroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.partsGroupBox.Controls.Add(this.label2);
+            this.partsGroupBox.Controls.Add(this.avPartsLabel);
             this.partsGroupBox.Controls.Add(this.searchBox);
             this.partsGroupBox.Controls.Add(this.searchPartButton);
             this.partsGroupBox.Controls.Add(this.deletePartButton);
@@ -363,6 +367,24 @@
             this.availablePartsList.Size = new System.Drawing.Size(545, 172);
             this.availablePartsList.TabIndex = 0;
             // 
+            // avPartsLabel
+            // 
+            this.avPartsLabel.AutoSize = true;
+            this.avPartsLabel.Location = new System.Drawing.Point(11, 43);
+            this.avPartsLabel.Name = "avPartsLabel";
+            this.avPartsLabel.Size = new System.Drawing.Size(69, 21);
+            this.avPartsLabel.TabIndex = 5;
+            this.avPartsLabel.Text = "All Parts:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 258);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(246, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Parts Associated with this Product:";
+            // 
             // productWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,5 +442,7 @@
         private System.Windows.Forms.Button cancelProdButton;
         private System.Windows.Forms.DataGridView prodPartsList;
         private System.Windows.Forms.DataGridView availablePartsList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label avPartsLabel;
     }
 }
