@@ -24,5 +24,17 @@ namespace InventMS
         {
             this.Close();
         }
+
+        private void RadButtonCheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked == true)
+            {
+                compIdLabel.Text = "Machine ID";
+            }
+            else
+            {
+                compIdLabel.Text = "Company Name";
+            }
+        }
     }
 }

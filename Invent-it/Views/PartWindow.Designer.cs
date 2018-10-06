@@ -40,7 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.compIdLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -67,7 +67,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 29);
             this.label2.TabIndex = 5;
-            this.label2.Text = Label;
+            this.label2.Text = "Modify Part";
             // 
             // label1
             // 
@@ -110,7 +110,7 @@
             this.InHouseButton.AutoSize = true;
             this.InHouseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InHouseButton.ForeColor = System.Drawing.Color.DimGray;
-            this.InHouseButton.Location = new System.Drawing.Point(189, 65);
+            this.InHouseButton.Location = new System.Drawing.Point(193, 65);
             this.InHouseButton.Margin = new System.Windows.Forms.Padding(4);
             this.InHouseButton.Name = "InHouseButton";
             this.InHouseButton.Size = new System.Drawing.Size(88, 20);
@@ -118,13 +118,14 @@
             this.InHouseButton.TabStop = true;
             this.InHouseButton.Text = "In-House";
             this.InHouseButton.UseVisualStyleBackColor = true;
+            this.InHouseButton.CheckedChanged += new System.EventHandler(this.RadButtonCheckedChanged);
             // 
             // OutsourcedButton
             // 
             this.OutsourcedButton.AutoSize = true;
             this.OutsourcedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OutsourcedButton.ForeColor = System.Drawing.Color.DimGray;
-            this.OutsourcedButton.Location = new System.Drawing.Point(311, 64);
+            this.OutsourcedButton.Location = new System.Drawing.Point(305, 65);
             this.OutsourcedButton.Margin = new System.Windows.Forms.Padding(4);
             this.OutsourcedButton.Name = "OutsourcedButton";
             this.OutsourcedButton.Size = new System.Drawing.Size(105, 20);
@@ -169,23 +170,24 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Min";
             // 
-            // label8
+            // compIdLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(13, 469);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(134, 20);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Company Name";
+            this.compIdLabel.AutoSize = true;
+            this.compIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.compIdLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.compIdLabel.Location = new System.Drawing.Point(13, 469);
+            this.compIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.compIdLabel.Name = "compIdLabel";
+            this.compIdLabel.Size = new System.Drawing.Size(134, 20);
+            this.compIdLabel.TabIndex = 11;
+            this.compIdLabel.Text = "Company Name";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.textBox1.Location = new System.Drawing.Point(162, 125);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.MinimumSize = new System.Drawing.Size(100, 20);
@@ -197,7 +199,10 @@
             // 
             // textBox2
             // 
+            this.textBox2.AccessibleDescription = "";
+            this.textBox2.AccessibleName = "";
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.textBox2.Location = new System.Drawing.Point(162, 185);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.MinimumSize = new System.Drawing.Size(4, 20);
@@ -293,7 +298,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.compIdLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.OutsourcedButton);
@@ -324,7 +329,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label compIdLabel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
