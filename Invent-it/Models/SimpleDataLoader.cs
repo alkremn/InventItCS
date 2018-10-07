@@ -29,7 +29,7 @@ namespace Model
                         string[] values = line.Split(',');
                         var parseValues = GetValues(values);
 
-                        if (values[0].Equals("InHouse"))
+                        if (values[0].Equals("Model.InHouse"))
                         {
                             parts.Add(new Inhouse(parseValues.Item1, values[2], parseValues.Item2, parseValues.Item3,
                                 parseValues.Item4, parseValues.Item5, int.Parse(values[7])));
@@ -110,9 +110,14 @@ namespace Model
 
                     foreach (Part part in parts)
                     {
-
-                        writer.WriteLine(part);
-
+                        if (part is Inhouse inPart)
+                        {
+                            writer.WriteLine(inPart);
+                        }
+                        else
+                        {
+                            writer.WriteLine(((Outsourced)part));
+                        }
                     }
                 }
             }

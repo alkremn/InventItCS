@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace InventMS
 {
@@ -14,11 +15,19 @@ namespace InventMS
     {
         public string Label { get; set; }
 
-        public PartWindow(string title)
+        private Part _part;
+
+        public PartWindow(string title, ref Part part)
         {
             Label = title;
+            _part = part;
+
             InitializeComponent();
-            outsourced.Select();
+
+            if (_part != null)
+            {
+                InitFields();
+            }
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -42,6 +51,29 @@ namespace InventMS
         {
 
         }
+
+        void InitFields()
+        {
+            idText.Text = _part.PartId.ToString();
+            nameText.Text = _part.PartName;
+            invText.Text = _part.InStock.ToString();
+            priceText.Text = _part.Price.ToString();
+            maxText.Text = _part.Max.ToString();
+            minText.Text = _part.Min.ToString();
+
+            if(_part is Inhouse)
+            {
+                inHouse.Select();
+                compIdText.Text = ((Inhouse)_part).MachineId.ToString();
+            }
+            else
+            {
+                outsourced.Select();
+                compIdText.Text = ((Outsourced)_part).CompanyName;
+            }
+        }
+
+
 
         private void NameText_Enter(object sender, EventArgs e)
         {

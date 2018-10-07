@@ -30,16 +30,19 @@ namespace InventMS
 
         private void AddPartButton_Click(object sender, EventArgs e)
         {
-
-            PartWindow partWindow = new PartWindow("Add Part");
+            Part part = null;
+            PartWindow partWindow = new PartWindow("Add Part", ref part);
             partWindow.ShowDialog();
         }
 
         private void ModifyPartButton_Click(object sender, EventArgs e)
         {
-            if (partsDataView.SelectedRows.Count > 0)
+            if (partsDataView.SelectedRows.Count == 1)
             {
-                PartWindow partWindow = new PartWindow("Modify Part");
+                var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
+                Part part = inventory.FindPartById(selected);
+
+                PartWindow partWindow = new PartWindow("Modify Part", ref part);
                 partWindow.ShowDialog();
             }
             else
@@ -99,8 +102,8 @@ namespace InventMS
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Model.SimpleDataLoader.WriteSamplePartsToCSV(inventory.Parts);
-            Model.SimpleDataLoader.WriteSampleProductsToCSV(inventory.Products);
+            //Model.SimpleDataLoader.WriteSamplePartsToCSV(inventory.Parts);
+            //Model.SimpleDataLoader.WriteSampleProductsToCSV(inventory.Products);
             Environment.Exit(0);
         }
 
