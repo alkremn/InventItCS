@@ -9,11 +9,14 @@ namespace Model
 {
     public class Inventory
     {
+
+       
+
         public BindingList<Part> Parts { get; set; } = new BindingList<Part>();
 
         public BindingList<Product> Products { get; set; } = new BindingList<Product>();
-        
-        
+
+        private static int _partId = 0;
 
         public void RemovePartByIndex(int id)
         {
@@ -22,6 +25,15 @@ namespace Model
             if (partToRemove != null)
                 Parts.Remove(partToRemove);
         }
+
+        public int GetNewPartId
+        {
+            get
+            {
+                return _partId++;
+            }
+        }
+
 
         public void RemoveProductByIndex(int id)
         {

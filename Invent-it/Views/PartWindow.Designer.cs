@@ -196,7 +196,7 @@
             this.idText.MinimumSize = new System.Drawing.Size(100, 20);
             this.idText.Name = "idText";
             this.idText.Size = new System.Drawing.Size(275, 29);
-            this.idText.TabIndex = 13;
+            this.idText.TabIndex = 0;
             this.idText.Tag = "";
             this.idText.Text = "Auto Gen -Disabled";
             // 
@@ -211,7 +211,7 @@
             this.nameText.MinimumSize = new System.Drawing.Size(4, 20);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(275, 29);
-            this.nameText.TabIndex = 13;
+            this.nameText.TabIndex = 1;
             this.nameText.Text = "Name";
             this.nameText.Enter += new System.EventHandler(this.NameText_Enter);
             this.nameText.Leave += new System.EventHandler(this.NameText_Leave);
@@ -225,7 +225,7 @@
             this.invText.MinimumSize = new System.Drawing.Size(4, 20);
             this.invText.Name = "invText";
             this.invText.Size = new System.Drawing.Size(275, 29);
-            this.invText.TabIndex = 13;
+            this.invText.TabIndex = 2;
             this.invText.Text = "Inv";
             this.invText.Enter += new System.EventHandler(this.InvText_Enter);
             this.invText.Leave += new System.EventHandler(this.InvText_Leave);
@@ -239,7 +239,7 @@
             this.priceText.MinimumSize = new System.Drawing.Size(4, 20);
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(275, 29);
-            this.priceText.TabIndex = 13;
+            this.priceText.TabIndex = 3;
             this.priceText.Text = "Price";
             this.priceText.TextChanged += new System.EventHandler(this.PriceText_Changed);
             this.priceText.Enter += new System.EventHandler(this.PriceText_Enter);
@@ -254,7 +254,7 @@
             this.maxText.MinimumSize = new System.Drawing.Size(4, 20);
             this.maxText.Name = "maxText";
             this.maxText.Size = new System.Drawing.Size(95, 29);
-            this.maxText.TabIndex = 13;
+            this.maxText.TabIndex = 4;
             this.maxText.Text = "Max";
             this.maxText.Enter += new System.EventHandler(this.MaxText_Enter);
             this.maxText.Leave += new System.EventHandler(this.MaxText_Leave);
@@ -268,7 +268,7 @@
             this.minText.MinimumSize = new System.Drawing.Size(4, 20);
             this.minText.Name = "minText";
             this.minText.Size = new System.Drawing.Size(95, 29);
-            this.minText.TabIndex = 13;
+            this.minText.TabIndex = 5;
             this.minText.Text = "Min";
             this.minText.Enter += new System.EventHandler(this.MinText_Enter);
             this.minText.Leave += new System.EventHandler(this.MinText_Leave);
@@ -282,7 +282,7 @@
             this.compIdText.MinimumSize = new System.Drawing.Size(4, 20);
             this.compIdText.Name = "compIdText";
             this.compIdText.Size = new System.Drawing.Size(275, 29);
-            this.compIdText.TabIndex = 13;
+            this.compIdText.TabIndex = 6;
             this.compIdText.Text = "Company Name";
             this.compIdText.Enter += new System.EventHandler(this.CompIDText_Enter);
             this.compIdText.Leave += new System.EventHandler(this.CompIDText_Leave);
@@ -306,7 +306,7 @@
             this.cancelButton.Location = new System.Drawing.Point(356, 539);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(80, 35);
-            this.cancelButton.TabIndex = 14;
+            this.cancelButton.TabIndex = 0;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.Cancel_Click);

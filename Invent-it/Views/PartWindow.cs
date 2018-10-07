@@ -11,18 +11,27 @@ using Model;
 
 namespace InventMS
 {
+    public delegate void SavePartEventHandler(ref Part part);
+
     public partial class PartWindow : Form
     {
+        public event SavePartEventHandler SavePartEvent;
+
         public string Label { get; set; }
 
         private Part _part;
 
-        public PartWindow(string title, ref Part part)
+        private int _id;
+
+        public PartWindow(string title, ref Part part, int id)
         {
             Label = title;
             _part = part;
+            _id = id;
 
             InitializeComponent();
+
+            nameLabel.Focus();
 
             if (_part != null)
             {
@@ -40,19 +49,92 @@ namespace InventMS
             if (((RadioButton)sender).Name.Equals(nameof(inHouse)))
             {
                 compIdLabel.Text = "Machine ID";
+                if(compIdText.Text == "" || compIdText.Text == "Company Name")
+                {
+                    compIdText.Text = "Machine ID";
+                }
             }
             else
             {
                 compIdLabel.Text = "Company Name";
+                if (compIdText.Text == "" || compIdText.Text == "Machine ID")
+                {
+                    compIdText.Text = "Company Name";
+                }
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(_part == null)
+
+            if (GatherInfoFromFields())
             {
-                    
+                Part part = null;
+                //Raise an event
+                SavePartEvent(ref part);
+                this.Close();
             }
+        }
+
+        bool GatherInfoFromFields()
+        {
+            StringBuilder error = new StringBuilder();
+            string name;
+
+            if (nameText.Text != "" && nameText.Text != "Name")
+            {
+                name = nameText.Text;
+            }
+            else
+            {
+                error.Append("Invalid Name!\n");
+            }
+
+            if (IsPriceFieldValid())
+            {
+                double.TryParse(priceText.Text, out double price);
+            }
+
+            if (invText.Text != "" && invText.Text != "Inv")
+            {
+                int.TryParse(invText.Text, out int inv);
+            }
+            else
+            {
+                error.Append("Invalid Inventory!\n");
+            }
+
+            if (maxText.Text != "" && maxText.Text != "Max")
+            {
+                int.TryParse(maxText.Text, out int max);
+            }
+            else
+            {
+                error.Append("Invalid Max value!\n");
+            }
+
+            if (minText.Text != "" && minText.Text != "MIn")
+            {
+                int.TryParse(minText.Text, out int min);
+            }
+            else
+            {
+                error.Append("Invalid Min value!\n");
+            }
+
+            if(inHouse.Checked)
+            {
+               
+            }
+
+            if(error.Length != 0)
+            {
+                MessageBox.Show(error.ToString(), "Error",MessageBoxButtons.OK);
+            }
+
+
+
+            return false;
         }
 
         void InitFields()
@@ -168,7 +250,7 @@ namespace InventMS
 
         private void CompIDText_Enter(object sender, EventArgs e)
         {
-            if (compIdText.Text == "Company Name")
+            if (compIdText.Text == "Company Name" || compIdText.Text == "Machine ID")
                 compIdText.Text = "";
 
             compIdText.ForeColor = Color.Black;
@@ -178,12 +260,24 @@ namespace InventMS
         {
             if (compIdText.Text == "")
             {
-                compIdText.Text = "Company Name";
+                if (inHouse.Checked)
+                {
+                    compIdText.Text = "Machine ID";
+                }
+                else
+                {
+                    compIdText.Text = "Company Name";
+                }
                 compIdText.ForeColor = SystemColors.ControlDark;
             }
         }
 
         private void PriceText_Changed(object sender, EventArgs e)
+        {
+            IsPriceFieldValid();
+        }
+
+        bool IsPriceFieldValid()
         {
             if (priceText.Text != "")
             {
@@ -196,6 +290,7 @@ namespace InventMS
                     else
                     {
                         priceText.BackColor = SystemColors.Window;
+                        return true;
                     }
                 }
             }
@@ -203,7 +298,7 @@ namespace InventMS
             {
                 priceText.BackColor = SystemColors.Window;
             }
-            
+            return false;
         }
 
        
