@@ -33,6 +33,7 @@ namespace InventMS
             Part part = null;
             PartWindow partWindow = new PartWindow("Add Part", ref part);
             partWindow.ShowDialog();
+            
         }
 
         private void ModifyPartButton_Click(object sender, EventArgs e)

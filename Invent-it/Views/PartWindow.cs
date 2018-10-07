@@ -49,7 +49,10 @@ namespace InventMS
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
+            if(_part == null)
+            {
+                    
+            }
         }
 
         void InitFields()
