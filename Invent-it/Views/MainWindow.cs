@@ -22,8 +22,8 @@ namespace InventMS
         public MainWindow()
         {
             InitializeComponent();
-            inventory.Parts = new BindingList<Part>(Model.SimpleDataLoader.ReadSimplePartsFromCSV());
-            inventory.Products = new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV());
+            inventory.AddParts(new BindingList<Part>(Model.SimpleDataLoader.ReadSimplePartsFromCSV()));
+            inventory.AddProducts(new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV()));
             partsDataView.DataSource = inventory.Parts;
             prodDataView.DataSource = inventory.Products;
         }
@@ -57,7 +57,8 @@ namespace InventMS
 
         void HandleSaveButtonClickedEvent(object sender, SavePartEventArgs e)
         {
-            inventory.Parts.Add(e.SavedPart);
+            inventory.AddPart(e.SavedPart);
+            partsDataView.DataSource = inventory.Parts;
         }
 
 
