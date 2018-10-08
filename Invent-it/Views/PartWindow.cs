@@ -35,8 +35,6 @@ namespace InventMS
 
             InitializeComponent();
 
-            nameLabel.Focus();
-
             if (_part != null)
             {
                 InitModifyPartFields();
@@ -63,6 +61,7 @@ namespace InventMS
             if (((RadioButton)sender).Name.Equals(nameof(inHouse)))
             {
                 compIdLabel.Text = "Machine ID";
+                compIdToolTip.SetToolTip(compIdText, "Machine ID number is required");
                 if(!int.TryParse(compIdText.Text, out int intValue))
                 {
                     compIdText.BackColor = Color.LightCoral;
@@ -73,6 +72,7 @@ namespace InventMS
             else
             {
                 compIdLabel.Text = "Company Name";
+                compIdToolTip.SetToolTip(compIdText, "Company name is required");
                 if (compIdText.Text != "")
                 {
                     compIdText.BackColor = Color.White;
@@ -175,8 +175,6 @@ namespace InventMS
             }
         }
 
-
-
         private void NameText_Enter(object sender, EventArgs e)
         {
             nameText.BackColor = Color.White;
@@ -269,7 +267,6 @@ namespace InventMS
             }
         }
 
-
         private void InvText_Changed(object sender, EventArgs e)
         {
             if(invText.Text != "" && !int.TryParse(invText.Text, out int inValue))
@@ -326,7 +323,6 @@ namespace InventMS
                 _isMinNumber = true;
                 minText.BackColor = Color.White;
             }
-
         }
 
         private void CompIdText_Changed(object sender, EventArgs e)
@@ -354,20 +350,13 @@ namespace InventMS
 
     public class SavePartEventArgs : EventArgs
     {
-        private Part _savedPart;
+
+        public Part SavedPart { get; set; }
 
         public SavePartEventArgs(Part savedPart)
         {
-            _savedPart = savedPart;
+            SavedPart = savedPart;
         }
-
-
-        public Part SavedPart
-        {
-            get { return _savedPart; }
-            set { _savedPart = value; }
-        }
-
 
     }
 

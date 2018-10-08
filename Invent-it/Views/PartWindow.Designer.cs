@@ -51,7 +51,11 @@
             this.radButtonsBox = new System.Windows.Forms.GroupBox();
             this.NameToopTip = new System.Windows.Forms.ToolTip(this.components);
             this.nameText = new System.Windows.Forms.TextBox();
-            this.NumberToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.InvToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.priceToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.maxToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.minToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.compIdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.radButtonsBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -207,7 +211,7 @@
             this.invText.Name = "invText";
             this.invText.Size = new System.Drawing.Size(206, 29);
             this.invText.TabIndex = 2;
-            this.NumberToolTip.SetToolTip(this.invText, "Number is required");
+            this.InvToolTip.SetToolTip(this.invText, "Inventory number is required");
             this.invText.TextChanged += new System.EventHandler(this.InvText_Changed);
             this.invText.Enter += new System.EventHandler(this.InvText_Enter);
             this.invText.Leave += new System.EventHandler(this.InvText_Leave);
@@ -223,7 +227,7 @@
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(206, 29);
             this.priceText.TabIndex = 3;
-            this.NumberToolTip.SetToolTip(this.priceText, "Number is required");
+            this.priceToolTip.SetToolTip(this.priceText, "Price number is required");
             this.priceText.TextChanged += new System.EventHandler(this.PriceText_Changed);
             this.priceText.Enter += new System.EventHandler(this.PriceText_Enter);
             this.priceText.Leave += new System.EventHandler(this.PriceText_Leave);
@@ -239,7 +243,7 @@
             this.maxText.Name = "maxText";
             this.maxText.Size = new System.Drawing.Size(73, 29);
             this.maxText.TabIndex = 4;
-            this.NumberToolTip.SetToolTip(this.maxText, "Number is required");
+            this.maxToolTip.SetToolTip(this.maxText, "Max number is required");
             this.maxText.TextChanged += new System.EventHandler(this.MaxText_Changed);
             this.maxText.Enter += new System.EventHandler(this.MaxText_Enter);
             this.maxText.Leave += new System.EventHandler(this.MaxText_Leave);
@@ -255,7 +259,7 @@
             this.minText.Name = "minText";
             this.minText.Size = new System.Drawing.Size(73, 29);
             this.minText.TabIndex = 5;
-            this.NumberToolTip.SetToolTip(this.minText, "Number is required");
+            this.minToolTip.SetToolTip(this.minText, "Min number is required");
             this.minText.TextChanged += new System.EventHandler(this.MinText_Changed);
             this.minText.Enter += new System.EventHandler(this.MinText_Enter);
             this.minText.Leave += new System.EventHandler(this.MinText_Leave);
@@ -271,6 +275,7 @@
             this.compIdText.Name = "compIdText";
             this.compIdText.Size = new System.Drawing.Size(206, 29);
             this.compIdText.TabIndex = 6;
+            this.compIdToolTip.SetToolTip(this.compIdText, "Company name is required");
             this.compIdText.TextChanged += new System.EventHandler(this.CompIdText_Changed);
             this.compIdText.Enter += new System.EventHandler(this.CompIDText_Enter);
             this.compIdText.Leave += new System.EventHandler(this.CompIDText_Leave);
@@ -315,6 +320,9 @@
             // NameToopTip
             // 
             this.NameToopTip.AutomaticDelay = 100;
+            this.NameToopTip.AutoPopDelay = 5000;
+            this.NameToopTip.InitialDelay = 100;
+            this.NameToopTip.ReshowDelay = 20;
             this.NameToopTip.Tag = "";
             // 
             // nameText
@@ -336,9 +344,40 @@
             this.nameText.Enter += new System.EventHandler(this.NameText_Enter);
             this.nameText.Leave += new System.EventHandler(this.NameText_Leave);
             // 
-            // NumberToolTip
+            // InvToolTip
             // 
-            this.NumberToolTip.AutomaticDelay = 100;
+            this.InvToolTip.AutomaticDelay = 100;
+            this.InvToolTip.AutoPopDelay = 5000;
+            this.InvToolTip.InitialDelay = 100;
+            this.InvToolTip.ReshowDelay = 20;
+            // 
+            // priceToolTip
+            // 
+            this.priceToolTip.AutomaticDelay = 100;
+            this.priceToolTip.AutoPopDelay = 5000;
+            this.priceToolTip.InitialDelay = 100;
+            this.priceToolTip.ReshowDelay = 20;
+            // 
+            // maxToolTip
+            // 
+            this.maxToolTip.AutomaticDelay = 100;
+            this.maxToolTip.AutoPopDelay = 5000;
+            this.maxToolTip.InitialDelay = 100;
+            this.maxToolTip.ReshowDelay = 20;
+            // 
+            // minToolTip
+            // 
+            this.minToolTip.AutomaticDelay = 100;
+            this.minToolTip.AutoPopDelay = 5000;
+            this.minToolTip.InitialDelay = 100;
+            this.minToolTip.ReshowDelay = 20;
+            // 
+            // compIdToolTip
+            // 
+            this.compIdToolTip.AutomaticDelay = 100;
+            this.compIdToolTip.AutoPopDelay = 5000;
+            this.compIdToolTip.InitialDelay = 100;
+            this.compIdToolTip.ReshowDelay = 20;
             // 
             // PartWindow
             // 
@@ -399,6 +438,10 @@
         private System.Windows.Forms.GroupBox radButtonsBox;
         private System.Windows.Forms.ToolTip NameToopTip;
         private System.Windows.Forms.TextBox nameText;
-        private System.Windows.Forms.ToolTip NumberToolTip;
+        private System.Windows.Forms.ToolTip InvToolTip;
+        private System.Windows.Forms.ToolTip priceToolTip;
+        private System.Windows.Forms.ToolTip maxToolTip;
+        private System.Windows.Forms.ToolTip minToolTip;
+        private System.Windows.Forms.ToolTip compIdToolTip;
     }
 }
