@@ -139,14 +139,21 @@ namespace InventMS
 
         void InitFields()
         {
+           
             idText.Text = _part.PartId.ToString();
             nameText.Text = _part.PartName;
+            nameText.ForeColor = SystemColors.ControlText;
             invText.Text = _part.InStock.ToString();
+            invText.ForeColor = SystemColors.ControlText;
             priceText.Text = _part.Price.ToString();
+            priceText.ForeColor = SystemColors.ControlText;
             maxText.Text = _part.Max.ToString();
+            maxText.ForeColor = SystemColors.ControlText;
             minText.Text = _part.Min.ToString();
+            minText.ForeColor = SystemColors.ControlText;
+            compIdText.ForeColor = SystemColors.ControlText;
 
-            if(_part is Inhouse)
+            if (_part is Inhouse)
             {
                 inHouse.Select();
                 compIdText.Text = ((Inhouse)_part).MachineId.ToString();

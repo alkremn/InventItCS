@@ -49,14 +49,14 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.productLabel = new System.Windows.Forms.Label();
             this.partsGroupBox = new Model.RoundPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.avPartsLabel = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchPartButton = new System.Windows.Forms.Button();
             this.deletePartButton = new System.Windows.Forms.Button();
             this.addPartButton = new System.Windows.Forms.Button();
             this.prodPartsList = new System.Windows.Forms.DataGridView();
             this.availablePartsList = new System.Windows.Forms.DataGridView();
-            this.avPartsLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.partsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodPartsList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.availablePartsList)).BeginInit();
@@ -66,7 +66,7 @@
             // 
             this.cancelProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cancelProdButton.Location = new System.Drawing.Point(965, 613);
+            this.cancelProdButton.Location = new System.Drawing.Point(939, 609);
             this.cancelProdButton.Name = "cancelProdButton";
             this.cancelProdButton.Size = new System.Drawing.Size(82, 35);
             this.cancelProdButton.TabIndex = 33;
@@ -78,7 +78,7 @@
             // 
             this.saveProdButton.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveProdButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.saveProdButton.Location = new System.Drawing.Point(858, 613);
+            this.saveProdButton.Location = new System.Drawing.Point(832, 609);
             this.saveProdButton.Name = "saveProdButton";
             this.saveProdButton.Size = new System.Drawing.Size(82, 35);
             this.saveProdButton.TabIndex = 32;
@@ -89,7 +89,7 @@
             // minText
             // 
             this.minText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minText.Location = new System.Drawing.Point(356, 423);
+            this.minText.Location = new System.Drawing.Point(328, 423);
             this.minText.Margin = new System.Windows.Forms.Padding(4);
             this.minText.MinimumSize = new System.Drawing.Size(4, 20);
             this.minText.Name = "minText";
@@ -99,7 +99,7 @@
             // maxText
             // 
             this.maxText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxText.Location = new System.Drawing.Point(180, 423);
+            this.maxText.Location = new System.Drawing.Point(152, 423);
             this.maxText.Margin = new System.Windows.Forms.Padding(4);
             this.maxText.MinimumSize = new System.Drawing.Size(4, 20);
             this.maxText.Name = "maxText";
@@ -109,7 +109,7 @@
             // priceText
             // 
             this.priceText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceText.Location = new System.Drawing.Point(180, 353);
+            this.priceText.Location = new System.Drawing.Point(152, 353);
             this.priceText.Margin = new System.Windows.Forms.Padding(4);
             this.priceText.MinimumSize = new System.Drawing.Size(4, 20);
             this.priceText.Name = "priceText";
@@ -119,7 +119,7 @@
             // invText
             // 
             this.invText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invText.Location = new System.Drawing.Point(180, 283);
+            this.invText.Location = new System.Drawing.Point(152, 283);
             this.invText.Margin = new System.Windows.Forms.Padding(4);
             this.invText.MinimumSize = new System.Drawing.Size(4, 20);
             this.invText.Name = "invText";
@@ -129,7 +129,7 @@
             // nameText
             // 
             this.nameText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameText.Location = new System.Drawing.Point(180, 213);
+            this.nameText.Location = new System.Drawing.Point(152, 213);
             this.nameText.Margin = new System.Windows.Forms.Padding(4);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(242, 29);
@@ -141,7 +141,7 @@
             this.idText.Enabled = false;
             this.idText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.idText.Location = new System.Drawing.Point(180, 153);
+            this.idText.Location = new System.Drawing.Point(152, 153);
             this.idText.Margin = new System.Windows.Forms.Padding(4);
             this.idText.MaximumSize = new System.Drawing.Size(242, 40);
             this.idText.MinimumSize = new System.Drawing.Size(100, 25);
@@ -168,7 +168,7 @@
             this.minLabel.AutoSize = true;
             this.minLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.minLabel.Location = new System.Drawing.Point(288, 427);
+            this.minLabel.Location = new System.Drawing.Point(260, 427);
             this.minLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(37, 20);
@@ -249,7 +249,7 @@
             this.partsGroupBox.Controls.Add(this.availablePartsList);
             this.partsGroupBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsGroupBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.partsGroupBox.Location = new System.Drawing.Point(472, 53);
+            this.partsGroupBox.Location = new System.Drawing.Point(446, 65);
             this.partsGroupBox.Name = "partsGroupBox";
             this.partsGroupBox.Radious = 15;
             this.partsGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -261,6 +261,24 @@
             this.partsGroupBox.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold);
             this.partsGroupBox.TitleForeColor = System.Drawing.Color.White;
             this.partsGroupBox.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 258);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(246, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Parts Associated with this Product:";
+            // 
+            // avPartsLabel
+            // 
+            this.avPartsLabel.AutoSize = true;
+            this.avPartsLabel.Location = new System.Drawing.Point(11, 43);
+            this.avPartsLabel.Name = "avPartsLabel";
+            this.avPartsLabel.Size = new System.Drawing.Size(69, 21);
+            this.avPartsLabel.TabIndex = 5;
+            this.avPartsLabel.Text = "All Parts:";
             // 
             // searchBox
             // 
@@ -367,29 +385,11 @@
             this.availablePartsList.Size = new System.Drawing.Size(545, 172);
             this.availablePartsList.TabIndex = 0;
             // 
-            // avPartsLabel
-            // 
-            this.avPartsLabel.AutoSize = true;
-            this.avPartsLabel.Location = new System.Drawing.Point(11, 43);
-            this.avPartsLabel.Name = "avPartsLabel";
-            this.avPartsLabel.Size = new System.Drawing.Size(69, 21);
-            this.avPartsLabel.TabIndex = 5;
-            this.avPartsLabel.Text = "All Parts:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 258);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(246, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Parts Associated with this Product:";
-            // 
             // productWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 708);
+            this.ClientSize = new System.Drawing.Size(1081, 688);
             this.Controls.Add(this.partsGroupBox);
             this.Controls.Add(this.cancelProdButton);
             this.Controls.Add(this.saveProdButton);
@@ -407,6 +407,8 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.productLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1097, 727);
+            this.MinimumSize = new System.Drawing.Size(1097, 727);
             this.Name = "productWindow";
             this.Text = "ProductWindow";
             this.partsGroupBox.ResumeLayout(false);
