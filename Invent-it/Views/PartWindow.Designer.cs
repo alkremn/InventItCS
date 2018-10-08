@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartWindow));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addModifyLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.minLabel = new System.Windows.Forms.Label();
             this.compIdLabel = new System.Windows.Forms.Label();
             this.idText = new System.Windows.Forms.TextBox();
-            this.nameText = new System.Windows.Forms.TextBox();
             this.invText = new System.Windows.Forms.TextBox();
             this.priceText = new System.Windows.Forms.TextBox();
             this.maxText = new System.Windows.Forms.TextBox();
@@ -51,13 +49,11 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.radButtonsBox = new System.Windows.Forms.GroupBox();
+            this.NameToopTip = new System.Windows.Forms.ToolTip(this.components);
+            this.nameText = new System.Windows.Forms.TextBox();
+            this.NumberToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.radButtonsBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // addModifyLabel
             // 
@@ -200,24 +196,9 @@
             this.idText.Tag = "";
             this.idText.Text = "Auto Gen - Disabled";
             // 
-            // nameText
-            // 
-            this.nameText.AccessibleDescription = "";
-            this.nameText.AccessibleName = "";
-            this.nameText.BackColor = System.Drawing.Color.White;
-            this.nameText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nameText.Location = new System.Drawing.Point(155, 190);
-            this.nameText.Margin = new System.Windows.Forms.Padding(4);
-            this.nameText.MinimumSize = new System.Drawing.Size(4, 20);
-            this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(206, 29);
-            this.nameText.TabIndex = 1;
-            this.nameText.Enter += new System.EventHandler(this.NameText_Enter);
-            this.nameText.Leave += new System.EventHandler(this.NameText_Leave);
-            // 
             // invText
             // 
+            this.invText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.invText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.invText.Location = new System.Drawing.Point(155, 250);
@@ -226,12 +207,14 @@
             this.invText.Name = "invText";
             this.invText.Size = new System.Drawing.Size(206, 29);
             this.invText.TabIndex = 2;
+            this.NumberToolTip.SetToolTip(this.invText, "Number is required");
             this.invText.TextChanged += new System.EventHandler(this.InvText_Changed);
             this.invText.Enter += new System.EventHandler(this.InvText_Enter);
             this.invText.Leave += new System.EventHandler(this.InvText_Leave);
             // 
             // priceText
             // 
+            this.priceText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.priceText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.priceText.Location = new System.Drawing.Point(155, 310);
@@ -240,12 +223,14 @@
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(206, 29);
             this.priceText.TabIndex = 3;
+            this.NumberToolTip.SetToolTip(this.priceText, "Number is required");
             this.priceText.TextChanged += new System.EventHandler(this.PriceText_Changed);
             this.priceText.Enter += new System.EventHandler(this.PriceText_Enter);
             this.priceText.Leave += new System.EventHandler(this.PriceText_Leave);
             // 
             // maxText
             // 
+            this.maxText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.maxText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.maxText.Location = new System.Drawing.Point(155, 370);
@@ -254,12 +239,14 @@
             this.maxText.Name = "maxText";
             this.maxText.Size = new System.Drawing.Size(73, 29);
             this.maxText.TabIndex = 4;
+            this.NumberToolTip.SetToolTip(this.maxText, "Number is required");
             this.maxText.TextChanged += new System.EventHandler(this.MaxText_Changed);
             this.maxText.Enter += new System.EventHandler(this.MaxText_Enter);
             this.maxText.Leave += new System.EventHandler(this.MaxText_Leave);
             // 
             // minText
             // 
+            this.minText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.minText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.minText.Location = new System.Drawing.Point(288, 370);
@@ -268,12 +255,14 @@
             this.minText.Name = "minText";
             this.minText.Size = new System.Drawing.Size(73, 29);
             this.minText.TabIndex = 5;
+            this.NumberToolTip.SetToolTip(this.minText, "Number is required");
             this.minText.TextChanged += new System.EventHandler(this.MinText_Changed);
             this.minText.Enter += new System.EventHandler(this.MinText_Enter);
             this.minText.Leave += new System.EventHandler(this.MinText_Leave);
             // 
             // compIdText
             // 
+            this.compIdText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.compIdText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compIdText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.compIdText.Location = new System.Drawing.Point(155, 430);
@@ -323,6 +312,34 @@
             this.radButtonsBox.TabIndex = 15;
             this.radButtonsBox.TabStop = false;
             // 
+            // NameToopTip
+            // 
+            this.NameToopTip.AutomaticDelay = 100;
+            this.NameToopTip.Tag = "";
+            // 
+            // nameText
+            // 
+            this.nameText.AccessibleDescription = "";
+            this.nameText.AccessibleName = "";
+            this.nameText.BackColor = System.Drawing.Color.White;
+            this.nameText.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.nameText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameText.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.nameText.Location = new System.Drawing.Point(155, 190);
+            this.nameText.Margin = new System.Windows.Forms.Padding(4);
+            this.nameText.MinimumSize = new System.Drawing.Size(4, 20);
+            this.nameText.Name = "nameText";
+            this.nameText.Size = new System.Drawing.Size(206, 29);
+            this.nameText.TabIndex = 1;
+            this.nameText.Tag = "";
+            this.NameToopTip.SetToolTip(this.nameText, "Name is  required");
+            this.nameText.Enter += new System.EventHandler(this.NameText_Enter);
+            this.nameText.Leave += new System.EventHandler(this.NameText_Leave);
+            // 
+            // NumberToolTip
+            // 
+            this.NumberToolTip.AutomaticDelay = 100;
+            // 
             // PartWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -361,7 +378,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label addModifyLabel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label idLabel;
@@ -373,7 +389,6 @@
         private System.Windows.Forms.Label minLabel;
         private System.Windows.Forms.Label compIdLabel;
         private System.Windows.Forms.TextBox idText;
-        private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.TextBox invText;
         private System.Windows.Forms.TextBox priceText;
         private System.Windows.Forms.TextBox maxText;
@@ -382,5 +397,8 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.GroupBox radButtonsBox;
+        private System.Windows.Forms.ToolTip NameToopTip;
+        private System.Windows.Forms.TextBox nameText;
+        private System.Windows.Forms.ToolTip NumberToolTip;
     }
 }
