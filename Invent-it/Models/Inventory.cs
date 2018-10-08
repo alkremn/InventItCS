@@ -35,6 +35,11 @@ namespace Model
         }
 
 
+        public void ReplacePart(Part part)
+        {
+
+        }
+
         public void RemoveProductByIndex(int id)
         {
             Product productToRemove = FindProductById(id);

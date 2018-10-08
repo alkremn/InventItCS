@@ -11,21 +11,27 @@ using Model;
 
 namespace InventMS
 {
-    public delegate void SavePartEventHandler(ref Part part);
+    
 
     public partial class PartWindow : Form
     {
-        public event SavePartEventHandler SavePartEvent;
+        public event EventHandler<SavePartEventArgs> SaveButtonClickedEvent;
 
-        public string Label { get; set; }
+        public string Title { get; set; }
 
-        private Part _part;
+        Part _part;
 
-        private int _id;
+        int _id;
 
-        public PartWindow(string title, ref Part part, int id)
+        bool _isInvNumber = false;
+        bool _isPriceNumber = false;
+        bool _isMaxNumber = false;
+        bool _isMinNumber = false;
+        bool _isMachIdNumber = false;
+
+        public PartWindow(string title, Part part, int id)
         {
-            Label = title;
+            Title = title;
             _part = part;
             _id = id;
 
@@ -35,13 +41,23 @@ namespace InventMS
 
             if (_part != null)
             {
-                InitFields();
+                InitModifyPartFields();
+            }
+            else
+            {
+                nameText.BackColor = Color.LightCoral;
+                invText.BackColor = Color.LightCoral;
+                priceText.BackColor = Color.LightCoral;
+                maxText.BackColor = Color.LightCoral;
+                minText.BackColor = Color.LightCoral;
+                compIdText.BackColor = Color.LightCoral;
             }
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void RadButtonCheckedChanged(object sender, EventArgs e)
@@ -49,97 +65,93 @@ namespace InventMS
             if (((RadioButton)sender).Name.Equals(nameof(inHouse)))
             {
                 compIdLabel.Text = "Machine ID";
-                if(compIdText.Text == "" || compIdText.Text == "Company Name")
+                if(!int.TryParse(compIdText.Text, out int intValue))
                 {
-                    compIdText.Text = "Machine ID";
+                    compIdText.BackColor = Color.LightCoral;
+                    _isMachIdNumber = false;
                 }
+              
             }
             else
             {
                 compIdLabel.Text = "Company Name";
-                if (compIdText.Text == "" || compIdText.Text == "Machine ID")
+                if (compIdText.Text != "")
                 {
-                    compIdText.Text = "Company Name";
+                    compIdText.BackColor = Color.White;
+                    _isMachIdNumber = true;
                 }
             }
+          
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
-            if (GatherInfoFromFields())
+            var errors = IsAllInputValid();
+            if (errors.Length == 0)
             {
-                Part part = null;
-                //Raise an event
-                SavePartEvent(ref part);
+                string name = nameText.Text;
+                int inv = int.Parse(invText.Text);
+                double price = double.Parse(priceText.Text);
+                int max = int.Parse(maxText.Text);
+                int min = int.Parse(minText.Text);
+                
+                if(inHouse.Checked)
+                {
+                    int machId = int.Parse(compIdText.Text);
+                    _part = new Inhouse(_id, name, price, inv, min, max, machId);
+                }
+                else
+                {
+                    string compName = compIdText.Text;
+                    _part = new Outsourced(_id, name, price, inv, min, max, compName);
+                }
+                SaveButtonClickedEvent?.Invoke(this, new SavePartEventArgs(_part));
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show(errors.ToString(), "Error", MessageBoxButtons.OK);
+            }
+          
         }
 
-        bool GatherInfoFromFields()
+
+        StringBuilder IsAllInputValid()
         {
-            StringBuilder error = new StringBuilder();
-            string name;
+            StringBuilder errors = new StringBuilder();
 
-            if (nameText.Text != "" && nameText.Text != "Name")
+            if (nameText.Text == "")
             {
-                name = nameText.Text;
+                errors.Append("Invalid part name.\n");
             }
-            else
+            if (!_isInvNumber)
             {
-                error.Append("Invalid Name!\n");
+                errors.Append("Invalid inv.\n");
             }
-
-            if (IsPriceFieldValid())
+            if (!_isPriceNumber)
             {
-                double.TryParse(priceText.Text, out double price);
+                errors.Append("Invalid price.\n");
             }
-
-            if (invText.Text != "" && invText.Text != "Inv")
+            if (!_isMaxNumber)
             {
-                int.TryParse(invText.Text, out int inv);
+                errors.Append("Invalid max.\n");
             }
-            else
+            if (!_isMinNumber)
             {
-                error.Append("Invalid Inventory!\n");
+                errors.Append("Invalid min.\n");
             }
-
-            if (maxText.Text != "" && maxText.Text != "Max")
+            if (!_isMachIdNumber)
             {
-                int.TryParse(maxText.Text, out int max);
-            }
-            else
-            {
-                error.Append("Invalid Max value!\n");
+                errors.Append("Invalid Machine ID.\n");
             }
 
-            if (minText.Text != "" && minText.Text != "MIn")
-            {
-                int.TryParse(minText.Text, out int min);
-            }
-            else
-            {
-                error.Append("Invalid Min value!\n");
-            }
+            return errors;
 
-            if(inHouse.Checked)
-            {
-               
-            }
-
-            if(error.Length != 0)
-            {
-                MessageBox.Show(error.ToString(), "Error",MessageBoxButtons.OK);
-            }
-
-
-
-            return false;
         }
 
-        void InitFields()
+        void InitModifyPartFields()
         {
-           
+
             idText.Text = _part.PartId.ToString();
             nameText.Text = _part.PartName;
             nameText.ForeColor = SystemColors.ControlText;
@@ -169,145 +181,196 @@ namespace InventMS
 
         private void NameText_Enter(object sender, EventArgs e)
         {
-            if(nameText.Text == "Name")
-                nameText.Text = "";
-
-            nameText.ForeColor = Color.Black;
+            nameText.BackColor = Color.White;
         }
 
         private void NameText_Leave(object sender, EventArgs e)
         {
             if (nameText.Text == "")
             {
-                nameText.Text = "Name";
-                nameText.ForeColor = SystemColors.ControlDark;
+                nameText.BackColor = Color.LightCoral;
             }
         }
 
         private void InvText_Enter(object sender, EventArgs e)
         {
-            if (invText.Text == "Inv")
-                invText.Text = "";
-
-            invText.ForeColor = Color.Black;
-
+            invText.BackColor = Color.White;
         }
 
         private void InvText_Leave(object sender, EventArgs e)
         {
-            if (invText.Text == "")
+            if (invText.Text == "" || !int.TryParse(invText.Text, out int intValue))
             {
-                invText.Text = "Inv";
-                invText.ForeColor = SystemColors.ControlDark;
+                invText.BackColor = Color.LightCoral;
             }
-
         }
 
         private void PriceText_Enter(object sender, EventArgs e)
         {
-            if (priceText.Text == "Price")
-                priceText.Text = "";
-
-            priceText.ForeColor = Color.Black;
-
+            priceText.BackColor = Color.White;
         }
 
         private void PriceText_Leave(object sender, EventArgs e)
         {
-            if (priceText.Text == "")
+            if (priceText.Text == "" || !double.TryParse(priceText.Text, out double intValue))
             {
-                priceText.Text = "Price";
-                priceText.ForeColor = SystemColors.ControlDark;
+                priceText.BackColor = Color.LightCoral;
             }
         }
 
         private void MaxText_Enter(object sender, EventArgs e)
         {
-            if (maxText.Text == "Max")
-                maxText.Text = "";
-
-            maxText.ForeColor = Color.Black;
+            maxText.BackColor = Color.White;
         }
 
         private void MaxText_Leave(object sender, EventArgs e)
         {
-            if (maxText.Text == "")
+            if (maxText.Text == "" || !int.TryParse(maxText.Text, out int intValue))
             {
-                maxText.Text = "Max";
-                maxText.ForeColor = SystemColors.ControlDark;
+                maxText.BackColor = Color.LightCoral;
             }
         }
 
         private void MinText_Enter(object sender, EventArgs e)
         {
-            if (minText.Text == "Min")
-                minText.Text = "";
-
-            minText.ForeColor = Color.Black;
+            minText.BackColor = Color.White;
         }
 
         private void MinText_Leave(object sender, EventArgs e)
         {
-            if (minText.Text == "")
+            if (minText.Text == "" || !int.TryParse(minText.Text, out int intValue))
             {
-                minText.Text = "Min";
-                minText.ForeColor = SystemColors.ControlDark;
+                minText.BackColor = Color.LightCoral;
             }
         }
 
         private void CompIDText_Enter(object sender, EventArgs e)
         {
-            if (compIdText.Text == "Company Name" || compIdText.Text == "Machine ID")
-                compIdText.Text = "";
-
-            compIdText.ForeColor = Color.Black;
+            compIdText.BackColor = Color.White;
         }
 
         private void CompIDText_Leave(object sender, EventArgs e)
         {
-            if (compIdText.Text == "")
+            if (compIdText.Text != "")
             {
-                if (inHouse.Checked)
+                if(inHouse.Checked)
                 {
-                    compIdText.Text = "Machine ID";
-                }
-                else
-                {
-                    compIdText.Text = "Company Name";
-                }
-                compIdText.ForeColor = SystemColors.ControlDark;
-            }
-        }
-
-        private void PriceText_Changed(object sender, EventArgs e)
-        {
-            IsPriceFieldValid();
-        }
-
-        bool IsPriceFieldValid()
-        {
-            if (priceText.Text != "")
-            {
-                if (priceText.Text != "Price")
-                {
-                    if (!double.TryParse(priceText.Text, out double tempValue))
+                    if(!int.TryParse(compIdText.Text, out int intValues))
                     {
-                        priceText.BackColor = Color.Red;
+                        compIdText.BackColor = Color.LightCoral;
                     }
                     else
                     {
-                        priceText.BackColor = SystemColors.Window;
-                        return true;
+                        compIdText.BackColor = Color.White;
                     }
                 }
             }
             else
             {
-                priceText.BackColor = SystemColors.Window;
+                compIdText.BackColor = Color.LightCoral;
             }
-            return false;
         }
 
-       
+
+        private void InvText_Changed(object sender, EventArgs e)
+        {
+            if(invText.Text != "" && !int.TryParse(invText.Text, out int inValue))
+            {
+                _isInvNumber = false;
+                invText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isInvNumber = true;
+                invText.BackColor = Color.White;
+            }
+          
+        }
+
+        private void PriceText_Changed(object sender, EventArgs e)
+        {
+            if (priceText.Text != "" && !double.TryParse(priceText.Text, out double intValue))
+            {
+                _isPriceNumber = false;
+                priceText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isPriceNumber = true;
+                priceText.BackColor = Color.White;
+            }
+
+        }
+
+        private void MaxText_Changed(object sender, EventArgs e)
+        {
+            if (maxText.Text != "" && !int.TryParse(maxText.Text, out int intValue))
+            {
+                _isMaxNumber = false;
+                maxText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isMaxNumber = true;
+                maxText.BackColor = Color.White;
+            }
+        }
+
+        private void MinText_Changed(object sender, EventArgs e)
+        {
+            if (minText.Text != "" && !int.TryParse(minText.Text, out int intValue))
+            {
+                _isMinNumber = false;
+                minText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isMinNumber = true;
+                minText.BackColor = Color.White;
+            }
+
+        }
+
+        private void CompIdText_Changed(object sender, EventArgs e)
+        {
+            if(inHouse.Checked)
+            {
+                if (compIdText.Text != "" && !int.TryParse(compIdText.Text, out int intValue))
+                {
+                    _isMachIdNumber = false;
+                    compIdText.BackColor = Color.LightCoral;
+                }
+                else
+                {
+                    _isMachIdNumber = true;
+                    compIdText.BackColor = Color.White;
+                }
+            }
+            else
+            {
+                _isMachIdNumber = true;
+            }
+        }
+     
     }
+
+    public class SavePartEventArgs : EventArgs
+    {
+        private Part _savedPart;
+
+        public SavePartEventArgs(Part savedPart)
+        {
+            _savedPart = savedPart;
+        }
+
+
+        public Part Part
+        {
+            get { return _savedPart; }
+            set { _savedPart = value; }
+        }
+
+
+    }
+
 }
