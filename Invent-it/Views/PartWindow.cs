@@ -11,8 +11,6 @@ using Model;
 
 namespace InventMS
 {
-    
-
     public partial class PartWindow : Form
     {
         public event EventHandler<SavePartEventArgs> SaveButtonClickedEvent;
@@ -364,7 +362,7 @@ namespace InventMS
         }
 
 
-        public Part Part
+        public Part SavedPart
         {
             get { return _savedPart; }
             set { _savedPart = value; }

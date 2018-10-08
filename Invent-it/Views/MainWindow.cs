@@ -57,7 +57,7 @@ namespace InventMS
 
         void HandleSaveButtonClickedEvent(object sender, SavePartEventArgs e)
         {
-            inventory.Parts.Add(e.Part);
+            inventory.Parts.Add(e.SavedPart);
         }
 
 
