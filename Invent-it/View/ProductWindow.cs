@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Model;
 
@@ -11,7 +12,7 @@ namespace InventMS
 {
     public partial class ProductWindow : Form
     {
-        public event EventHandler<SavePartEventArgs> SaveButtonClickedEvent;
+        public event EventHandler<SaveProductEventArgs> SaveButtonClickedEvent;
 
         private const string ADD_PRODUCT_LABEL = "Add Product";
 
@@ -39,6 +40,7 @@ namespace InventMS
             availableParts = ModifyAvailableParts(parts);
 
             availablePartsList.DataSource = availableParts;
+            availablePartsList.ClearSelection();
 
             if (_product != null)
             {
@@ -57,6 +59,7 @@ namespace InventMS
 
             }
             productPartList.DataSource = productParts;
+            
         }
 
         void InitModifyProductFields()
@@ -81,7 +84,64 @@ namespace InventMS
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var errors = IsAllInputValid();
+            if (errors.Length == 0)
+            {
+                string name = nameText.Text;
+                int inv = int.Parse(invText.Text);
+                double price = double.Parse(priceText.Text);
+                int max = int.Parse(maxText.Text);
+                int min = int.Parse(minText.Text);
 
+                _product = new Product(_id, name, price, inv, min, max)
+                {
+                    AssociatedParts = productParts
+                };
+                SaveButtonClickedEvent?.Invoke(this, new SaveProductEventArgs(_product));
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(errors.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        StringBuilder IsAllInputValid()
+        {
+            StringBuilder errors = new StringBuilder();
+
+            if (nameText.Text == "")
+            {
+                errors.Append("Invalid product name.\n");
+            }
+            if (!_isInvNumber)
+            {
+                errors.Append("Invalid inv.\n");
+            }
+            if (!_isPriceNumber)
+            {
+                errors.Append("Invalid price.\n");
+            }
+            if (!_isMaxNumber)
+            {
+                errors.Append("Invalid max.\n");
+            }
+            if (!_isMinNumber)
+            {
+                errors.Append("Invalid min.\n");
+            }
+            int.TryParse(maxText.Text, out int intMax);
+            int.TryParse(minText.Text, out int intMin);
+
+            if (intMin > intMax)
+            {
+                errors.Append("Your minimum exceeds you maximum.\n");
+            }
+            if(productParts == null || productParts.Count == 0)
+            {
+                errors.Append("Product must have parts.");
+            }
+            return errors;
         }
 
         private void AddPartButton_Click(object sender, EventArgs e)
@@ -94,14 +154,16 @@ namespace InventMS
                 if (part != null)
                 {
                     availableParts.Remove(part);
-                    availablePartsList.ClearSelection();
                     productParts.Add(part);
                     productParts = SortPartsList(productParts);
                     productPartList.DataSource = productParts;
-                }
+                    availablePartsList.ClearSelection();
+                    productPartList.ClearSelection();
 
+                }
             }
         }
+
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
             if (productPartList.SelectedRows.Count == 1)
@@ -112,10 +174,12 @@ namespace InventMS
                 if (part != null)
                 {
                     productParts.Remove(part);
-                    productPartList.ClearSelection();
                     availableParts.Add(part);
                     availableParts = SortPartsList(availableParts);
                     availablePartsList.DataSource = availableParts;
+                    productPartList.ClearSelection();
+                    availablePartsList.ClearSelection();
+                    
                 }
 
             }
@@ -310,9 +374,9 @@ namespace InventMS
     public class SaveProductEventArgs : EventArgs
     {
 
-        public Part SavedProudct { get; set; }
+        public Product SavedProudct { get; set; }
 
-        public SaveProductEventArgs(Part savedProudct)
+        public SaveProductEventArgs(Product savedProudct)
         {
             SavedProudct = savedProudct;
         }

@@ -23,14 +23,7 @@ namespace Model
         private static int _productId = 0;
 
 
-        public void RemovePartByIndex(int id)
-        {
-            Part partToRemove = FindPartById(id);
-
-            if (partToRemove != null)
-                Parts.Remove(partToRemove);
-        }
-
+        
         public int GetNewPartId
         {
             get
@@ -61,9 +54,9 @@ namespace Model
                 }
                 else
                 {
-                    RemovePartByIndex(part.PartId);
+                    parts.Remove(existingPart);
                     parts.Add(part);
-                    parts = SortParts(parts);
+                    parts = new BindingList<Part>(parts.OrderBy(x => x.PartId).ToList());
                     return true;
                 }
             }
@@ -90,13 +83,15 @@ namespace Model
                 Product existingProduct = FindProductById(product.ProductId);
                 if (existingProduct == null)
                 {
+                    _productId++;
                     products.Add(product);
                     return true;
                 }
                 else
                 {
-                    products.Remove(product);
+                    products.Remove(existingProduct);
                     products.Add(product);
+                    products = new BindingList<Product>(products.OrderBy(x => x.ProductId).ToList());
                     return true;
                 }
             }
@@ -116,7 +111,14 @@ namespace Model
             return false;
         }
 
-       
+        public void RemovePartByIndex(int id)
+        {
+            Part partToRemove = FindPartById(id);
+
+            if (partToRemove != null)
+                Parts.Remove(partToRemove);
+        }
+
 
         public void RemoveProductByIndex(int id)
         {
@@ -147,13 +149,7 @@ namespace Model
             return null;
         }
 
-        private BindingList<Part> SortParts(BindingList<Part> partsToSort)
-        {
-            List<Part> parts = new List<Part>(partsToSort);
-            parts.Sort((first, second) => first.PartId.CompareTo(second.PartId));
-
-            return new BindingList<Part>(parts);
-        }
-
+      
+        
     }
 }

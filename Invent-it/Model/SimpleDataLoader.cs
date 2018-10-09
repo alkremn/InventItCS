@@ -60,7 +60,7 @@ namespace Model
             int.TryParse(values[5], out min);
             int.TryParse(values[6], out max);
 
-            return Tuple(id,price, inStock, max, min);
+            return Tuple(id,price, inStock, min, max);
         }
 
 
@@ -152,9 +152,9 @@ namespace Model
             }
         }
 
-        private static Tuple<int, double, int, int, int> Tuple(int id, double price, int inStock, int max, int min)
+        private static Tuple<int, double, int, int, int> Tuple(int id, double price, int inStock, int min, int max)
         {
-            return new Tuple<int, double, int, int, int>(id, price, inStock, max, min);
+            return new Tuple<int, double, int, int, int>(id, price, inStock, min, max);
         }
     }
 }

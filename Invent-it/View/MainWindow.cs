@@ -32,7 +32,7 @@ namespace InventMS
         {
             Part part = null;
             PartWindow partWindow = new PartWindow(part, inventory.GetNewPartId);
-            partWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
+            partWindow.SaveButtonClickedEvent += HandleSavePartButtonClickedEvent;
             partWindow.ShowDialog();
             partWindow.Dispose();
         }
@@ -45,7 +45,7 @@ namespace InventMS
                 Part part = inventory.FindPartById(selected);
 
                 PartWindow partWindow = new PartWindow(part, part.PartId);
-                partWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
+                partWindow.SaveButtonClickedEvent += HandleSavePartButtonClickedEvent;
                 partWindow.ShowDialog();
                 partWindow.Dispose();
             }
@@ -55,7 +55,15 @@ namespace InventMS
             }
         }
 
-        void HandleSaveButtonClickedEvent(object sender, SavePartEventArgs e)
+        void HandleSaveProductButtonClickedEvent(object sender, SaveProductEventArgs e)
+        {
+            inventory.AddProduct(e.SavedProudct);
+            prodDataView.DataSource = inventory.Products;
+        }
+
+
+
+        void HandleSavePartButtonClickedEvent(object sender, SavePartEventArgs e)
         {
             inventory.AddPart(e.SavedPart);
             partsDataView.DataSource = inventory.Parts;
@@ -85,6 +93,7 @@ namespace InventMS
             Product product = null;
             ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, 
                 new BindingList<Part>(inventory.Parts.ToList()));
+            productWindow.SaveButtonClickedEvent += HandleSaveProductButtonClickedEvent;
             productWindow.ShowDialog();
             productWindow.Dispose();
 
@@ -99,7 +108,7 @@ namespace InventMS
 
                 ProductWindow productWindow = new ProductWindow(product, product.ProductId, 
                     new BindingList<Part>(inventory.Parts.ToList()));
-                productWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
+                productWindow.SaveButtonClickedEvent += HandleSaveProductButtonClickedEvent;
                 productWindow.ShowDialog();
                 productWindow.Dispose();
             }
