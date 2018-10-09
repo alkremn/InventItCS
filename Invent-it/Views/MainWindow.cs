@@ -86,6 +86,7 @@ namespace InventMS
             ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, 
                 new BindingList<Part>(inventory.Parts));
             productWindow.ShowDialog();
+            productWindow.Dispose();
 
         }
 

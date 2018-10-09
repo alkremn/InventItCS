@@ -29,11 +29,11 @@ namespace InventMS
         bool _isPriceNumber = false;
         bool _isMaxNumber = false;
         bool _isMinNumber = false;
-       
+
         public ProductWindow(Product product, int id, BindingList<Part> parts)
         {
             _product = product;
-            
+
             _id = id;
 
             InitializeComponent();
@@ -56,11 +56,9 @@ namespace InventMS
                 priceText.BackColor = Color.LightCoral;
                 maxText.BackColor = Color.LightCoral;
                 minText.BackColor = Color.LightCoral;
-         
-            }
 
+            }
             productPartList.DataSource = productParts;
-            
         }
 
         void InitModifyProductFields()
@@ -76,9 +74,7 @@ namespace InventMS
             maxText.ForeColor = SystemColors.ControlText;
             minText.Text = _product.Min.ToString();
             minText.ForeColor = SystemColors.ControlText;
-
         }
-
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
@@ -92,11 +88,38 @@ namespace InventMS
 
         private void AddPartButton_Click(object sender, EventArgs e)
         {
+            if (availablePartsList.SelectedRows.Count == 1)
+            {
+                var selected = (int)availablePartsList.SelectedRows[0].Cells[0].Value;
+                Part part = FindPartById(selected, availableParts);
 
+                if (part != null)
+                {
+                    availableParts.Remove(part);
+                    productParts.Add(part);
+                    productParts = SortPartsList(productParts);
+                    productPartList.DataSource = productParts;
+                }
+
+            }
         }
-
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
+            if (productPartList.SelectedRows.Count == 1)
+            {
+                var selected = (int)productPartList.SelectedRows[0].Cells[0].Value;
+                Part part = FindPartById(selected, productParts);
+
+                if (part != null)
+                {
+                    productParts.Remove(part);
+                    availableParts.Add(part);
+                    availableParts = SortPartsList(availableParts);
+                    availablePartsList.DataSource = availableParts;
+                }
+
+            }
+
 
         }
 
@@ -131,15 +154,34 @@ namespace InventMS
                 {
                     foreach (Part prodPart in associatedProductParts)
                     {
-                        var samePart = from part in parts where part.PartId == prodPart.PartId select part;
-                        if (samePart.Any())
+                        Part foundPart = FindPartById(prodPart.PartId, parts);
+                        if(foundPart != null)
                         {
-                            parts.Remove(samePart.First());
+                            parts.Remove(foundPart);
                         }
                     }
                 }
             }
             return parts;
+        }
+
+        private Part FindPartById(int id, BindingList<Part> parts)
+        {
+            var partById = from part in parts where part.PartId == id select part;
+
+            if (partById.Any())
+            {
+                return partById.First();
+            }
+            return null;
+        }
+
+        private BindingList<Part> SortPartsList(BindingList<Part> partsToSort)
+        {
+            List<Part> parts = new List<Part>(partsToSort);
+            parts.Sort((first, second) => first.PartId.CompareTo(second.PartId));
+
+            return new BindingList<Part>(parts);
         }
     }
 
