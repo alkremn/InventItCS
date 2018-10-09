@@ -84,7 +84,7 @@ namespace InventMS
         {
             Product product = null;
             ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, 
-                new BindingList<Part>(inventory.Parts));
+                new BindingList<Part>(inventory.Parts.ToList()));
             productWindow.ShowDialog();
             productWindow.Dispose();
 
@@ -98,7 +98,7 @@ namespace InventMS
                 Product product = inventory.FindProductById(selected);
 
                 ProductWindow productWindow = new ProductWindow(product, product.ProductId, 
-                    new BindingList<Part>(inventory.Parts));
+                    new BindingList<Part>(inventory.Parts.ToList()));
                 productWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
                 productWindow.ShowDialog();
                 productWindow.Dispose();
