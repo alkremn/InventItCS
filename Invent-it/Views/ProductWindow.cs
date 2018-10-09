@@ -96,6 +96,7 @@ namespace InventMS
                 if (part != null)
                 {
                     availableParts.Remove(part);
+                    availablePartsList.ClearSelection();
                     productParts.Add(part);
                     productParts = SortPartsList(productParts);
                     productPartList.DataSource = productParts;
@@ -113,6 +114,7 @@ namespace InventMS
                 if (part != null)
                 {
                     productParts.Remove(part);
+                    productPartList.ClearSelection();
                     availableParts.Add(part);
                     availableParts = SortPartsList(availableParts);
                     availablePartsList.DataSource = availableParts;
