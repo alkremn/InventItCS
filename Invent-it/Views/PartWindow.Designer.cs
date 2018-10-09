@@ -64,12 +64,12 @@
             this.addModifyLabel.AutoSize = true;
             this.addModifyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addModifyLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.addModifyLabel.Location = new System.Drawing.Point(13, 57);
+            this.addModifyLabel.Location = new System.Drawing.Point(13, 40);
             this.addModifyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.addModifyLabel.Name = "addModifyLabel";
-            this.addModifyLabel.Size = new System.Drawing.Size(113, 29);
+            this.addModifyLabel.Size = new System.Drawing.Size(144, 29);
             this.addModifyLabel.TabIndex = 5;
-            this.addModifyLabel.Text = "Add Part";
+            this.addModifyLabel.Text = "Modify Part";
             // 
             // nameLabel
             // 
@@ -166,7 +166,7 @@
             this.minLabel.AutoSize = true;
             this.minLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.minLabel.Location = new System.Drawing.Point(236, 375);
+            this.minLabel.Location = new System.Drawing.Point(259, 375);
             this.minLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(37, 20);
@@ -191,7 +191,7 @@
             this.idText.Enabled = false;
             this.idText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idText.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.idText.Location = new System.Drawing.Point(155, 130);
+            this.idText.Location = new System.Drawing.Point(178, 130);
             this.idText.Margin = new System.Windows.Forms.Padding(4);
             this.idText.MinimumSize = new System.Drawing.Size(89, 20);
             this.idText.Name = "idText";
@@ -205,7 +205,7 @@
             this.invText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.invText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.invText.Location = new System.Drawing.Point(155, 250);
+            this.invText.Location = new System.Drawing.Point(178, 250);
             this.invText.Margin = new System.Windows.Forms.Padding(4);
             this.invText.MinimumSize = new System.Drawing.Size(4, 20);
             this.invText.Name = "invText";
@@ -221,7 +221,7 @@
             this.priceText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.priceText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.priceText.Location = new System.Drawing.Point(155, 310);
+            this.priceText.Location = new System.Drawing.Point(178, 310);
             this.priceText.Margin = new System.Windows.Forms.Padding(4);
             this.priceText.MinimumSize = new System.Drawing.Size(4, 20);
             this.priceText.Name = "priceText";
@@ -237,7 +237,7 @@
             this.maxText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.maxText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.maxText.Location = new System.Drawing.Point(155, 370);
+            this.maxText.Location = new System.Drawing.Point(178, 370);
             this.maxText.Margin = new System.Windows.Forms.Padding(4);
             this.maxText.MinimumSize = new System.Drawing.Size(4, 20);
             this.maxText.Name = "maxText";
@@ -253,7 +253,7 @@
             this.minText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.minText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.minText.Location = new System.Drawing.Point(288, 370);
+            this.minText.Location = new System.Drawing.Point(311, 370);
             this.minText.Margin = new System.Windows.Forms.Padding(4);
             this.minText.MinimumSize = new System.Drawing.Size(4, 20);
             this.minText.Name = "minText";
@@ -269,7 +269,7 @@
             this.compIdText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.compIdText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compIdText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.compIdText.Location = new System.Drawing.Point(155, 430);
+            this.compIdText.Location = new System.Drawing.Point(178, 430);
             this.compIdText.Margin = new System.Windows.Forms.Padding(4);
             this.compIdText.MinimumSize = new System.Drawing.Size(4, 20);
             this.compIdText.Name = "compIdText";
@@ -311,7 +311,7 @@
             this.radButtonsBox.Controls.Add(this.outsourced);
             this.radButtonsBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radButtonsBox.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.radButtonsBox.Location = new System.Drawing.Point(146, 57);
+            this.radButtonsBox.Location = new System.Drawing.Point(174, 57);
             this.radButtonsBox.Name = "radButtonsBox";
             this.radButtonsBox.Size = new System.Drawing.Size(215, 47);
             this.radButtonsBox.TabIndex = 15;
@@ -333,7 +333,7 @@
             this.nameText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.nameText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nameText.Location = new System.Drawing.Point(155, 190);
+            this.nameText.Location = new System.Drawing.Point(178, 190);
             this.nameText.Margin = new System.Windows.Forms.Padding(4);
             this.nameText.MinimumSize = new System.Drawing.Size(4, 20);
             this.nameText.Name = "nameText";

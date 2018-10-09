@@ -15,6 +15,8 @@ namespace InventMS
     {
         public event EventHandler<SavePartEventArgs> SaveButtonClickedEvent;
 
+        private const string ADD_PART_LABEL = "Add Part";
+
         public string Title { get; set; }
 
         Part _part;
@@ -41,6 +43,7 @@ namespace InventMS
             }
             else
             {
+                addModifyLabel.Text = ADD_PART_LABEL;
                 nameText.BackColor = Color.LightCoral;
                 invText.BackColor = Color.LightCoral;
                 priceText.BackColor = Color.LightCoral;
@@ -53,7 +56,6 @@ namespace InventMS
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            
         }
 
         private void RadButtonCheckedChanged(object sender, EventArgs e)
@@ -149,7 +151,6 @@ namespace InventMS
 
         void InitModifyPartFields()
         {
-
             idText.Text = _part.PartId.ToString();
             nameText.Text = _part.PartName;
             nameText.ForeColor = SystemColors.ControlText;
