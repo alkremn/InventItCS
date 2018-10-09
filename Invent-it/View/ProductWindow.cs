@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
@@ -184,6 +182,128 @@ namespace InventMS
             parts.Sort((first, second) => first.PartId.CompareTo(second.PartId));
 
             return new BindingList<Part>(parts);
+        }
+
+        private void NameText_Enter(object sender, EventArgs e)
+        {
+            nameText.BackColor = Color.White;
+        }
+
+        private void NameText_Leave(object sender, EventArgs e)
+        {
+            if (nameText.Text == "")
+            {
+                nameText.BackColor = Color.LightCoral;
+            }
+        }
+
+        private void InvText_Enter(object sender, EventArgs e)
+        {
+            invText.BackColor = Color.White;
+        }
+
+        private void InvText_Leave(object sender, EventArgs e)
+        {
+            if (invText.Text == "" || !int.TryParse(invText.Text, out int intValue))
+            {
+                invText.BackColor = Color.LightCoral;
+            }
+        }
+
+        private void PriceText_Enter(object sender, EventArgs e)
+        {
+            priceText.BackColor = Color.White;
+        }
+
+        private void PriceText_Leave(object sender, EventArgs e)
+        {
+            if (priceText.Text == "" || !double.TryParse(priceText.Text, out double intValue))
+            {
+                priceText.BackColor = Color.LightCoral;
+            }
+        }
+
+        private void MaxText_Enter(object sender, EventArgs e)
+        {
+            maxText.BackColor = Color.White;
+        }
+
+        private void MaxText_Leave(object sender, EventArgs e)
+        {
+            if (maxText.Text == "" || !int.TryParse(maxText.Text, out int intValue))
+            {
+                maxText.BackColor = Color.LightCoral;
+            }
+        }
+
+        private void MinText_Enter(object sender, EventArgs e)
+        {
+            minText.BackColor = Color.White;
+        }
+
+        private void MinText_Leave(object sender, EventArgs e)
+        {
+            if (minText.Text == "" || !int.TryParse(minText.Text, out int intValue))
+            {
+                minText.BackColor = Color.LightCoral;
+            }
+        }
+
+        private void InvText_Changed(object sender, EventArgs e)
+        {
+            if (invText.Text != "" && !int.TryParse(invText.Text, out int inValue))
+            {
+                _isInvNumber = false;
+                invText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isInvNumber = true;
+                invText.BackColor = Color.White;
+            }
+
+        }
+
+        private void PriceText_Changed(object sender, EventArgs e)
+        {
+            if (priceText.Text != "" && !double.TryParse(priceText.Text, out double intValue))
+            {
+                _isPriceNumber = false;
+                priceText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isPriceNumber = true;
+                priceText.BackColor = Color.White;
+            }
+        }
+
+        private void MaxText_Changed(object sender, EventArgs e)
+        {
+            if (maxText.Text != "" && !int.TryParse(maxText.Text, out int intValue))
+            {
+                _isMaxNumber = false;
+                maxText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isMaxNumber = true;
+                maxText.BackColor = Color.White;
+            }
+        }
+
+        private void MinText_Changed(object sender, EventArgs e)
+        {
+            if (minText.Text != "" && !int.TryParse(minText.Text, out int intValue))
+            {
+                _isMinNumber = false;
+                minText.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                _isMinNumber = true;
+                minText.BackColor = Color.White;
+            }
         }
     }
 
