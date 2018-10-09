@@ -17,7 +17,6 @@ namespace Model
 
         public int Radious { get; set; }
 
-
         public RoundPanel()
         {
             this.DoubleBuffered = true;

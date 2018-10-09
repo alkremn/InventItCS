@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.ComponentModel;
 
 namespace Model
 {
     public class Inventory
     {
-
         private BindingList<Part> parts = new BindingList<Part>();
 
         private BindingList<Product> products = new BindingList<Product>();
 
-        public BindingList<Part> Parts { get { return parts; }}
+        public BindingList<Part> Parts { get { return parts; } }
 
-        public BindingList<Product> Products { get { return products; }}
+        public BindingList<Product> Products { get { return products; } }
 
         private static int _partId = 0;
 
         private static int _productId = 0;
 
-
-        
         public int GetNewPartId
         {
             get
@@ -119,7 +112,6 @@ namespace Model
                 Parts.Remove(partToRemove);
         }
 
-
         public void RemoveProductByIndex(int id)
         {
             Product productToRemove = FindProductById(id);
@@ -142,14 +134,11 @@ namespace Model
         {
             var productById = from product in products where product.ProductId == id select product;
 
-            if(productById.Any())
+            if (productById.Any())
             {
                 return productById.First();
             }
             return null;
         }
-
-      
-        
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
@@ -43,7 +38,6 @@ namespace InventMS
             {
                 var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
                 Part part = inventory.FindPartById(selected);
-
                 PartWindow partWindow = new PartWindow(part, part.PartId);
                 partWindow.SaveButtonClickedEvent += HandleSavePartButtonClickedEvent;
                 partWindow.ShowDialog();
@@ -61,14 +55,11 @@ namespace InventMS
             prodDataView.DataSource = inventory.Products;
         }
 
-
-
         void HandleSavePartButtonClickedEvent(object sender, SavePartEventArgs e)
         {
             inventory.AddPart(e.SavedPart);
             partsDataView.DataSource = inventory.Parts;
         }
-
 
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
@@ -85,18 +76,16 @@ namespace InventMS
             {
                 MessageBox.Show(SELECT_ITEM);
             }
-            
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
         {
             Product product = null;
-            ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, 
+            ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId,
                 new BindingList<Part>(inventory.Parts.ToList()));
             productWindow.SaveButtonClickedEvent += HandleSaveProductButtonClickedEvent;
             productWindow.ShowDialog();
             productWindow.Dispose();
-
         }
 
         private void ModifyProductButton_Click(object sender, EventArgs e)
@@ -105,8 +94,7 @@ namespace InventMS
             {
                 var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
                 Product product = inventory.FindProductById(selected);
-
-                ProductWindow productWindow = new ProductWindow(product, product.ProductId, 
+                ProductWindow productWindow = new ProductWindow(product, product.ProductId,
                     new BindingList<Part>(inventory.Parts.ToList()));
                 productWindow.SaveButtonClickedEvent += HandleSaveProductButtonClickedEvent;
                 productWindow.ShowDialog();
@@ -134,13 +122,10 @@ namespace InventMS
             {
                 MessageBox.Show(SELECT_ITEM);
             }
-
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            //Model.SimpleDataLoader.WriteSamplePartsToCSV(inventory.Parts);
-            //Model.SimpleDataLoader.WriteSampleProductsToCSV(inventory.Products);
             Environment.Exit(0);
         }
 
@@ -152,7 +137,6 @@ namespace InventMS
         private void SearchProductButton_Click(object sender, EventArgs e)
         {
             SearchItemInList(searchProdText, prodDataView);
-
         }
 
         private void DataBindingCompleted(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -170,27 +154,23 @@ namespace InventMS
                     SearchItemInList(searchPartText, partsDataView);
                     e.Handled = true;
                 }
-                if(searchProdText.Focused)
+                if (searchProdText.Focused)
                 {
                     SearchItemInList(searchProdText, prodDataView);
                     e.Handled = true;
                 }
             }
-           
         }
 
         private void SearchItemInList(TextBox searchBox, DataGridView dataGridView)
         {
             dataGridView.ClearSelection();
-
             if (searchBox.Text != "")
             {
                 string searchWord = searchBox.Text;
-
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
                     string nameValue = row.Cells[1].Value.ToString();
-
                     if (nameValue.ToLower().Contains(searchWord))
                     {
                         row.Selected = true;

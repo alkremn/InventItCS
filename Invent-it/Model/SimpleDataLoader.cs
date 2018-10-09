@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.ComponentModel;
 
 namespace Model
 {
     class SimpleDataLoader
     {
-
         public static List<Part> ReadSimplePartsFromCSV()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -23,7 +18,6 @@ namespace Model
             {
                 using (var reader = new StreamReader(filePath))
                 {
-
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] values = line.Split(',');
@@ -46,23 +40,19 @@ namespace Model
             {
                 Console.WriteLine($"Cannot find {e.FileName} to load!");
             }
-
             return parts;
         }
 
         private static Tuple<int, double, int, int, int> GetValues(string[] values)
         {
-            int id, inStock, min, max;
-            double price;
-            int.TryParse(values[1], out id);
-            double.TryParse(values[3], out price);
-            int.TryParse(values[4], out inStock);
-            int.TryParse(values[5], out min);
-            int.TryParse(values[6], out max);
+            int.TryParse(values[1], out int id);
+            double.TryParse(values[3], out double price);
+            int.TryParse(values[4], out int inStock);
+            int.TryParse(values[5], out int min);
+            int.TryParse(values[6], out int max);
 
-            return Tuple(id,price, inStock, min, max);
+            return Tuple(id, price, inStock, min, max);
         }
-
 
         public static List<Product> ReadSimpleProductsFromCSV()
         {
@@ -71,13 +61,11 @@ namespace Model
             string filePath = Path.Combine(directory.FullName, "SampleProductsData.csv");
 
             List<Product> parts = new List<Product>();
-
             string line;
             try
             {
                 using (var reader = new StreamReader(filePath))
                 {
-
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] values = line.Split(',');
@@ -92,64 +80,7 @@ namespace Model
             {
                 Console.WriteLine($"Cannot find {e.FileName} to load!");
             }
-
             return parts;
-        }
-
-
-        public static void WriteSamplePartsToCSV(BindingList<Part> parts)
-        {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
-            string filePath = Path.Combine(directory.FullName, "SamplePartsData.csv");
-
-            try
-            {
-                using (var writer = new StreamWriter(filePath))
-                {
-
-                    foreach (Part part in parts)
-                    {
-                        if (part is Inhouse inPart)
-                        {
-                            writer.WriteLine(inPart);
-                        }
-                        else
-                        {
-                            writer.WriteLine(((Outsourced)part));
-                        }
-                    }
-                }
-            }
-            catch (FileNotFoundException e)
-            {
-                Console.WriteLine($"Cannot find {e.FileName} to load!");
-            }
-        }
-
-        public static void WriteSampleProductsToCSV(BindingList<Product> products)
-        {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
-            string filePath = Path.Combine(directory.FullName, "SampleProductsData.csv");
-
-            try
-            {
-                using (var writer = new StreamWriter(filePath))
-                {
-
-                    foreach (Product product in products)
-                    {
-
-                        writer.WriteLine(product);
-
-                    }
-                }
-            }
-            catch (FileNotFoundException e)
-            {
-                Console.WriteLine($"Cannot find {e.FileName} to load!");
-            }
         }
 
         private static Tuple<int, double, int, int, int> Tuple(int id, double price, int inStock, int min, int max)

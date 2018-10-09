@@ -58,24 +58,29 @@
             this.partNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inStockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.productPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.availablePartsList = new System.Windows.Forms.DataGridView();
             this.partIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.availablePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.avPartsLabel = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchPartButton = new System.Windows.Forms.Button();
             this.deletePartButton = new System.Windows.Forms.Button();
             this.addPartButton = new System.Windows.Forms.Button();
+            this.nameToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.invToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.priceToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.maxToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.minToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.partsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPartList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.availablePartsList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availablePartBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelProdButton
@@ -105,12 +110,13 @@
             // minText
             // 
             this.minText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minText.Location = new System.Drawing.Point(328, 423);
+            this.minText.Location = new System.Drawing.Point(324, 423);
             this.minText.Margin = new System.Windows.Forms.Padding(4);
             this.minText.MinimumSize = new System.Drawing.Size(4, 20);
             this.minText.Name = "minText";
-            this.minText.Size = new System.Drawing.Size(66, 29);
+            this.minText.Size = new System.Drawing.Size(70, 29);
             this.minText.TabIndex = 5;
+            this.minToolTip.SetToolTip(this.minText, "Min number is  required");
             this.minText.TextChanged += new System.EventHandler(this.MinText_Changed);
             this.minText.Enter += new System.EventHandler(this.MinText_Enter);
             this.minText.Leave += new System.EventHandler(this.MinText_Leave);
@@ -122,8 +128,9 @@
             this.maxText.Margin = new System.Windows.Forms.Padding(4);
             this.maxText.MinimumSize = new System.Drawing.Size(4, 20);
             this.maxText.Name = "maxText";
-            this.maxText.Size = new System.Drawing.Size(77, 29);
+            this.maxText.Size = new System.Drawing.Size(70, 29);
             this.maxText.TabIndex = 4;
+            this.maxToolTip.SetToolTip(this.maxText, "Max number is  required");
             this.maxText.TextChanged += new System.EventHandler(this.MaxText_Changed);
             this.maxText.Enter += new System.EventHandler(this.MaxText_Enter);
             this.maxText.Leave += new System.EventHandler(this.MaxText_Leave);
@@ -137,6 +144,7 @@
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(242, 29);
             this.priceText.TabIndex = 3;
+            this.priceToolTip.SetToolTip(this.priceText, "Price number is  required");
             this.priceText.TextChanged += new System.EventHandler(this.PriceText_Changed);
             this.priceText.Enter += new System.EventHandler(this.PriceText_Enter);
             this.priceText.Leave += new System.EventHandler(this.PriceText_Leave);
@@ -150,6 +158,7 @@
             this.invText.Name = "invText";
             this.invText.Size = new System.Drawing.Size(242, 29);
             this.invText.TabIndex = 2;
+            this.invToolTip.SetToolTip(this.invText, "Inv number is  required");
             this.invText.TextChanged += new System.EventHandler(this.InvText_Changed);
             this.invText.Enter += new System.EventHandler(this.InvText_Enter);
             this.invText.Leave += new System.EventHandler(this.InvText_Leave);
@@ -162,6 +171,7 @@
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(242, 29);
             this.nameText.TabIndex = 1;
+            this.nameToolTip.SetToolTip(this.nameText, "Name is  required");
             this.nameText.Enter += new System.EventHandler(this.NameText_Enter);
             this.nameText.Leave += new System.EventHandler(this.NameText_Leave);
             // 
@@ -198,7 +208,7 @@
             this.minLabel.AutoSize = true;
             this.minLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.minLabel.Location = new System.Drawing.Point(260, 427);
+            this.minLabel.Location = new System.Drawing.Point(250, 427);
             this.minLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(37, 20);
@@ -315,7 +325,7 @@
             this.partNameDataGridViewTextBoxColumn1,
             this.inStockDataGridViewTextBoxColumn1,
             this.priceDataGridViewTextBoxColumn1});
-            this.productPartList.DataSource = this.partBindingSource1;
+            this.productPartList.DataSource = this.productPartsBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -374,9 +384,9 @@
             this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn1.Width = 135;
             // 
-            // partBindingSource1
+            // productPartsBindingSource
             // 
-            this.partBindingSource1.DataSource = typeof(Model.Part);
+            this.productPartsBindingSource.DataSource = typeof(Model.Part);
             // 
             // availablePartsList
             // 
@@ -401,7 +411,7 @@
             this.partNameDataGridViewTextBoxColumn,
             this.inStockDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn});
-            this.availablePartsList.DataSource = this.partBindingSource;
+            this.availablePartsList.DataSource = this.availablePartBindingSource;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -426,7 +436,7 @@
             this.availablePartsList.RowTemplate.Height = 30;
             this.availablePartsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.availablePartsList.Size = new System.Drawing.Size(545, 170);
-            this.availablePartsList.TabIndex = 6;
+            this.availablePartsList.TabIndex = 10;
             // 
             // partIdDataGridViewTextBoxColumn
             // 
@@ -463,9 +473,9 @@
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 135;
             // 
-            // partBindingSource
+            // availablePartBindingSource
             // 
-            this.partBindingSource.DataSource = typeof(Model.Part);
+            this.availablePartBindingSource.DataSource = typeof(Model.Part);
             // 
             // label2
             // 
@@ -528,6 +538,41 @@
             this.addPartButton.UseVisualStyleBackColor = true;
             this.addPartButton.Click += new System.EventHandler(this.AddPartButton_Click);
             // 
+            // nameToolTip
+            // 
+            this.nameToolTip.AutomaticDelay = 100;
+            this.nameToolTip.AutoPopDelay = 5000;
+            this.nameToolTip.InitialDelay = 100;
+            this.nameToolTip.ReshowDelay = 20;
+            // 
+            // invToolTip
+            // 
+            this.invToolTip.AutomaticDelay = 100;
+            this.invToolTip.AutoPopDelay = 5000;
+            this.invToolTip.InitialDelay = 100;
+            this.invToolTip.ReshowDelay = 20;
+            // 
+            // priceToolTip
+            // 
+            this.priceToolTip.AutomaticDelay = 100;
+            this.priceToolTip.AutoPopDelay = 5000;
+            this.priceToolTip.InitialDelay = 100;
+            this.priceToolTip.ReshowDelay = 20;
+            // 
+            // maxToolTip
+            // 
+            this.maxToolTip.AutomaticDelay = 100;
+            this.maxToolTip.AutoPopDelay = 5000;
+            this.maxToolTip.InitialDelay = 100;
+            this.maxToolTip.ReshowDelay = 20;
+            // 
+            // minToolTip
+            // 
+            this.minToolTip.AutomaticDelay = 100;
+            this.minToolTip.AutoPopDelay = 5000;
+            this.minToolTip.InitialDelay = 100;
+            this.minToolTip.ReshowDelay = 20;
+            // 
             // ProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -557,9 +602,9 @@
             this.partsGroupBox.ResumeLayout(false);
             this.partsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPartList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPartsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.availablePartsList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availablePartBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,7 +634,7 @@
         private System.Windows.Forms.Button cancelProdButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label avPartsLabel;
-        private System.Windows.Forms.BindingSource partBindingSource;
+        private System.Windows.Forms.BindingSource availablePartBindingSource;
         private System.Windows.Forms.DataGridView availablePartsList;
         private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
@@ -600,6 +645,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource partBindingSource1;
+        private System.Windows.Forms.BindingSource productPartsBindingSource;
+        private System.Windows.Forms.ToolTip nameToolTip;
+        private System.Windows.Forms.ToolTip invToolTip;
+        private System.Windows.Forms.ToolTip priceToolTip;
+        private System.Windows.Forms.ToolTip maxToolTip;
+        private System.Windows.Forms.ToolTip minToolTip;
     }
 }

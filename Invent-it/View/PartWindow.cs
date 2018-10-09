@@ -26,7 +26,6 @@ namespace InventMS
         {
             _part = part;
             _id = id;
-
             InitializeComponent();
 
             if (_part != null)
@@ -47,7 +46,7 @@ namespace InventMS
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void RadButtonCheckedChanged(object sender, EventArgs e)
@@ -56,12 +55,11 @@ namespace InventMS
             {
                 compIdLabel.Text = "Machine ID";
                 compIdToolTip.SetToolTip(compIdText, "Machine ID number is required");
-                if(!int.TryParse(compIdText.Text, out int intValue))
+                if (!int.TryParse(compIdText.Text, out int intValue))
                 {
                     compIdText.BackColor = Color.LightCoral;
                     _isMachIdNumber = false;
                 }
-              
             }
             else
             {
@@ -73,7 +71,6 @@ namespace InventMS
                     _isMachIdNumber = true;
                 }
             }
-          
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -86,8 +83,8 @@ namespace InventMS
                 double price = double.Parse(priceText.Text);
                 int max = int.Parse(maxText.Text);
                 int min = int.Parse(minText.Text);
-                
-                if(inHouse.Checked)
+
+                if (inHouse.Checked)
                 {
                     int machId = int.Parse(compIdText.Text);
                     _part = new Inhouse(_id, name, price, inv, min, max, machId);
@@ -98,15 +95,13 @@ namespace InventMS
                     _part = new Outsourced(_id, name, price, inv, min, max, compName);
                 }
                 SaveButtonClickedEvent?.Invoke(this, new SavePartEventArgs(_part));
-                this.Close();
+                Close();
             }
             else
             {
                 MessageBox.Show(errors.ToString(), "Error", MessageBoxButtons.OK);
             }
-          
         }
-
 
         StringBuilder IsAllInputValid()
         {
@@ -257,9 +252,9 @@ namespace InventMS
         {
             if (compIdText.Text != "")
             {
-                if(inHouse.Checked)
+                if (inHouse.Checked)
                 {
-                    if(!int.TryParse(compIdText.Text, out int intValues))
+                    if (!int.TryParse(compIdText.Text, out int intValues))
                     {
                         compIdText.BackColor = Color.LightCoral;
                     }
@@ -277,7 +272,7 @@ namespace InventMS
 
         private void InvText_Changed(object sender, EventArgs e)
         {
-            if(invText.Text != "" && !int.TryParse(invText.Text, out int inValue))
+            if (invText.Text != "" && !int.TryParse(invText.Text, out int inValue))
             {
                 _isInvNumber = false;
                 invText.BackColor = Color.LightCoral;
@@ -287,7 +282,6 @@ namespace InventMS
                 _isInvNumber = true;
                 invText.BackColor = Color.White;
             }
-          
         }
 
         private void PriceText_Changed(object sender, EventArgs e)
@@ -302,7 +296,6 @@ namespace InventMS
                 _isPriceNumber = true;
                 priceText.BackColor = Color.White;
             }
-
         }
 
         private void MaxText_Changed(object sender, EventArgs e)
@@ -335,7 +328,7 @@ namespace InventMS
 
         private void CompIdText_Changed(object sender, EventArgs e)
         {
-            if(inHouse.Checked)
+            if (inHouse.Checked)
             {
                 if (compIdText.Text != "" && !int.TryParse(compIdText.Text, out int intValue))
                 {
@@ -353,19 +346,15 @@ namespace InventMS
                 _isMachIdNumber = true;
             }
         }
-     
     }
 
     public class SavePartEventArgs : EventArgs
     {
-
         public Part SavedPart { get; set; }
 
         public SavePartEventArgs(Part savedPart)
         {
             SavedPart = savedPart;
         }
-
     }
-
 }

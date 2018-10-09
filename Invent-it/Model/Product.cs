@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using System.Collections;
 
 namespace Model
 {
     public class Product
     {
-
         public BindingList<Part> AssociatedParts { get; set; } = new BindingList<Part>();
 
         private int _productId;
@@ -24,7 +18,6 @@ namespace Model
         public int Min { get; set; }
 
         public int Max { get; set; }
-
 
         public Product(int productId, string partName, double price, int inStock, int min, int max)
         {
