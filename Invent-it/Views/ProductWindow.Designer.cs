@@ -1,6 +1,6 @@
 ﻿namespace InventMS
 {
-    partial class productWindow
+    partial class ProductWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(productWindow));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductWindow));
             this.cancelProdButton = new System.Windows.Forms.Button();
             this.saveProdButton = new System.Windows.Forms.Button();
             this.minText = new System.Windows.Forms.TextBox();
@@ -57,9 +59,15 @@
             this.addPartButton = new System.Windows.Forms.Button();
             this.prodPartsList = new System.Windows.Forms.DataGridView();
             this.availablePartsList = new System.Windows.Forms.DataGridView();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.partIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodPartsList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.availablePartsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelProdButton
@@ -149,7 +157,7 @@
             this.idText.Size = new System.Drawing.Size(242, 29);
             this.idText.TabIndex = 31;
             this.idText.Tag = "";
-            this.idText.Text = "Auto Gen -Disabled";
+            this.idText.Text = "Auto Gen - Disabled";
             // 
             // priceLabel
             // 
@@ -231,9 +239,9 @@
             this.productLabel.Location = new System.Drawing.Point(61, 53);
             this.productLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.productLabel.Name = "productLabel";
-            this.productLabel.Size = new System.Drawing.Size(156, 29);
+            this.productLabel.Size = new System.Drawing.Size(187, 29);
             this.productLabel.TabIndex = 15;
-            this.productLabel.Text = "Add Product";
+            this.productLabel.Text = "Modify Product";
             // 
             // partsGroupBox
             // 
@@ -297,7 +305,7 @@
             this.searchPartButton.TabIndex = 3;
             this.searchPartButton.Text = "Search";
             this.searchPartButton.UseVisualStyleBackColor = true;
-            this.searchPartButton.Click += new System.EventHandler(this.searchPartButton_Click);
+            this.searchPartButton.Click += new System.EventHandler(this.SearchPartButton_Click);
             // 
             // deletePartButton
             // 
@@ -361,6 +369,7 @@
             this.availablePartsList.AllowUserToDeleteRows = false;
             this.availablePartsList.AllowUserToResizeColumns = false;
             this.availablePartsList.AllowUserToResizeRows = false;
+            this.availablePartsList.AutoGenerateColumns = false;
             this.availablePartsList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.availablePartsList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -372,22 +381,73 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.availablePartsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.availablePartsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.availablePartsList.Location = new System.Drawing.Point(15, 74);
-            this.availablePartsList.Name = "availablePartsList";
-            this.availablePartsList.ReadOnly = true;
+            this.availablePartsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partIdDataGridViewTextBoxColumn,
+            this.partNameDataGridViewTextBoxColumn,
+            this.inStockDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn});
+            this.availablePartsList.DataSource = this.partBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.availablePartsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.availablePartsList.DefaultCellStyle = dataGridViewCellStyle4;
+            this.availablePartsList.Location = new System.Drawing.Point(15, 74);
+            this.availablePartsList.Name = "availablePartsList";
+            this.availablePartsList.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.availablePartsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.availablePartsList.RowHeadersVisible = false;
             this.availablePartsList.Size = new System.Drawing.Size(545, 172);
             this.availablePartsList.TabIndex = 0;
             // 
-            // productWindow
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(Model.Part);
+            // 
+            // partIdDataGridViewTextBoxColumn
+            // 
+            this.partIdDataGridViewTextBoxColumn.DataPropertyName = "PartId";
+            this.partIdDataGridViewTextBoxColumn.HeaderText = "Part ID";
+            this.partIdDataGridViewTextBoxColumn.Name = "partIdDataGridViewTextBoxColumn";
+            this.partIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.partIdDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // partNameDataGridViewTextBoxColumn
+            // 
+            this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
+            this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
+            this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
+            this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.partNameDataGridViewTextBoxColumn.Width = 137;
+            // 
+            // inStockDataGridViewTextBoxColumn
+            // 
+            this.inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
+            this.inStockDataGridViewTextBoxColumn.HeaderText = "Inventory";
+            this.inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
+            this.inStockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.inStockDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // ProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -411,12 +471,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1097, 727);
             this.MinimumSize = new System.Drawing.Size(1097, 727);
-            this.Name = "productWindow";
+            this.Name = "ProductWindow";
             this.Text = "ProductWindow";
             this.partsGroupBox.ResumeLayout(false);
             this.partsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodPartsList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.availablePartsList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,5 +509,10 @@
         private System.Windows.Forms.DataGridView availablePartsList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label avPartsLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource partBindingSource;
     }
 }

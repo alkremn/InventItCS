@@ -31,7 +31,7 @@ namespace InventMS
         private void AddPartButton_Click(object sender, EventArgs e)
         {
             Part part = null;
-            PartWindow partWindow = new PartWindow("Add Part", part, inventory.GetNewPartId);
+            PartWindow partWindow = new PartWindow(part, inventory.GetNewPartId);
             partWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
             partWindow.ShowDialog();
             partWindow.Dispose();
@@ -44,7 +44,7 @@ namespace InventMS
                 var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
                 Part part = inventory.FindPartById(selected);
 
-                PartWindow partWindow = new PartWindow("Modify Part", part, part.PartId);
+                PartWindow partWindow = new PartWindow(part, part.PartId);
                 partWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
                 partWindow.ShowDialog();
                 partWindow.Dispose();
@@ -82,14 +82,30 @@ namespace InventMS
 
         private void AddProductButton_Click(object sender, EventArgs e)
         {
-            productWindow productWindow = new productWindow();
+            Product product = null;
+            ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, 
+                new BindingList<Part>(inventory.Parts));
             productWindow.ShowDialog();
 
         }
 
         private void ModifyProductButton_Click(object sender, EventArgs e)
         {
+            if (prodDataView.SelectedRows.Count == 1)
+            {
+                var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
+                Product product = inventory.FindProductById(selected);
 
+                ProductWindow productWindow = new ProductWindow(product, product.ProductId, 
+                    new BindingList<Part>(inventory.Parts));
+                productWindow.SaveButtonClickedEvent += HandleSaveButtonClickedEvent;
+                productWindow.ShowDialog();
+                productWindow.Dispose();
+            }
+            else
+            {
+                MessageBox.Show(SELECT_ITEM);
+            }
         }
 
         private void DeleteProdButton_Click(object sender, EventArgs e)

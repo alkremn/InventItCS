@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Model
 {
     public class Product
     {
 
-        public List<Part> AssociatedParts { get; set; } = new List<Part>();
+        public BindingList<Part> AssociatedParts { get; set; } = new BindingList<Part>();
 
         private int _productId;
 

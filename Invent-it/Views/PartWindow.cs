@@ -17,8 +17,6 @@ namespace InventMS
 
         private const string ADD_PART_LABEL = "Add Part";
 
-        public string Title { get; set; }
-
         Part _part;
 
         int _id;
@@ -29,9 +27,8 @@ namespace InventMS
         bool _isMinNumber = false;
         bool _isMachIdNumber = false;
 
-        public PartWindow(string title, Part part, int id)
+        public PartWindow(Part part, int id)
         {
-            Title = title;
             _part = part;
             _id = id;
 
@@ -161,12 +158,7 @@ namespace InventMS
                     errors.Append("Invalid Company Name.\n");
                 }
             }
-            
-
-            
-
             return errors;
-
         }
 
         void InitModifyPartFields()

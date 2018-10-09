@@ -20,6 +20,9 @@ namespace Model
 
         private static int _partId = 0;
 
+        private static int _productId = 0;
+
+
         public void RemovePartByIndex(int id)
         {
             Part partToRemove = FindPartById(id);
@@ -28,6 +31,21 @@ namespace Model
                 Parts.Remove(partToRemove);
         }
 
+        public int GetNewPartId
+        {
+            get
+            {
+                return ++_partId;
+            }
+        }
+
+        public int GetNewProductId
+        {
+            get
+            {
+                return ++_productId;
+            }
+        }
 
         public bool AddPart(Part part)
         {
@@ -98,13 +116,7 @@ namespace Model
             return false;
         }
 
-        public int GetNewPartId
-        {
-            get
-            {
-                return ++_partId;
-            }
-        }
+       
 
         public void RemoveProductByIndex(int id)
         {
