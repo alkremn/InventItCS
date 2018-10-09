@@ -19,6 +19,8 @@ namespace InventMS
 
         private BindingList<Part> availableParts;
 
+        private BindingList<Part> productParts;
+
         Product _product;
 
         int _id;
@@ -31,6 +33,7 @@ namespace InventMS
         public ProductWindow(Product product, int id, BindingList<Part> parts)
         {
             _product = product;
+            
             _id = id;
 
             InitializeComponent();
@@ -42,9 +45,11 @@ namespace InventMS
             if (_product != null)
             {
                 InitModifyProductFields();
+                productParts = _product.AssociatedParts;
             }
             else
             {
+                productParts = new BindingList<Part>();
                 productLabel.Text = ADD_PRODUCT_LABEL;
                 nameText.BackColor = Color.LightCoral;
                 invText.BackColor = Color.LightCoral;
@@ -53,6 +58,9 @@ namespace InventMS
                 minText.BackColor = Color.LightCoral;
          
             }
+
+            productPartList.DataSource = productParts;
+            
         }
 
         void InitModifyProductFields()
