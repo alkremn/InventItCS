@@ -140,10 +140,30 @@ namespace InventMS
             {
                 errors.Append("Invalid min.\n");
             }
-            if (!_isMachIdNumber)
+            int.TryParse(maxText.Text, out int intMax);
+            int.TryParse(minText.Text, out int intMin);
+
+            if (intMin > intMax)
             {
-                errors.Append("Invalid Machine ID.\n");
+                errors.Append("Your minimum exceeds you maximum.\n");
             }
+            if (inHouse.Checked)
+            {
+                if (!_isMachIdNumber)
+                {
+                    errors.Append("Invalid Machine ID.\n");
+                }
+            }
+            else
+            {
+                if (compIdText.Text == "")
+                {
+                    errors.Append("Invalid Company Name.\n");
+                }
+            }
+            
+
+            
 
             return errors;
 
