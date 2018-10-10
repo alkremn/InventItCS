@@ -351,6 +351,7 @@
             this.productPartList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productPartList.Size = new System.Drawing.Size(545, 170);
             this.productPartList.TabIndex = 6;
+            this.productPartList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataBindingComplete);
             // 
             // partIdDataGridViewTextBoxColumn1
             // 
@@ -437,6 +438,7 @@
             this.availablePartsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.availablePartsList.Size = new System.Drawing.Size(545, 170);
             this.availablePartsList.TabIndex = 10;
+            this.availablePartsList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataBindingComplete);
             // 
             // partIdDataGridViewTextBoxColumn
             // 

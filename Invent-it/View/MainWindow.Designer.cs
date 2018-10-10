@@ -193,6 +193,7 @@ namespace InventMS
             this.prodDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.prodDataView.Size = new System.Drawing.Size(568, 263);
             this.prodDataView.TabIndex = 0;
+            this.prodDataView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataBindingCompleted);
             // 
             // productIdDataGridViewTextBoxColumn
             // 

@@ -347,6 +347,12 @@ namespace InventMS
                 minText.BackColor = Color.White;
             }
         }
+
+        private void DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            availablePartsList.ClearSelection();
+            productPartList.ClearSelection();
+        }
     }
 
     public class SaveProductEventArgs : EventArgs
