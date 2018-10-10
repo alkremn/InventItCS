@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,7 +8,7 @@ namespace InventMS
 {
     public partial class MainWindow : Form
     {
-        public Inventory inventory = new Inventory();
+        public Inventory _inventory = new Inventory();
 
         private const string DELETE_MESSAGE = "Are you sure you want to delete this item?";
         private const string WARNING = "Warning!";
@@ -19,16 +18,16 @@ namespace InventMS
         public MainWindow()
         {
             InitializeComponent();
-            inventory.AddParts(new BindingList<Part>(Model.SimpleDataLoader.ReadSimplePartsFromCSV()));
-            inventory.AddProducts(new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV()));
-            partsDataView.DataSource = inventory.Parts;
-            prodDataView.DataSource = inventory.Products;
+            _inventory.AddParts(new BindingList<Part>(Model.SimpleDataLoader.ReadSimplePartsFromCSV()));
+            _inventory.AddProducts(new BindingList<Product>(Model.SimpleDataLoader.ReadSimpleProductsFromCSV()));
+            partsDataView.DataSource = _inventory.Parts;
+            prodDataView.DataSource = _inventory.Products;
         }
 
         private void AddPartButton_Click(object sender, EventArgs e)
         {
             Part part = null;
-            PartWindow partWindow = new PartWindow(part, inventory, inventory.GetNewPartId);
+            PartWindow partWindow = new PartWindow(part, _inventory, _inventory.GetNewPartId);
             partWindow.ShowDialog();
             partWindow.Dispose();
         }
@@ -38,10 +37,10 @@ namespace InventMS
             if (partsDataView.SelectedRows.Count == 1)
             {
                 var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
-                Part part = inventory.FindPartById(selected);
-                PartWindow partWindow = new PartWindow(part, inventory, part.PartId);
+                Part part = _inventory.FindPartById(selected);
+                PartWindow partWindow = new PartWindow(part, _inventory, part.PartId);
                 partWindow.ShowDialog();
-                partsDataView.DataSource = inventory.Parts;
+                partsDataView.DataSource = _inventory.Parts;
                 partWindow.Dispose();
             }
             else
@@ -58,7 +57,7 @@ namespace InventMS
                 if (result == DialogResult.Yes)
                 {
                     var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
-                    inventory.RemovePartByIndex(selected);
+                    _inventory.RemovePartByIndex(selected);
                 }
             }
             else
@@ -70,7 +69,7 @@ namespace InventMS
         private void AddProductButton_Click(object sender, EventArgs e)
         {
             Product product = null;
-            ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, inventory);
+            ProductWindow productWindow = new ProductWindow(product, _inventory.GetNewProductId, _inventory);
             productWindow.ShowDialog();
             productWindow.Dispose();
         }
@@ -80,8 +79,8 @@ namespace InventMS
             if (prodDataView.SelectedRows.Count == 1)
             {
                 var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
-                Product product = inventory.FindProductById(selected);
-                ProductWindow productWindow = new ProductWindow(product, product.ProductId, inventory);
+                Product product = _inventory.FindProductById(selected);
+                ProductWindow productWindow = new ProductWindow(product, product.ProductId, _inventory);
                 productWindow.ShowDialog();
                 prodDataView.Refresh();
                 productWindow.Dispose();
@@ -100,7 +99,7 @@ namespace InventMS
                 if (result == DialogResult.Yes)
                 {
                     var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
-                    inventory.RemoveProductByIndex(selected);
+                    _inventory.RemoveProductByIndex(selected);
                     prodDataView.ClearSelection();
                 }
             }
@@ -117,12 +116,12 @@ namespace InventMS
 
         private void SearchPartButton_Click(object sender, EventArgs e)
         {
-            SearchPartInList(searchPartText.Text, inventory.Parts);
+            SearchPartInList(searchPartText.Text, _inventory.Parts);
         }
 
         private void SearchProductButton_Click(object sender, EventArgs e)
         {
-            SearchProductInList(searchProdText.Text, inventory.Products);
+            SearchProductInList(searchProdText.Text, _inventory.Products);
         }
 
         private void DataBindingCompleted(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -136,12 +135,12 @@ namespace InventMS
             {
                 if (searchPartText.Focused)
                 {
-                    SearchPartInList(searchPartText.Text, inventory.Parts);
+                    SearchPartInList(searchPartText.Text, _inventory.Parts);
                     e.Handled = true;
                 }
                 if (searchProdText.Focused)
                 {
-                    SearchProductInList(searchProdText.Text, inventory.Products);
+                    SearchProductInList(searchProdText.Text, _inventory.Products);
                     e.Handled = true;
                 }
             }
