@@ -8,8 +8,6 @@ namespace InventMS
 {
     public partial class PartWindow : Form
     {
-        public event EventHandler<SavePartEventArgs> SaveButtonClickedEvent;
-
         private const string ADD_PART_LABEL = "Add Part";
 
         Part _part;
@@ -348,16 +346,6 @@ namespace InventMS
             {
                 _isMachIdNumber = true;
             }
-        }
-    }
-
-    public class SavePartEventArgs : EventArgs
-    {
-        public Part SavedPart { get; set; }
-
-        public SavePartEventArgs(Part savedPart)
-        {
-            SavedPart = savedPart;
         }
     }
 }

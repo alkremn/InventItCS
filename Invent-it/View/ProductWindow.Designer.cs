@@ -503,6 +503,7 @@
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(169, 29);
             this.searchBox.TabIndex = 4;
+            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchEnterKeyPressed);
             // 
             // searchPartButton
             // 

@@ -15,6 +15,7 @@ namespace InventMS
         private const string WARNING = "Warning!";
         private const string SELECT_ITEM = "Please select item.";
 
+        /// Main Window Constructor initializes all fields
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +30,6 @@ namespace InventMS
             Part part = null;
             PartWindow partWindow = new PartWindow(part, inventory, inventory.GetNewPartId);
             partWindow.ShowDialog();
-            partsDataView.DataSource = inventory.Parts;
             partWindow.Dispose();
         }
 
@@ -41,25 +41,13 @@ namespace InventMS
                 Part part = inventory.FindPartById(selected);
                 PartWindow partWindow = new PartWindow(part, inventory, part.PartId);
                 partWindow.ShowDialog();
-                partsDataView.DataSource = inventory.Parts;
+                partsDataView.Refresh();
                 partWindow.Dispose();
             }
             else
             {
                 MessageBox.Show(SELECT_ITEM);
             }
-        }
-
-        void HandleSaveProductButtonClickedEvent(object sender, SaveProductEventArgs e)
-        {
-            inventory.AddProduct(e.SavedProudct);
-            prodDataView.DataSource = inventory.Products;
-        }
-
-        void HandleSavePartButtonClickedEvent(object sender, SavePartEventArgs e)
-        {
-            inventory.AddPart(e.SavedPart);
-            
         }
 
         private void DeletePartButton_Click(object sender, EventArgs e)
@@ -82,9 +70,7 @@ namespace InventMS
         private void AddProductButton_Click(object sender, EventArgs e)
         {
             Product product = null;
-            ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId,
-                new BindingList<Part>(inventory.Parts.ToList()));
-            productWindow.SaveButtonClickedEvent += HandleSaveProductButtonClickedEvent;
+            ProductWindow productWindow = new ProductWindow(product, inventory.GetNewProductId, inventory);
             productWindow.ShowDialog();
             productWindow.Dispose();
         }
@@ -95,10 +81,9 @@ namespace InventMS
             {
                 var selected = (int)prodDataView.SelectedRows[0].Cells[0].Value;
                 Product product = inventory.FindProductById(selected);
-                ProductWindow productWindow = new ProductWindow(product, product.ProductId,
-                    new BindingList<Part>(inventory.Parts.ToList()));
-                productWindow.SaveButtonClickedEvent += HandleSaveProductButtonClickedEvent;
+                ProductWindow productWindow = new ProductWindow(product, product.ProductId, inventory);
                 productWindow.ShowDialog();
+                prodDataView.Refresh();
                 productWindow.Dispose();
             }
             else
@@ -145,7 +130,6 @@ namespace InventMS
             partsDataView.ClearSelection();
             prodDataView.ClearSelection();
         }
-
         private void SearchEnterKeyPressed(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)System.ConsoleKey.Enter)
@@ -162,7 +146,7 @@ namespace InventMS
                 }
             }
         }
-
+        /// Method searches in inventory parts list and highlights rows if found.
         private void SearchPartInList(string searchPhrase, BindingList<Part> parts)
         {
             partsDataView.ClearSelection();
@@ -186,7 +170,8 @@ namespace InventMS
                 }
             }
         }
-
+       
+        /// Method searches in inventory products list and highlights rows if found.
         private void SearchProductInList(string searchPhrase, BindingList<Product> products)
         {
             prodDataView.ClearSelection();

@@ -12,8 +12,6 @@ namespace InventMS
 {
     public partial class ProductWindow : Form
     {
-        public event EventHandler<SaveProductEventArgs> SaveButtonClickedEvent;
-
         private const string ADD_PRODUCT_LABEL = "Add Product";
 
         private BindingList<Part> availableParts;
@@ -22,6 +20,8 @@ namespace InventMS
 
         private Product _product;
 
+        private Inventory _inventory;
+
         private int _id;
 
         bool _isInvNumber = false;
@@ -29,12 +29,13 @@ namespace InventMS
         bool _isMaxNumber = false;
         bool _isMinNumber = false;
 
-        public ProductWindow(Product product, int id, BindingList<Part> parts)
+        public ProductWindow(Product product, int id, Inventory inventory)
         {
             _product = product;
             _id = id;
+            _inventory = inventory;
             InitializeComponent();
-            availableParts = ModifyAvailableParts(parts);
+            availableParts = ModifyAvailableParts(new BindingList<Part>(_inventory.Parts.ToList()));
             availablePartsList.DataSource = availableParts;
 
             if (_product != null)
@@ -53,10 +54,9 @@ namespace InventMS
                 minText.BackColor = Color.LightCoral;
             }
             productPartList.DataSource = productParts;
-            availablePartsList.ClearSelection();
         }
 
-        void InitModifyProductFields()
+        private void InitModifyProductFields()
         {
             idText.Text = _product.ProductId.ToString();
             nameText.Text = _product.ProductName;
@@ -97,12 +97,10 @@ namespace InventMS
                 }
                 else
                 {
-                    _product = new Product(_id, name, price, inv, min, max)
-                    {
-                        AssociatedParts = productParts
-                    };
+                    _product = new Product(_id, name, price, inv, min, max);
+                    _inventory.AddProduct(_product);
                 }
-                SaveButtonClickedEvent?.Invoke(this, new SaveProductEventArgs(_product));
+                _product.AssociatedParts = productParts;
                 Close();
             }
             else
@@ -111,7 +109,8 @@ namespace InventMS
             }
         }
 
-        StringBuilder IsAllInputValid()
+        //Method validates user input information before submiting it.
+        private StringBuilder IsAllInputValid()
         {
             StringBuilder errors = new StringBuilder();
 
@@ -189,22 +188,23 @@ namespace InventMS
 
         private void SearchPartButton_Click(object sender, EventArgs e)
         {
-            availablePartsList.ClearSelection();
-            if (searchBox.Text != "")
+            SearchPartInList(searchBox.Text, _inventory.Parts);
+        }
+
+        private void SearchEnterKeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)System.ConsoleKey.Enter)
             {
-                string searchWord = searchBox.Text;
-                foreach (DataGridViewRow row in availablePartsList.Rows)
+                if (searchBox.Focused)
                 {
-                    string nameValue = row.Cells[1].Value.ToString();
-                    if (nameValue.ToLower().Contains(searchWord))
-                    {
-                        row.Selected = true;
-                    }
+                    SearchPartInList(searchBox.Text, _inventory.Parts);
+                    e.Handled = true;
                 }
             }
         }
 
-        BindingList<Part> ModifyAvailableParts(BindingList<Part> parts)
+        //Modifies avaliable parts against product parts.
+        private BindingList<Part> ModifyAvailableParts(BindingList<Part> parts)
         {
             if (_product != null)
             {
@@ -224,12 +224,13 @@ namespace InventMS
             return parts;
         }
 
+        //searches part in list
         private Part FindPartById(int id, BindingList<Part> parts)
         {
             var partById = from part in parts where part.PartId == id select part;
             return partById.Any() ? partById.First() : null;
         }
-
+        //Method converts BindingList into List, sorts it and returns it as BindingList.
         private BindingList<Part> SortPartsList(BindingList<Part> partsToSort)
         {
             List<Part> parts = new List<Part>(partsToSort);
@@ -364,15 +365,30 @@ namespace InventMS
             availablePartsList.ClearSelection();
             productPartList.ClearSelection();
         }
-    }
-
-    public class SaveProductEventArgs : EventArgs
-    {
-        public Product SavedProudct { get; set; }
-
-        public SaveProductEventArgs(Product savedProudct)
+        // Method searches in inventory parts list and highlights rows in available parts list if found. 
+        private void SearchPartInList(string searchPhrase, BindingList<Part> parts)
         {
-            SavedProudct = savedProudct;
+            availablePartsList.ClearSelection();
+            if (searchPhrase != "")
+            {
+                var foundParts = from part in parts
+                                 where part.PartName.ToLower().Contains(searchPhrase.ToLower())
+                                 select part;
+                if (foundParts.Any())
+                {
+                    foreach (Part foundPart in foundParts)
+                    {
+                        foreach (DataGridViewRow row in availablePartsList.Rows)
+                        {
+                            string partName = row.Cells[1].Value.ToString();
+                            if (partName.Equals(foundPart.PartName))
+                            {
+                                row.Selected = true;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
