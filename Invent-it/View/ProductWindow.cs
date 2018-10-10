@@ -87,10 +87,21 @@ namespace InventMS
                 int max = int.Parse(maxText.Text);
                 int min = int.Parse(minText.Text);
 
-                _product = new Product(_id, name, price, inv, min, max)
+                if (_product != null)
                 {
-                    AssociatedParts = productParts
-                };
+                    _product.ProductName = name;
+                    _product.InStock = inv;
+                    _product.Price = price;
+                    _product.Max = max;
+                    _product.Min = min;
+                }
+                else
+                {
+                    _product = new Product(_id, name, price, inv, min, max)
+                    {
+                        AssociatedParts = productParts
+                    };
+                }
                 SaveButtonClickedEvent?.Invoke(this, new SaveProductEventArgs(_product));
                 Close();
             }

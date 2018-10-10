@@ -14,6 +14,8 @@ namespace InventMS
 
         Part _part;
 
+        Inventory _inventory;
+
         int _id;
 
         bool _isInvNumber = false;
@@ -22,9 +24,10 @@ namespace InventMS
         bool _isMinNumber = false;
         bool _isMachIdNumber = false;
 
-        public PartWindow(Part part, int id)
+        public PartWindow(Part part, Inventory inventory, int id)
         {
             _part = part;
+            _inventory = inventory;
             _id = id;
             InitializeComponent();
 
@@ -94,7 +97,7 @@ namespace InventMS
                     string compName = compIdText.Text;
                     _part = new Outsourced(_id, name, price, inv, min, max, compName);
                 }
-                SaveButtonClickedEvent?.Invoke(this, new SavePartEventArgs(_part));
+                _inventory.AddPart(_part);
                 Close();
             }
             else

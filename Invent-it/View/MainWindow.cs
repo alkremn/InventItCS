@@ -27,9 +27,9 @@ namespace InventMS
         private void AddPartButton_Click(object sender, EventArgs e)
         {
             Part part = null;
-            PartWindow partWindow = new PartWindow(part, inventory.GetNewPartId);
-            partWindow.SaveButtonClickedEvent += HandleSavePartButtonClickedEvent;
+            PartWindow partWindow = new PartWindow(part, inventory, inventory.GetNewPartId);
             partWindow.ShowDialog();
+            partsDataView.DataSource = inventory.Parts;
             partWindow.Dispose();
         }
 
@@ -39,9 +39,9 @@ namespace InventMS
             {
                 var selected = (int)partsDataView.SelectedRows[0].Cells[0].Value;
                 Part part = inventory.FindPartById(selected);
-                PartWindow partWindow = new PartWindow(part, part.PartId);
-                partWindow.SaveButtonClickedEvent += HandleSavePartButtonClickedEvent;
+                PartWindow partWindow = new PartWindow(part, inventory, part.PartId);
                 partWindow.ShowDialog();
+                partsDataView.DataSource = inventory.Parts;
                 partWindow.Dispose();
             }
             else
@@ -59,7 +59,7 @@ namespace InventMS
         void HandleSavePartButtonClickedEvent(object sender, SavePartEventArgs e)
         {
             inventory.AddPart(e.SavedPart);
-            partsDataView.DataSource = inventory.Parts;
+            
         }
 
         private void DeletePartButton_Click(object sender, EventArgs e)
