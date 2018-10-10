@@ -40,10 +40,5 @@ namespace Model
                 _partid = value;
             }
         }
-
-        public override string ToString()
-        {
-            return string.Format($"{PartId},{PartName},{Price},{InStock},{Min},{Max}");
-        }
     }
 }

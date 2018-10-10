@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -131,12 +132,12 @@ namespace InventMS
 
         private void SearchPartButton_Click(object sender, EventArgs e)
         {
-            SearchItemInList(searchPartText, partsDataView);
+            SearchPartInList(searchPartText.Text, inventory.Parts);
         }
 
         private void SearchProductButton_Click(object sender, EventArgs e)
         {
-            SearchItemInList(searchProdText, prodDataView);
+            SearchProductInList(searchProdText.Text, inventory.Products);
         }
 
         private void DataBindingCompleted(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -151,32 +152,62 @@ namespace InventMS
             {
                 if (searchPartText.Focused)
                 {
-                    SearchItemInList(searchPartText, partsDataView);
+                    SearchPartInList(searchPartText.Text, inventory.Parts);
                     e.Handled = true;
                 }
                 if (searchProdText.Focused)
                 {
-                    SearchItemInList(searchProdText, prodDataView);
+                    SearchProductInList(searchProdText.Text, inventory.Products);
                     e.Handled = true;
                 }
             }
         }
 
-        private void SearchItemInList(TextBox searchBox, DataGridView dataGridView)
+        private void SearchPartInList(string searchPhrase, BindingList<Part> parts)
         {
-            dataGridView.ClearSelection();
-            if (searchBox.Text != "")
+            partsDataView.ClearSelection();
+            if (searchPhrase != "")
             {
-                string searchWord = searchBox.Text;
-                foreach (DataGridViewRow row in dataGridView.Rows)
+                var foundParts = from part in parts
+                                 where part.PartName.ToLower().Contains(searchPhrase.ToLower()) select part;
+                if (foundParts.Any())
                 {
-                    string nameValue = row.Cells[1].Value.ToString();
-                    if (nameValue.ToLower().Contains(searchWord))
+                    foreach (Part foundPart in foundParts)
                     {
-                        row.Selected = true;
+                        foreach (DataGridViewRow row in partsDataView.Rows)
+                        {
+                            string partName= row.Cells[1].Value.ToString();
+                            if (partName.Equals(foundPart.PartName))
+                            {
+                                row.Selected = true;
+                            }
+                        }
                     }
                 }
+            }
+        }
 
+        private void SearchProductInList(string searchPhrase, BindingList<Product> products)
+        {
+            prodDataView.ClearSelection();
+            if (searchPhrase != "")
+            {
+                var foundProducts = from product in products
+                                 where product.ProductName.ToLower().Contains(searchPhrase.ToLower()) select product;
+                if (foundProducts.Any())
+                {
+                    foreach (Product foundProduct in foundProducts)
+                    {
+                        foreach (DataGridViewRow row in prodDataView.Rows)
+                        {
+                            string productName = row.Cells[1].Value.ToString();
+                            if (productName.Equals(foundProduct.ProductName))
+                            {
+                                row.Selected = true;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
