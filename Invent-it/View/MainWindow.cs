@@ -41,7 +41,7 @@ namespace InventMS
                 Part part = inventory.FindPartById(selected);
                 PartWindow partWindow = new PartWindow(part, inventory, part.PartId);
                 partWindow.ShowDialog();
-                partsDataView.Refresh();
+                partsDataView.DataSource = inventory.Parts;
                 partWindow.Dispose();
             }
             else
